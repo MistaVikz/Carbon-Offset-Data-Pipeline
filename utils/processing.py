@@ -5,6 +5,8 @@ def process_credits_data(credits_df, registry_code):
     .astype(str) \
     .str.extract(r'([A-Za-z]+)[\s\-]*(\d+)', expand=True)
     credits_df['numeric_id'] = credits_df['numeric_id'].astype(float).astype('Int64')
+
+    print(credits_df['registry_code'].value_counts())
     
     # Filter for issued credits and registry code
     credits_df = credits_df[credits_df['transaction_type'] == 'issuance']
@@ -17,8 +19,5 @@ def process_credits_data(credits_df, registry_code):
     issued_by_year = credits_df.groupby(['numeric_id', 'Issuance Year'])['quantity'].sum().reset_index()
     avg_issued_by_proj = issued_by_year.groupby('numeric_id')['quantity'].mean().reset_index()
     avg_issued_by_proj.rename(columns={'quantity': 'Average Annual Issued'}, inplace=True)
-
-    # Add registry code back to the dataframe
-    avg_issued_by_proj['registry_code'] = registry_code
 
     return avg_issued_by_proj
