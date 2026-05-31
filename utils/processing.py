@@ -1,3 +1,4 @@
+import pandas as pd
 
 def process_credits_data(credits_df, registry_code):
     # Extract registry code and numeric ID from project_id
@@ -29,3 +30,16 @@ def process_credits_data(credits_df, registry_code):
     issued_by_proj = issued_by_proj.merge(years_count, on='numeric_id', how='left')
 
     return issued_by_proj
+
+def build_merged_dataframe(proj_df, issued_df, registry_code):
+    # Merge dataframes to include Actual ERs (only keep projects with actual ERs)
+    merged_df = pd.merge(proj_df, issued_df, left_on='Project ID', right_on='numeric_id', how='inner')
+    
+    # Get the Estimated ERs (Estimated Annual * Number of Years)
+    merged_df['Estimated Emission Reductions'] = merged_df['Estimated Annual Emission Reductions'] * merged_df['Num Years']
+
+    # Prepare the merged data
+    merged_df.drop(columns=['numeric_id','Estimated Annual Emission Reductions', 'Num Years'])
+    merged_df['registry_code'] = registry_code
+
+    return merged_df
