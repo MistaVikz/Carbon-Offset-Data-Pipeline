@@ -11,7 +11,10 @@ acr_code = 'ACR'
 art_code = 'ART'
 cecarbono_code ='CCB'
 
-def main(): 
+def main():
+
+    # EVERYTHING but the project data cleaning should be put into processing functions with reigstry code params
+
     # Load the issued credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
@@ -45,8 +48,8 @@ def main():
     verra_df['registry_code'] = verra_code
 
     # Check estimated/actual ERS
-    check_estimated_with_no_issued(verra_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    compare_estimated_and_issued(verra_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')    
+    check_estimated_and_actual(verra_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    compare_estimated_and_actual(verra_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')    
     print(f"\nProcessed Verra dataset contains {len(verra_df)} projects.")
 
     print('\n-------------------------------------------------------------------------------------')
@@ -79,8 +82,8 @@ def main():
     gold_df['registry_code'] = gold_code
 
     # Check estimated/actual ERS
-    check_estimated_with_no_issued(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    compare_estimated_and_issued(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    check_estimated_and_actual(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    compare_estimated_and_actual(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nProcessed Gold Standard dataset contains {len(gold_df)} projects.")
 
     
