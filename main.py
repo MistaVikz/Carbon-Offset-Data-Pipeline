@@ -11,9 +11,6 @@ art_code = 'ART'
 cecarbono_code ='CCB'
 
 def main():
-
-    # EVERYTHING but the project data cleaning should be put into processing functions with reigstry code params
-
     # Load the issued credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
@@ -44,7 +41,7 @@ def main():
 
     print("\nProcessing Gold Standard data...")
    
-    # Get the annual average issued credits for each project in gold standard
+    # Get the total issued credits for each project in gold standard
     gold_issued_df = process_credits_data(credits_df, gold_code)
 
     # Load the gold standard project data from the CSV file
