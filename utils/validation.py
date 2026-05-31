@@ -23,6 +23,6 @@ def check_estimated_with_no_issued(df, estimated_col, actual_col):
         print(f"WARNING: {len(missing_estimated) / len(df) * 100:.2f}% of projects have no Estimated Emission Reductions but have Actual Emission Reductions.")
         print(missing_estimated[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
-    if(len(missing_actual) >0 ):
+    if(len(missing_actual) > 0):
         print(f"WARNING: {len(missing_actual) / len(df) * 100:.2f}% of projects have Estimated Emission Reductions but no Actual Emission Reductions.")
         print(missing_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])

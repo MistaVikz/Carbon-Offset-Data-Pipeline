@@ -6,12 +6,13 @@ def process_credits_data(credits_df, registry_code):
         .str.extract(r'([A-Za-z]+)[\s\-]*(\d+)', expand=True)
     credits_df['numeric_id'] = credits_df['numeric_id'].astype(float).astype('Int64')
 
-    # Need to Account for cancellation
-    print(credits_df['transaction_type'].value_counts())
-
-    # Filter for issued credits and registry code
-    credits_df = credits_df[credits_df['transaction_type'] == 'issuance']
+    # Filter for issued/cancelled credits and registry code
+    credits_df = credits_df[credits_df['transaction_type'].isin(['issuance', 'cancellation'])]
     credits_df = credits_df[credits_df['registry_code'] == registry_code]
+
+    # Set cancelled quantities to negative
+    credits_df.loc[credits_df['transaction_type'] == 'cancellation', 'quantity'] = \
+        -credits_df.loc[credits_df['transaction_type'] == 'cancellation', 'quantity']
 
     # Calculate total issued credits for each project by vintage
     issued_by_vintage = credits_df.groupby(['numeric_id', 'vintage'])['quantity'].sum().reset_index()
