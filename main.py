@@ -5,10 +5,6 @@ from utils.processing import *
 # Registry codes
 verra_code = 'VCS'
 gold_code = 'GLD'
-car_code = 'CAR'
-acr_code = 'ACR'
-art_code = 'ART'
-cecarbono_code ='CCB'
 
 # Project Files
 verra_file = 'verra_projects.csv'
@@ -61,6 +57,20 @@ def main():
     compare_estimated_and_actual(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nProcessed Gold Standard dataset contains {len(gold_df)} projects.")
 
+    # CDM
+    print("\nProcessing CDM data...")
+
+    # Get project and issued data for CDM
+    cdm_proj_df = load_project_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
+    cdm_issued_df = load_project_data(cdm_file, 'Excel', 'Issued')
     
+    print(cdm_proj_df.info())
+    print(cdm_issued_df.info())
+
+    # Estimated Emission Reducions: Total estimated ERs by 2030 (tCO2) in AllProjects sheet
+    # Actual Emission Reductions: Total Issued CERs in Isssued sheet
+
+    # Final output should have CDM only and VERRA/GOLD/CDM combined dataset.
+
 if __name__ == "__main__":
     main()

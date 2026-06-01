@@ -1,16 +1,35 @@
 import pandas as pd
 
-def load_project_data(filename, type):
-    # Load from Excel
+def load_project_data(filename, type, sheet='Sheet1', skip = 0, encode='utf-8'):
+    """
+    Load project metadata from either a CSV or Excel file in the project data folder.
+
+    Parameters
+    ----------
+    filename : str
+        The name of the file to load, relative to `project data/`.
+    type : str
+        File type, either `"Excel"` or `"CSV"`.
+    sheet : str, optional
+        Excel sheet name to read when `type == "Excel"`. Defaults to `'Sheet1'`.
+    skip : int, optional
+        Number of rows to skip when reading an Excel sheet. Defaults to `0`.
+    encode : str, optional
+        Text encoding to use when reading CSV files. Defaults to `'utf-8'`.
+
+    Returns
+    -------
+    pandas.DataFrame
+        The loaded project data.
+    """
     if type == "Excel":
         try:
-            proj_df = pd.read_excel(f'project data\\{filename}')
+            proj_df = pd.read_excel(f'project data\\{filename}', sheet_name=sheet, skiprows=skip)
         except FileNotFoundError:
             print(f"Error: '{filename}' not found in the project data folder.")    
     else:
-        # Load from CSV
         try:
-            proj_df = pd.read_csv(f'project data\\{filename}')
+            proj_df = pd.read_csv(f'project data\\{filename}', encoding=encode)
         except FileNotFoundError:
             print(f"Error: '{filename}' not found in the data folder.")    
     return proj_df
