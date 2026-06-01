@@ -50,17 +50,17 @@ def check_estimated_and_actual(df, estimated_col, actual_col):
     negative_actual = df[df[actual_col] < 0]
 
     if(len(missing_estimated) > 0):
-        print(f"WARNING: {len(missing_estimated)} project(s) have no Estimated Emission Reductions but have Actual Emission Reductions.")
+        print(f"WARNING: {len(missing_estimated)} project(s) has/have no Estimated Emission Reductions but have Actual Emission Reductions.")
         print(missing_estimated[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
     if(len(missing_actual) > 0):
-        print(f"WARNING: {len(missing_actual)} project(s) have Estimated Emission Reductions but no Actual Emission Reductions.")
+        print(f"WARNING: {len(missing_actual)} project(s) has/have Estimated Emission Reductions but no Actual Emission Reductions.")
         print(missing_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
     if(len(negative_estimated) > 0):
-        print(f"WARNING: {len(negative_estimated)} project(s) have negative Estimated Emision Reductions.")
+        print(f"WARNING: {len(negative_estimated)} project(s) has/have negative Estimated Emision Reductions.")
         print(negative_estimated[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
     if(len(negative_actual) > 0):
-        print(f"WARNING: {len(negative_actual)} project(s) have negative Actual Emision Reductions.")
+        print(f"WARNING: {len(negative_actual)} project(s) has/have negative Actual Emision Reductions.")
         print(negative_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])

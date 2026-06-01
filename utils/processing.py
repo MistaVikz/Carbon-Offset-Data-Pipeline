@@ -1,5 +1,20 @@
 import pandas as pd
 
+def load_project_data(filename, type):
+    # Load from Excel
+    if type == "Excel":
+        try:
+            proj_df = pd.read_excel(f'project data\\{filename}')
+        except FileNotFoundError:
+            print(f"Error: '{filename}' not found in the project data folder.")    
+    else:
+        # Load from CSV
+        try:
+            proj_df = pd.read_csv(f'project data\\{filename}')
+        except FileNotFoundError:
+            print(f"Error: '{filename}' not found in the data folder.")    
+    return proj_df
+
 def process_credits_data(credits_df, registry_code):
     """
     Process raw credits transactions for a given registry and return per-project totals.
