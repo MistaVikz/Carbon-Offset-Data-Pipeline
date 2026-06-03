@@ -11,6 +11,16 @@ verra_file = 'verra_projects.csv'
 gold_file = 'gold_projects.csv'
 cdm_file = 'IGES_CDM_DB_v13.7_20250226.xlsx'
 
+# Required CDM columns for datasets
+CDM_cols_unified = ['Project ID', 'Project Name', 'Host Party', 'Type of Project', 'Num of meth', 
+                    'Methodology1', 'Methodology2', 'Methodology3', 'Methodology4', 'Estimated Emission Reductions', 'Actual Emission Reductions']
+CDM_cols_cdm_only = ['Project ID', 'Project Name', 'Host Party','Other Parties Involved',
+                     'Project Participants \n(Authorized by other Parties involved)','Type of Project',
+                     'Supplemental Information','Scale', 'Num of meth', 'Methodology1', 'Methodology2', 
+                     'Methodology3', 'Methodology4', 'Investment Analysis Option','Barrier Analysis',
+                     'Emission Factor （EFOM）','Data vintage', 'OM Calculation Method','Emission Factor （EFBM）',
+                     'Weights', 'CM Emission Factor（EFCM）','Validator','Estimated Emission Reductions', 'Actual Emission Reductions']
+
 def main():
     # Load the credits data from the catalog
     credits = catalog['credits']
@@ -68,14 +78,33 @@ def main():
 
     # Get project and issued data for CDM
     cdm_proj_df = load_project_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
-    cdm_issued_df = load_project_data(cdm_file, 'Excel', 'Issued')
     
-    print(cdm_proj_df.info())
-    print(cdm_issued_df.info())
+    # Process the project data
+    cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
+    cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Type of Project'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'IGES-ID': 'Project ID'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Name of CDM Project Activity': 'Project Name'}, inplace=True)
+    cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
+    cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
 
-    # Estimated Emission Reducions: Total estimated ERs by 2030 (tCO2) in AllProjects sheet
-    # Actual Emission Reductions: Total Issued CERs in Isssued sheet
+    # Filter to only the required columns for the unified CDM datasets
+    cdm_proj_unified_df = cdm_proj_estimated_df[CDM_cols_unified].copy()
 
+    # Filter to only the required columns for the CDM-only dataset and clean up the data
+    cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_cols_cdm_only].copy()
+    cdm_proj_cdm_only_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Participant Authorized'}, inplace=True)
+    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFOM）': 'Emission Factor (EFOM)'}, inplace=True)
+    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFBM）': 'Emission Factor (EFBM)'}, inplace=True)
+    cdm_proj_cdm_only_df.rename(columns={'CM Emission Factor（EFCM）': 'CM Emission Factor (EFCM)'}, inplace=True)
+
+    # Check estimated/actual ERS for CDM
+    compare_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    check_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+
+    print(f"\nProcessed CDM dataset contains {len(cdm_proj_unified_df)} projects.")
+    print(f"\nProcessed CDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
+    
     # Final output should have CDM only and VERRA/GOLD/CDM combined dataset.
 
 if __name__ == "__main__":

@@ -110,3 +110,18 @@ def build_merged_dataframe(proj_df, issued_df, registry_code):
     merged_df['registry_code'] = registry_code
 
     return merged_df
+
+def get_CDM_total_estimated_ERs(cdm_proj_df):
+    year_cols = [col for col in cdm_proj_df.columns
+                 if isinstance(col, int) and 2000 <= col <= 2047]
+
+    if not year_cols:
+        raise ValueError("No CDM year columns found in the dataframe")
+
+    cdm_proj_df = cdm_proj_df.copy()
+    cdm_proj_df["Estimated Emission Reductions"] = (
+        cdm_proj_df[year_cols]
+        .fillna(0)
+        .sum(axis=1)
+    )
+    return cdm_proj_df.drop(columns=year_cols)
