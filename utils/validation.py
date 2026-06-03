@@ -1,3 +1,23 @@
+def check_for_missing_projects(proj_df, issued_df, registry_code, project_id_col='Project ID', issued_id_col='numeric_id'):
+    """
+    Check for projects with issued credits that are missing from the project dataset and print details.
+    Parameters
+    - proj_df (pd.DataFrame): DataFrame containing project data, expected to include a column with project IDs.
+    - issued_df (pd.DataFrame): DataFrame containing issued credit summaries, expected to include a column with project IDs.
+    - registry_code (str): Registry code to include in the warning message.
+    - project_id_col (str): Column name in proj_df that contains project IDs (default 'ID').
+    - issued_id_col (str): Column name in issued_df that contains project IDs (default 'numeric_id').
+    
+    Behavior
+    - Identifies projects that have issued credits (in issued_df) but are missing from the project dataset (proj_df).
+    - If any such projects are found, prints a warning count and displays the subset of issued_df with those projects,
+      showing the project ID and actual emission reductions.
+    """
+    missing_proj = issued_df[~issued_df[issued_id_col].isin(proj_df[project_id_col])]
+    if len(missing_proj) > 0:
+        print(f"WARNING: {len(missing_proj)} project(s) with issued credits in registry {registry_code} are missing from the project dataset.")
+        print(missing_proj[['numeric_id', 'Actual Emission Reductions']])
+    
 def compare_estimated_and_actual(df, estimated_col, actual_col, ACTUAL_THRESHOLD=50., EQUAL_THRESHOLD=10.):
     """
     Compare estimated vs actual emission reductions and print summary warnings.

@@ -22,12 +22,15 @@ def main():
     # Get the Verra project data and processed issue data
     verra_proj_df = load_project_data(verra_file, 'CSV')
     verra_issued_df = process_credits_data(credits_df, verra_code)
-    
+
     # Prepare the project data
     verra_proj_df.dropna(subset=['Estimated Annual Emission Reductions'], inplace=True)
     verra_proj_df['Estimated Annual Emission Reductions'] = verra_proj_df['Estimated Annual Emission Reductions'].str.replace(",", "").astype(float)
     verra_proj_df.rename(columns={'ID': 'Project ID'}, inplace=True)
 
+    # Check for Verra projects with issued credits that are missing from the project dataset
+    check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
+    
     # Build Verra dataframe
     verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
 
@@ -48,6 +51,9 @@ def main():
     gold_proj_df.rename(columns={'Estimated Annual Credits': 'Estimated Annual Emission Reductions'}, inplace=True)
     gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
     gold_proj_df.rename(columns={'GSID': 'Project ID'}, inplace=True)
+
+    # Check for Gold Standard projects with issued credits that are missing from the project dataset
+    check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
 
     # Build Gold Dataframe
     gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
