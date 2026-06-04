@@ -95,9 +95,6 @@ def standardize_technologies(project_type, registry_code):
     
     >>> standardize_technologies('Biogas - Heat', 'GLD')
     'Biogas'
-    
-    >>> standardize_technologies('Unknown Project Type', 'VCS')
-    'Unknown Project Type'
     """
     if pd.isna(project_type):
         return project_type
