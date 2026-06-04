@@ -111,59 +111,6 @@ def build_merged_dataframe(proj_df, issued_df, registry_code):
 
     return merged_df
 
-def standardize_methodologies(proj_df, registry_code):
-    """
-    Standardize the `Methodology` field for different registries.
-
-    Parameters
-    ----------
-    proj_df : pandas.DataFrame
-        Project metadata. May include columns `'Methodology'`, `'Methodology1'`..`'Methodology4'`.
-    registry_code : str
-        Registry code to guide normalization. Expected values: `'VCS'`, `'GLD'`, `'CDM'`.
-
-    Returns
-    -------
-    pandas.DataFrame
-        A copy of `proj_df` with a normalized `Methodology` column:
-        - `'VCS'`: remove periods, trim whitespace, fill missing with `'Not Provided'`, append `';'`.
-        - `'GLD'`: for values starting with `'A'` keep only the first token; otherwise set to `'Other'`; then keep text before the first period, normalize blanks to `'Not Provided'`, append `';'`.
-        - `'CDM'`: combine non-empty `Methodology1`..`Methodology4` into a single `'; '`-separated string with trailing `';'`; if all empty, set `'Not Provided'`.
-    """
-    proj_df = proj_df.copy()
-
-    if registry_code == 'VCS':
-        proj_df['Methodology'] = proj_df['Methodology'].fillna('Not Provided')
-        proj_df['Methodology'] = proj_df['Methodology'].str.replace('.', '').str.strip()
-        proj_df['Methodology'] = proj_df['Methodology'] + ';'
-    
-    elif registry_code == 'GLD':
-        proj_df['Methodology'] = proj_df['Methodology'].fillna('')
-
-        # For methodologies starting with 'A', keep only the first part (e.g., 'ACM0018', 'AM0022', etc.)
-        mask = proj_df['Methodology'].str.startswith('A')
-        proj_df.loc[mask, 'Methodology'] = proj_df.loc[mask, 'Methodology'].str.split(n=1).str[0]
-
-        # Set methodologies that aren't compatible with Verra to 'Other'
-        gs_mask = (~mask) & (proj_df['Methodology'].astype(str).str.upper() != 'NOT PROVIDED')
-        proj_df.loc[gs_mask, 'Methodology'] = 'Other'
-
-        proj_df['Methodology'] = proj_df['Methodology'].astype(str).str.partition('.')[0].str.strip()
-        proj_df['Methodology'] = proj_df['Methodology'].replace({'': 'Not Provided;', 'nan': 'Not Provided'})
-        proj_df['Methodology'] = proj_df['Methodology'].replace({'Not provided': 'Not Provided'})
-        proj_df['Methodology'] = proj_df['Methodology'] + ';'
-    
-    elif registry_code == 'CDM':
-        def _combine_methods(row):
-            cols = ['Methodology1', 'Methodology2', 'Methodology3', 'Methodology4']
-            parts = [str(row[c]).strip() for c in cols if pd.notna(row.get(c)) and str(row.get(c)).strip() != '']
-            return 'Not Provided' if not parts else '; '.join(parts) + ';'
-
-        proj_df['Methodology'] = proj_df.apply(_combine_methods, axis=1)
-        proj_df['Methodology'] = proj_df['Methodology'].fillna('Not Provided;')
-        proj_df['Methodology'] = proj_df['Methodology'].str.replace('.', '').str.strip()
-
-    return proj_df
 
 def get_CDM_total_estimated_ERs(cdm_proj_df):
     """

@@ -1,6 +1,6 @@
 from offsets_db_data.data import catalog
 from utils.validation import *
-from utils.processing import *
+from utils.standards import *
 
 # Registry codes
 verra_code = 'VCS'
@@ -35,7 +35,10 @@ def main():
     verra_proj_df.rename(columns={'ID': 'Project ID'}, inplace=True)
     verra_proj_df.rename(columns={'Name': 'Project Name'}, inplace=True)
     verra_proj_df.rename(columns={'Country/Area': 'Country'}, inplace=True)
+    
+    # Standardize the project data
     verra_proj_df = standardize_methodologies(verra_proj_df, verra_code)
+    verra_proj_df['Project Type'] = verra_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, verra_code))
 
     # Check for Verra projects with issued credits that are missing from the project dataset
     check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
@@ -59,7 +62,10 @@ def main():
     gold_proj_df.rename(columns={'Estimated Annual Credits': 'Estimated Annual Emission Reductions'}, inplace=True)
     gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
     gold_proj_df.rename(columns={'GSID': 'Project ID'}, inplace=True)
+    
+    # Standardize the project data
     gold_proj_df = standardize_methodologies(gold_proj_df, gold_code)
+    gold_proj_df['Project Type'] = gold_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, gold_code))
 
     # Check for Gold Standard projects with issued credits that are missing from the project dataset
     check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
@@ -87,8 +93,12 @@ def main():
     cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
     cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
     cdm_proj_estimated_df['registry_code'] = 'CDM'
+    
+    # Standardize the project data
     cdm_proj_estimated_df = standardize_methodologies(cdm_proj_estimated_df, 'CDM')
-
+    cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].str.replace(',', ';').str.strip()
+    cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].apply(lambda x: standardize_technologies(x, 'CDM'))
+    
     # Filter to only the required columns for the unified dataset
     cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
 
@@ -101,15 +111,16 @@ def main():
 
     # Compare columns in Verra, Gold Standard, and CDM Unified datasets
     print("\nVerra")
-    print(verra_df['Methodology'].value_counts())
-    print(verra_df.info())
+    print(verra_df['Project Type'].value_counts())
+    #print(verra_df.info())
     print("\nGold Standard")
-    print(gold_df['Methodology'].value_counts())
-    print(gold_df.info())
+    print(gold_df['Project Type'].value_counts())
+    #print(gold_df.info())
     print("\nCDM Unified")
-    print(cdm_proj_unified_df['Methodology'].value_counts())
-    print(cdm_proj_unified_df.info())
+    print(cdm_proj_unified_df['Project Type'].value_counts())
+    #print(cdm_proj_unified_df.info())
 
+    # NEED VALIDATION CHECK ON PROJECT TYPES AFTER DATASETS HAVE BE UNIFIED
 
     # BUILD CDM ONLY DATASET AFTER THE UNIFIED DATASET
     # Filter to only the required columns for the CDM-only dataset and clean up the data

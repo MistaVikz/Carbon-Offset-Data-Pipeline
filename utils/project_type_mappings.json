@@ -1,0 +1,107 @@
+{
+  "KnownCommaLabels": {
+    "VCS": [
+      "small, low - impact hydro",
+      "biomass, or liquid biofuel - heat",
+      "biomass, or liquid biofuel - electricity",
+      "biomass, or liquid biofuel - cogeneration",
+      "fugitive emissions from fuels (solid, oil and gas)",
+      "livestock, enteric fermentation, and manure management"
+    ],
+    "GLD": [
+      "small, low - impact hydro",
+      "biomass, or liquid biofuel - heat",
+      "biomass, or liquid biofuel - electricity",
+      "biomass, or liquid biofuel - cogeneration"
+    ],
+    "CDM": []
+  },
+  "Renewable Energy": {
+    "VCS": [
+      "energy industries (renewable/non-renewable sources)"
+    ],
+    "GLD": [
+      "wind",
+      "pv",
+      "solar thermal - electricity",
+      "solar thermal - heat",
+      "small, low - impact hydro",
+      "geothermal"
+    ],
+    "CDM": [
+      "wind power",
+      "hydro power",
+      "pv",
+      "other renewable energies"
+    ]
+  },
+  "Energy Efficiency": {
+    "VCS": [
+      "energy demand",
+      "energy distribution"
+    ],
+    "GLD": [
+      "energy efficiency - domestic",
+      "energy efficiency - industrial",
+      "energy efficiency - public sector",
+      "energy efficiency - transport sector",
+      "energy efficiency - commercial sector"
+    ],
+    "CDM": [
+      "energy efficiency"
+    ]
+  },
+  "Transportation": {
+    "VCS": [
+      "transport"
+    ],
+    "GLD": [],
+    "CDM": [
+      "transportation"
+    ]
+  },
+  "Waste & Methane": {
+    "VCS": [
+      "waste handling and disposal",
+      "fugitive emissions from fuels (solid, oil and gas)",
+      "fugitive emissions from production and consumption of halocarbons and sulphur hexafluoride"
+    ],
+    "GLD": [],
+    "CDM": [
+      "waste gas/heat utilization",
+      "methane recovery & utilization",
+      "methane avoidance",
+      "leak reduction",
+      "hfc reduction/avoidance",
+      "sf6 replacement",
+      "pfc reduction and substitution"
+    ]
+  },
+  "AFOLU": {
+    "VCS": [
+      "agriculture forestry and other land use",
+      "livestock, enteric fermentation, and manure management"
+    ],
+    "GLD": [],
+    "CDM": [
+      "afforestation & reforestation"
+    ]
+  },
+  "Industrial / Manufacturing": {
+    "VCS": [
+      "mining/mineral production",
+      "manufacturing industries",
+      "chemical industry",
+      "construction",
+      "metal production"
+    ],
+    "GLD": [],
+    "CDM": [
+      "cement",
+      "n2o decomposition",
+      "material use",
+      "fuel switch",
+      "pfc reduction and substitution"
+    ]
+  }
+}
