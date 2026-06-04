@@ -7,57 +7,48 @@ MAPPING_FILE = Path(__file__).resolve().parent / 'project_type_mappings.json'
 
 def _load_mappings_data():
     """
-    Load project type mappings and known comma labels from JSON file.
-    
-    Returns
-    -------
-    dict
-        Raw mapping data from 'project_type_mappings.json' containing:
-        - 'KnownCommaLabels': registry-specific labels with commas that should not be split
-        - Category entries: each canonical category maps registry codes to project type strings
+    Load mapping JSON that may contain:
+      - KnownCommaLabels: registry -> [labels with commas to preserve]
+      - SubstringMatches: category -> [keywords]
+      - other canonical categories -> registry -> [exact labels]
     """
     with open(MAPPING_FILE, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 _MAPPINGS_DATA = _load_mappings_data()
 
-"""Lookup table mapping canonical project types to registry-specific source labels."""
+# Substring match rules: category -> set(keywords)
+SUBSTRING_MATCHES = {
+    category: set(values)
+    for category, values in _MAPPINGS_DATA.get('SubstringMatches', {}).items()
+}
+
+# Exact lookup table: category -> registry -> set(labels)
 PROJECT_TYPE_LOOKUP = {
     category: {registry: set(values) for registry, values in registry_map.items()}
     for category, registry_map in _MAPPINGS_DATA.items()
-    if category != 'KnownCommaLabels'
+    if category not in ('KnownCommaLabels', 'SubstringMatches')
 }
 
-"""Registry-specific project type labels containing commas that should not be split. """
+# Known comma-containing labels to preserve as single tokens: registry -> set(labels)
 KNOWN_COMMA_LABELS = {
     registry: set(labels)
     for registry, labels in _MAPPINGS_DATA.get('KnownCommaLabels', {}).items()
 }
 
+CATEGORY_ORDER = [
+    'Renewable Energy',
+    'Energy Efficiency',
+    'Waste & Methane',
+    'Transportation',
+    'AFOLU',
+    'Industrial / Manufacturing',
+]
+
 def _split_project_type(project_type, registry_code):
     """
-    Split a project type string into individual components while preserving known comma labels.
-    
-    Parameters
-    ----------
-    project_type : str
-        Raw project type string, possibly containing multiple categories separated by `;` or `,`.
-    registry_code : str
-        Registry code ('VCS', 'GLD', or 'CDM') to determine which comma labels to preserve.
-    
-    Returns
-    -------
-    list of str
-        Normalized, whitespace-trimmed components. Labels in KNOWN_COMMA_LABELS are
-        returned as single items; others are split on `;` and `,` separators.
-        
-    Examples
-    --------
-    >>> _split_project_type('Wind power, PV', 'CDM')
-    ['wind power', 'pv']
-    
-    >>> _split_project_type('Fugitive emissions from fuels (solid, oil and gas)', 'VCS')
-    ['fugitive emissions from fuels (solid, oil and gas)']
+    Split `project_type` into normalized parts while preserving known comma labels
+    specific to `registry_code`.
     """
     normalized = str(project_type).strip().lower()
     if normalized in KNOWN_COMMA_LABELS.get(registry_code, set()):
@@ -66,55 +57,25 @@ def _split_project_type(project_type, registry_code):
 
 def standardize_technologies(project_type, registry_code):
     """
-    Standardize a project type to a canonical category.
-    
-    Applies normalization rules in the following priority order:
-    1. Biogas (keyword match on 'biogas')
-    2. Biomass (keyword match on 'biomass', 'biofuel', or 'biofuels')
-    3. Renewable Energy, Energy Efficiency, Waste & Methane, Transportation, AFOLU,
-       Industrial / Manufacturing (exact match from PROJECT_TYPE_LOOKUP)
-    4. Return unchanged if no match found
-    
-    Parameters
-    ----------
-    project_type : str or NaN
-        Raw project type from source registry data.
-    registry_code : str
-        Registry code ('VCS', 'GLD', or 'CDM') to determine applicable mappings.
-    
-    Returns
-    -------
-    str
-        Canonical project type category or the original project_type if no mapping
-        is found. Returns NaN unchanged.
-        
-    Examples
-    --------
-    >>> standardize_technologies('wind', 'GLD')
-    'Renewable Energy'
-    
-    >>> standardize_technologies('Biogas - Heat', 'GLD')
-    'Biogas'
+    Standardize a raw `project_type` to a canonical category.
+
+    Priority:
+      1) Substring matches from JSON (e.g., Biogas/Biomass keywords)
+      2) Exact registry-specific matches from PROJECT_TYPE_LOOKUP
+      3) Return original `project_type` if no match
     """
     if pd.isna(project_type):
         return project_type
 
     parts = _split_project_type(project_type, registry_code)
 
-    if any('biogas' in part for part in parts):
-        return 'Biogas'
+    # 1) Substring matches (keyword-based)
+    for category, keywords in SUBSTRING_MATCHES.items():
+        if any(keyword in part for part in parts for keyword in keywords):
+            return category
 
-    if any('biomass' in part or 'biofuel' in part or 'biofuels' in part for part in parts):
-        return 'Biomass'
-
-    for category in [
-        'Renewable Energy',
-        'Energy Efficiency',
-        'Waste & Methane',
-        'Transportation',
-        'AFOLU',
-        'Industrial / Manufacturing',
-    ]:
+    # 2) Exact registry-specific matches (ordered by CATEGORY_ORDER)
+    for category in CATEGORY_ORDER:
         lookup = PROJECT_TYPE_LOOKUP.get(category, {})
         if any(part in lookup.get(registry_code, set()) for part in parts):
             return category

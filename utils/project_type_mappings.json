@@ -16,6 +16,10 @@
     ],
     "CDM": []
   },
+  "SubstringMatches": {
+    "Biogas": ["biogas"],
+    "Biomass": ["biomass", "biofuel", "biofuels"]
+  },
   "Renewable Energy": {
     "VCS": [
       "energy industries (renewable/non-renewable sources)"

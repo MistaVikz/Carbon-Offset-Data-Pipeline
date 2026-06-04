@@ -107,18 +107,18 @@ def main():
     check_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nProcessed CDM dataset contains {len(cdm_proj_unified_df)} projects.")
     
-    # NEXT: Standardize the project types and countries.
+    # NEXT: Standardize the countries. Then maybe add size and project status if possible.
 
     # Compare columns in Verra, Gold Standard, and CDM Unified datasets
     print("\nVerra")
-    print(verra_df['Project Type'].value_counts())
-    #print(verra_df.info())
+    #print(verra_df['Project Type'].value_counts())
+    print(verra_df.info())
     print("\nGold Standard")
-    print(gold_df['Project Type'].value_counts())
-    #print(gold_df.info())
+    #print(gold_df['Project Type'].value_counts())
+    print(gold_df.info())
     print("\nCDM Unified")
-    print(cdm_proj_unified_df['Project Type'].value_counts())
-    #print(cdm_proj_unified_df.info())
+    #print(cdm_proj_unified_df['Project Type'].value_counts())
+    print(cdm_proj_unified_df.info())
 
     # NEED VALIDATION CHECK ON PROJECT TYPES AFTER DATASETS HAVE BE UNIFIED
 
