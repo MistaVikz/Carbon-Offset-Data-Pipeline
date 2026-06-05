@@ -111,18 +111,19 @@ def main():
     check_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nProcessed CDM dataset contains {len(cdm_proj_unified_df)} projects.")
     
-    # Compare columns in Verra, Gold Standard, and CDM Unified datasets
-    print("\nVerra")
-    print(verra_df.info())
-    print("\nGold Standard")
-    print(gold_df.info())
-    print("\nCDM Unified")
-    print(cdm_proj_unified_df.info())
+    # Create the unified dataset
+    verra_df['Project ID'] = verra_df['registry_code'].astype(str) + '_' + verra_df['Project ID'].astype(str)
+    gold_df['Project ID'] = gold_df['registry_code'].astype(str) + '_' + gold_df['Project ID'].astype(str)
+    unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
+    unified_df.drop(columns=['registry_code'], inplace=True)
+    unified_df= standardize_countries(unified_df)
 
-    # NEED to Standardize country names in unified dataset
+    print(unified_df.head())
+    print(unified_df.info())
+
     # NEED VALIDATION CHECK ON PROJECT TYPES/COUNTRY NAMES AFTER DATASETS HAVE BE UNIFIED
 
-    # BUILD CDM ONLY DATASET AFTER THE UNIFIED DATASET
+    # BUILD CDM ONLY DATASET
     # Filter to only the required columns for the CDM-only dataset and clean up the data
     cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
     cdm_proj_cdm_only_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Participant Authorized'}, inplace=True)
