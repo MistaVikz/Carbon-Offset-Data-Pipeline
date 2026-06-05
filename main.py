@@ -39,7 +39,7 @@ def main():
     # Standardize the project data
     verra_proj_df = standardize_methodologies(verra_proj_df, verra_code)
     verra_proj_df['Project Type'] = verra_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, verra_code))
-
+    
     # Check for Verra projects with issued credits that are missing from the project dataset
     check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
     
@@ -66,7 +66,7 @@ def main():
     # Standardize the project data
     gold_proj_df = standardize_methodologies(gold_proj_df, gold_code)
     gold_proj_df['Project Type'] = gold_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, gold_code))
-
+    
     # Check for Gold Standard projects with issued credits that are missing from the project dataset
     check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
 
@@ -107,20 +107,21 @@ def main():
     check_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nProcessed CDM dataset contains {len(cdm_proj_unified_df)} projects.")
     
-    # NEXT: Standardize the countries. Then maybe add size and project status if possible.
+    # NEXT: Then maybe add size.
 
     # Compare columns in Verra, Gold Standard, and CDM Unified datasets
     print("\nVerra")
-    #print(verra_df['Project Type'].value_counts())
+    print(verra_df['Country'].value_counts())
     print(verra_df.info())
     print("\nGold Standard")
-    #print(gold_df['Project Type'].value_counts())
+    print(gold_df['Country'].value_counts())
     print(gold_df.info())
     print("\nCDM Unified")
-    #print(cdm_proj_unified_df['Project Type'].value_counts())
+    print(cdm_proj_unified_df['Country'].value_counts())
     print(cdm_proj_unified_df.info())
 
-    # NEED VALIDATION CHECK ON PROJECT TYPES AFTER DATASETS HAVE BE UNIFIED
+    # NEED to Standardize country names in unified dataset
+    # NEED VALIDATION CHECK ON PROJECT TYPES/COUNTRY NAMES AFTER DATASETS HAVE BE UNIFIED
 
     # BUILD CDM ONLY DATASET AFTER THE UNIFIED DATASET
     # Filter to only the required columns for the CDM-only dataset and clean up the data

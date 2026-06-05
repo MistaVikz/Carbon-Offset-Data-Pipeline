@@ -3,19 +3,29 @@ from pathlib import Path
 import re
 from utils.processing import *
 
-MAPPING_FILE = Path(__file__).resolve().parent / 'project_type_mappings.json'
+# Mapping JSON file locations
+TECH_MAPPING_FILE = Path(__file__).resolve().parent / 'project_type_mappings.json'
+COUNTRY_MAPPING_FILE = Path(__file__).resolve().parent / 'ISO3166_country_mapping.json'
 
-def _load_mappings_data():
+def _load_mappings_data(MAPPING_FILE):
     """
-    Load mapping JSON that may contain:
-      - KnownCommaLabels: registry -> [labels with commas to preserve]
-      - SubstringMatches: category -> [keywords]
-      - other canonical categories -> registry -> [exact labels]
+    Load a JSON mapping file.
+
+    Parameters
+    ----------
+    MAPPING_FILE : pathlib.Path
+        Path to the JSON file containing mapping definitions.
+
+    Returns
+    -------
+    dict
+        Parsed JSON data from the mapping file.
     """
     with open(MAPPING_FILE, 'r', encoding='utf-8') as f:
         return json.load(f)
-
-_MAPPINGS_DATA = _load_mappings_data()
+    
+# Load the technology mapping data
+_MAPPINGS_DATA = _load_mappings_data(TECH_MAPPING_FILE)
 
 # Substring match rules: category -> set(keywords)
 SUBSTRING_MATCHES = {
@@ -36,6 +46,7 @@ KNOWN_COMMA_LABELS = {
     for registry, labels in _MAPPINGS_DATA.get('KnownCommaLabels', {}).items()
 }
 
+# Technologies are processed in a specific order to ensure consistent categorization when multiple matches occur
 CATEGORY_ORDER = [
     'Renewable Energy',
     'Energy Efficiency',
@@ -81,6 +92,86 @@ def standardize_technologies(project_type, registry_code):
             return category
 
     return project_type
+
+# Load the country mapping data
+_COUNTRY_MAPPING = _load_mappings_data(COUNTRY_MAPPING_FILE)
+
+def _normalize_country_label(label):
+    """
+    Normalize a country label for lookup.
+
+    Converts the input to a lowercase string, trims whitespace,
+    and normalizes apostrophe-like characters to a single apostrophe.
+    """
+    return re.sub(r"[`´’]", "'", str(label).strip()).lower()
+
+def _build_country_lookup():
+    """
+    Build a flat lookup dictionary from the country mapping JSON.
+
+    Returns a dict mapping normalized country labels and aliases to
+    a canonical ISO country name. The lookup includes:
+      - canonical names themselves
+      - any alias labels listed under each canonical entry
+    """
+    lookup = {}
+    for canonical, registry_map in _COUNTRY_MAPPING.items():
+        lookup[_normalize_country_label(canonical)] = canonical
+        if isinstance(registry_map, dict):
+            for labels in registry_map.values():
+                for label in labels:
+                    if label:
+                        lookup[_normalize_country_label(label)] = canonical
+        elif isinstance(registry_map, list):
+            for label in registry_map:
+                if label:
+                    lookup[_normalize_country_label(label)] = canonical
+    return lookup
+
+COUNTRY_LOOKUP = _build_country_lookup()
+
+def standardize_countries(proj_df):
+    """
+    Standardize the 'Country' column in a project DataFrame.
+
+    Parameters
+    ----------
+    proj_df : pandas.DataFrame
+        Project metadata containing a 'Country' column.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A copy of proj_df where 'Country' values are normalized to
+        canonical ISO country names based on the JSON mapping file.
+        Unmapped values are left unchanged, blank strings become pd.NA,
+        and non-country values are converted to pd.NA.
+    """
+    proj_df = proj_df.copy()
+    if 'Country' not in proj_df.columns:
+        return proj_df
+
+    def _normalize_country(country):
+        # Define values that indicate missing or non-specific country information
+        not_provided_values = {'international', 'n/a', 'na', 'not provided', 'unknown'}
+        
+        if pd.isna(country):
+            return country
+
+        value = str(country).strip()
+        if value == '':
+            return pd.NA
+
+        normalized = _normalize_country_label(value)
+        
+        # Remove non-country labels
+        if normalized in not_provided_values:
+            return pd.NA
+
+        return COUNTRY_LOOKUP.get(normalized, value)
+
+    proj_df['Country'] = proj_df['Country'].apply(_normalize_country)
+    return proj_df
 
 def standardize_methodologies(proj_df, registry_code):
     """
