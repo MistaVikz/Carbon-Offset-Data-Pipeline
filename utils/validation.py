@@ -1,3 +1,5 @@
+from utils.standards import *
+
 def check_for_missing_projects(proj_df, issued_df, registry_code, project_id_col='Project ID', issued_id_col='numeric_id'):
     """
     Check for projects with issued credits that are missing from the project dataset.
@@ -77,3 +79,33 @@ def check_estimated_and_actual(df, estimated_col, actual_col):
     if(len(negative_actual) > 0):
         print(f"WARNING: {len(negative_actual)} project(s) has/have negative Actual Emision Reductions.")
         print(negative_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
+
+
+def check_unified_project_types(df: 'pd.DataFrame', column: str = 'Project Type') -> 'pd.DataFrame':
+    """
+    Return rows from `df` whose `column` does NOT match any canonical category,
+    the substring-match categories, or 'Other' (case-insensitive).
+    """
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError("`df` must be a pandas DataFrame")
+    if column not in df.columns:
+        raise ValueError(f"Column '{column}' not found in dataframe")
+
+    allowed = set(PROJECT_TYPE_LOOKUP.keys()) | set(SUBSTRING_MATCHES.keys()) | {'Other'}
+    allowed_lower = {a.lower() for a in allowed}
+
+    def _is_valid(pt):
+        if pd.isna(pt):
+            return False
+        s = str(pt).strip()
+        if s == '':
+            return False
+        return s.lower() in allowed_lower
+
+    mask_invalid = ~df[column].apply(_is_valid)
+    out = df.loc[mask_invalid].copy()
+    if not out.empty:
+        out['Invalid Project Type'] = out[column]
+        print(f'WARNING: {len(out)} project(s) has/have invalid Project Types. Update project_type_mappings.json or set their Project Type to Other. ')
+        print(out)     
+    return

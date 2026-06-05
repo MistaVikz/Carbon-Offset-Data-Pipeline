@@ -118,10 +118,12 @@ def main():
     unified_df.drop(columns=['registry_code'], inplace=True)
     unified_df= standardize_countries(unified_df)
 
+    # NEED VALIDATION CHECK ON COUNTRY NAMES AFTER DATASETS HAVE BE UNIFIED
+    # Validate Project Type/Country Names in the unified dataset.
+    check_unified_project_types(unified_df)
+
     print(unified_df.head())
     print(unified_df.info())
-
-    # NEED VALIDATION CHECK ON PROJECT TYPES/COUNTRY NAMES AFTER DATASETS HAVE BE UNIFIED
 
     # BUILD CDM ONLY DATASET
     # Filter to only the required columns for the CDM-only dataset and clean up the data
