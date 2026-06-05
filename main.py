@@ -12,10 +12,10 @@ gold_file = 'gold_projects.csv'
 cdm_file = 'IGES_CDM_DB_v13.7_20250226.xlsx'
 
 # Required columns for datasets
-unified_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
+unified_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Project Size','Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
 CDM_only_cols = ['Project ID', 'Project Name', 'Country','Other Parties Involved',
                      'Project Participants \n(Authorized by other Parties involved)','Project Type',
-                     'Supplemental Information','Scale',  'Investment Analysis Option','Barrier Analysis',
+                     'Supplemental Information','Project Size',  'Investment Analysis Option','Barrier Analysis',
                      'Emission Factor （EFOM）','Data vintage', 'OM Calculation Method','Emission Factor （EFBM）',
                      'Weights', 'CM Emission Factor（EFCM）','Validator','Estimated Emission Reductions', 'Actual Emission Reductions']
 
@@ -35,6 +35,7 @@ def main():
     verra_proj_df.rename(columns={'ID': 'Project ID'}, inplace=True)
     verra_proj_df.rename(columns={'Name': 'Project Name'}, inplace=True)
     verra_proj_df.rename(columns={'Country/Area': 'Country'}, inplace=True)
+    verra_proj_df['Project Size'] = 'UNKNOWN'
     
     # Standardize the project data
     verra_proj_df = standardize_methodologies(verra_proj_df, verra_code)
@@ -62,11 +63,13 @@ def main():
     gold_proj_df.rename(columns={'Estimated Annual Credits': 'Estimated Annual Emission Reductions'}, inplace=True)
     gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
     gold_proj_df.rename(columns={'GSID': 'Project ID'}, inplace=True)
+    gold_proj_df.rename(columns={'Size': 'Project Size'}, inplace=True)
     
     # Standardize the project data
     gold_proj_df = standardize_methodologies(gold_proj_df, gold_code)
     gold_proj_df['Project Type'] = gold_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, gold_code))
-    
+    gold_proj_df = standardize_project_size(gold_proj_df)
+
     # Check for Gold Standard projects with issued credits that are missing from the project dataset
     check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
 
@@ -92,6 +95,7 @@ def main():
     cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
     cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
     cdm_proj_estimated_df['registry_code'] = 'CDM'
     
     # Standardize the project data
@@ -107,17 +111,12 @@ def main():
     check_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nProcessed CDM dataset contains {len(cdm_proj_unified_df)} projects.")
     
-    # NEXT: Then maybe add size.
-
     # Compare columns in Verra, Gold Standard, and CDM Unified datasets
     print("\nVerra")
-    print(verra_df['Country'].value_counts())
     print(verra_df.info())
     print("\nGold Standard")
-    print(gold_df['Country'].value_counts())
     print(gold_df.info())
     print("\nCDM Unified")
-    print(cdm_proj_unified_df['Country'].value_counts())
     print(cdm_proj_unified_df.info())
 
     # NEED to Standardize country names in unified dataset

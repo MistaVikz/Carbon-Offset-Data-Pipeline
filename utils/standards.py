@@ -1,6 +1,9 @@
 import json
 from pathlib import Path
 import re
+
+from numpy import size
+from typeguard import value
 from utils.processing import *
 
 # Mapping JSON file locations
@@ -226,4 +229,51 @@ def standardize_methodologies(proj_df, registry_code):
         proj_df['Methodology'] = proj_df['Methodology'].str.replace('.', '').str.strip()
 
     return proj_df
+
+def standardize_project_size(proj_df):
+    """
+    Normalize the Project Size column to LARGE, SMALL, or MICRO.
+
+    Parameters
+    ----------
+    proj_df : pandas.DataFrame
+        Project metadata containing a 'Project Size' column.
+    
+    Returns
+    -------
+    pandas.DataFrame
+        A copy of proj_df with normalized 'Project Size' values.
+        Unrecognized and blank/missing values become 'UNKNOWN'.
+    """
+    proj_df = proj_df.copy()
+    if 'Project Size' not in proj_df.columns:
+        return proj_df
+
+    size_map = {
+        'large scale': 'LARGE',
+        'large-scale': 'LARGE',
+        'large': 'LARGE',
+        'small scale': 'SMALL',
+        'small-scale': 'SMALL',
+        'small': 'SMALL',
+        'micro scale': 'MICRO',
+        'micro-scale': 'MICRO',
+        'micro': 'MICRO',
+    }
+
+    def _normalize_size(size):
+        if pd.isna(size):
+            return 'UNKNOWN'
+
+        value = str(size).strip()
+        if value == '':
+            return 'UNKNOWN'
+
+        normalized = re.sub(r'[\s_-]+', ' ', value.lower())
+        return size_map.get(normalized, 'UNKNOWN')
+
+    proj_df['Project Size'] = proj_df['Project Size'].apply(_normalize_size)
+    return proj_df        
+    
+    
 
