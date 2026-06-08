@@ -1,6 +1,5 @@
 from offsets_db_data.data import catalog
 from utils.validation import *
-from utils.standards import *
 
 # Registry codes
 verra_code = 'VCS'
@@ -118,9 +117,9 @@ def main():
     unified_df.drop(columns=['registry_code'], inplace=True)
     unified_df= standardize_countries(unified_df)
 
-    # NEED VALIDATION CHECK ON COUNTRY NAMES AFTER DATASETS HAVE BE UNIFIED
     # Validate Project Type/Country Names in the unified dataset.
     check_unified_project_types(unified_df)
+    check_unified_country_names(unified_df)
 
     print(unified_df.head())
     print(unified_df.info())

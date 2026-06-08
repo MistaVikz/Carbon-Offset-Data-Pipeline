@@ -2,8 +2,6 @@ import json
 from pathlib import Path
 import re
 
-from numpy import size
-from typeguard import value
 from utils.processing import *
 
 # Mapping JSON file locations
@@ -97,9 +95,9 @@ def standardize_technologies(project_type, registry_code):
     return project_type
 
 # Load the country mapping data
-_COUNTRY_MAPPING = _load_mappings_data(COUNTRY_MAPPING_FILE)
+COUNTRY_MAPPING = _load_mappings_data(COUNTRY_MAPPING_FILE)
 
-def _normalize_country_label(label):
+def normalize_country_label(label):
     """
     Normalize a country label for lookup.
 
@@ -118,17 +116,17 @@ def _build_country_lookup():
       - any alias labels listed under each canonical entry
     """
     lookup = {}
-    for canonical, registry_map in _COUNTRY_MAPPING.items():
-        lookup[_normalize_country_label(canonical)] = canonical
+    for canonical, registry_map in COUNTRY_MAPPING.items():
+        lookup[normalize_country_label(canonical)] = canonical
         if isinstance(registry_map, dict):
             for labels in registry_map.values():
                 for label in labels:
                     if label:
-                        lookup[_normalize_country_label(label)] = canonical
+                        lookup[normalize_country_label(label)] = canonical
         elif isinstance(registry_map, list):
             for label in registry_map:
                 if label:
-                    lookup[_normalize_country_label(label)] = canonical
+                    lookup[normalize_country_label(label)] = canonical
     return lookup
 
 COUNTRY_LOOKUP = _build_country_lookup()
@@ -165,7 +163,7 @@ def standardize_countries(proj_df):
         if value == '':
             return pd.NA
 
-        normalized = _normalize_country_label(value)
+        normalized = normalize_country_label(value)
         
         # Remove non-country labels
         if normalized in not_provided_values:

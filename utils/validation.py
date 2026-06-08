@@ -80,11 +80,22 @@ def check_estimated_and_actual(df, estimated_col, actual_col):
         print(f"WARNING: {len(negative_actual)} project(s) has/have negative Actual Emision Reductions.")
         print(negative_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
-
-def check_unified_project_types(df: 'pd.DataFrame', column: str = 'Project Type') -> 'pd.DataFrame':
+def check_unified_project_types(df, column = 'Project Type'):
     """
-    Return rows from `df` whose `column` does NOT match any canonical category,
-    the substring-match categories, or 'Other' (case-insensitive).
+    Check for projects with invalid Project Type values and print details.
+
+    Parameters
+    - df (pd.DataFrame): DataFrame containing project data with a 'Project Type' column.
+    - column (str): Column name containing project types (default 'Project Type').
+
+    Behavior
+    - Validates that all Project Type values match one of:
+      - Canonical categories (Renewable Energy, Energy Efficiency, Waste & Methane, etc.)
+      - Substring-match categories (Biogas, Biomass)
+      - 'Other' (case-insensitive)
+    - If any invalid values are found, prints a warning count and displays the subset of df
+      with those projects, showing all columns plus an 'Invalid Project Type' column.
+    - Returns None.
     """
     if not isinstance(df, pd.DataFrame):
         raise TypeError("`df` must be a pandas DataFrame")
@@ -108,4 +119,42 @@ def check_unified_project_types(df: 'pd.DataFrame', column: str = 'Project Type'
         out['Invalid Project Type'] = out[column]
         print(f'WARNING: {len(out)} project(s) has/have invalid Project Types. Update project_type_mappings.json or set their Project Type to Other. ')
         print(out)     
+    return
+
+def check_unified_country_names(df, country_col='Country'):
+    """
+    Check that all countries in the dataset match ISO3166 country names.
+    
+    Parameters
+    - df (pd.DataFrame): DataFrame containing project data with a country column.
+    - country_col (str): Column name containing country names (default 'Country').
+    
+    Behavior
+    - Validates that all country values are recognized ISO3166 names or aliases
+      using the COUNTRY_LOOKUP from standards.py.
+    - If any invalid countries are found, prints a warning count and displays those rows
+      with all columns plus an 'Invalid Country' column.
+    - Returns None.
+    """
+
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError("`df` must be a pandas DataFrame")
+    if country_col not in df.columns:
+        raise ValueError(f"Column '{country_col}' not found in dataframe")
+    
+    def _is_valid_country(country):
+        if pd.isna(country):
+            return False
+        s = str(country).strip()
+        if s == '':
+            return False
+        # Check if normalized country is in the lookup (handles canonical names and aliases)
+        return normalize_country_label(s) in COUNTRY_LOOKUP
+    
+    mask_invalid = ~df[country_col].apply(_is_valid_country)
+    out = df.loc[mask_invalid].copy()
+    if not out.empty:
+        out['Invalid Country'] = out[country_col]
+        print(f'WARNING: {len(out)} project(s) has/have invalid Country values. Update ISO3166_country_mapping.json or correct the country names.')
+        print(out)
     return
