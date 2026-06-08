@@ -172,8 +172,12 @@ def standardize_countries(proj_df):
         return COUNTRY_LOOKUP.get(normalized, value)
 
     proj_df['Country'] = proj_df['Country'].apply(_normalize_country)
-    return proj_df
+    proj_df['Country'] = proj_df['Country'].apply(_normalize_country)
 
+    # Drop rows where Country was normalized to missing / not provided
+    proj_df = proj_df.dropna(subset=['Country'])
+    return proj_df
+    
 def standardize_methodologies(proj_df, registry_code):
     """
     Standardize the `Methodology` field for different registries.
