@@ -172,8 +172,7 @@ def standardize_countries(proj_df):
         return COUNTRY_LOOKUP.get(normalized, value)
 
     proj_df['Country'] = proj_df['Country'].apply(_normalize_country)
-    proj_df['Country'] = proj_df['Country'].apply(_normalize_country)
-
+    
     # Drop rows where Country was normalized to missing / not provided
     proj_df = proj_df.dropna(subset=['Country'])
     return proj_df
@@ -275,7 +274,53 @@ def standardize_project_size(proj_df):
         return size_map.get(normalized, 'UNKNOWN')
 
     proj_df['Project Size'] = proj_df['Project Size'].apply(_normalize_size)
-    return proj_df        
-    
-    
+    return proj_df
 
+def standardize_proponents(proj_df):
+    proj_df = proj_df.copy()
+    if 'Proponent' not in proj_df.columns:
+        return proj_df
+
+    def _multiple_proponents(value):
+        if pd.isna(value):
+            return value
+
+        text = str(value).strip()
+        if text == '':
+            return pd.NA
+
+        if '\n' in text or ';' in text:
+            return 'multiple proponents'
+        return text
+    
+    def _remove_suffixes(text):
+        suffixes = [
+            ' ltd', ' limited', ' inc', ' incorporated', ' corp', ' corporation',
+            ' co', ' gmbh', ' sarl', ' sa', ' plc', ' llc', ' pvt ltd', ' pty ltd',
+            ' ag', ' nv', ' bv', ' se'
+        ]
+        
+        if pd.isna(text):
+            return text
+        
+        text = text.strip()
+        for suffix in suffixes:
+            if text.endswith(suffix):
+                return text[: -len(suffix)].strip()
+        return text
+
+    # Normalize case/punctuation/whitespace
+    proj_df['Proponent'] = proj_df['Proponent'].str.lower().str.strip()
+    proj_df['Proponent'] = proj_df['Proponent'].str.replace('.','')
+    proj_df['Proponent'] = proj_df['Proponent'].str.replace(',','')
+    proj_df['Proponent'] = proj_df['Proponent'].str.replace('-','')
+
+    # Remove suffixes
+    proj_df['Proponent'] = proj_df['Proponent'].apply(_remove_suffixes)
+
+    # Combine multple proponents
+    proj_df['Proponent'] = proj_df['Proponent'].apply(_multiple_proponents)
+    
+    # Drop rows with no proponent
+    proj_df.dropna(subset=['Proponent'], inplace=True)
+    return proj_df

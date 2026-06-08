@@ -11,7 +11,7 @@ gold_file = 'gold_projects.csv'
 cdm_file = 'IGES_CDM_DB_v13.7_20250226.xlsx'
 
 # Required columns for datasets
-unified_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Project Size','Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
+unified_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Proponent','Project Size','Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
 CDM_only_cols = ['Project ID', 'Project Name', 'Country','Other Parties Involved',
                      'Project Participants \n(Authorized by other Parties involved)','Project Type',
                      'Supplemental Information','Project Size',  'Investment Analysis Option','Barrier Analysis',
@@ -63,7 +63,8 @@ def main():
     gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
     gold_proj_df.rename(columns={'GSID': 'Project ID'}, inplace=True)
     gold_proj_df.rename(columns={'Size': 'Project Size'}, inplace=True)
-    
+    gold_proj_df.rename(columns={'Project Developer Name':'Proponent'}, inplace=True)
+
     # Standardize the project data
     gold_proj_df = standardize_methodologies(gold_proj_df, gold_code)
     gold_proj_df['Project Type'] = gold_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, gold_code))
@@ -92,6 +93,7 @@ def main():
     cdm_proj_estimated_df.rename(columns={'IGES-ID': 'Project ID'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Name of CDM Project Activity': 'Project Name'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by Host Party)': 'Proponent'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
     cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
     cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
@@ -115,17 +117,21 @@ def main():
     gold_df['Project ID'] = gold_df['registry_code'].astype(str) + '_' + gold_df['Project ID'].astype(str)
     unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
     unified_df.drop(columns=['registry_code'], inplace=True)
-    unified_df= standardize_countries(unified_df)
+    unified_df = standardize_countries(unified_df)
+    unified_df = standardize_proponents(unified_df)
 
     # Validate Project Type/Country Names in the unified dataset.
     check_unified_project_types(unified_df)
     check_unified_country_names(unified_df)
 
-    print(unified_df.head())
+    print(f"Unique proponents: {unified_df['Proponent'].nunique()}")
+    print(unified_df['Proponent'].value_counts())
+    #print(unified_df.head())
     print(unified_df.info())
 
     # BUILD CDM ONLY DATASET
     # Filter to only the required columns for the CDM-only dataset and clean up the data
+    # Remember to standardize countries/proponents
     cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
     cdm_proj_cdm_only_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Participant Authorized'}, inplace=True)
     cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFOM）': 'Emission Factor (EFOM)'}, inplace=True)
