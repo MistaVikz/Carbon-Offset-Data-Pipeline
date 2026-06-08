@@ -118,18 +118,13 @@ def main():
     unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
     unified_df.drop(columns=['registry_code'], inplace=True)
     unified_df = standardize_countries(unified_df)
-    
-    # Standardize proponents
     unified_df = standardize_proponents(unified_df)
-    alias_map= build_alias_map(unified_df['Proponent'], top_n=500, score_cutoff=88)
-    unified_df['Proponent'] = unified_df['Proponent'].replace(alias_map)
-
+    
     # Validate Project Type/Country Names in the unified dataset.
     check_unified_project_types(unified_df)
     check_unified_country_names(unified_df)
 
-    print(unified_df.head())
-    print(unified_df.info())
+    print(f"\nProcessed Unified dataset contains {len(unified_df)} projects.")
 
     # BUILD CDM ONLY DATASET
     # Filter to only the required columns for the CDM-only dataset and clean up the data

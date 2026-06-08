@@ -1,7 +1,6 @@
 import json
 import re
 from pathlib import Path
-from rapidfuzz import process, fuzz
 
 from utils.processing import *
 
@@ -284,13 +283,12 @@ def standardize_proponents(proj_df):
     Parameters
     - proj_df (pd.DataFrame): DataFrame expected to contain a `Proponent` column.
 
-    Behavior (high level)
+    Behavior
     1. Replace connector characters (e.g. '&' -> ' and ') and strip punctuation.
     2. Convert values to string and lower-case them.
     3. Collapse multiple whitespace runs to a single space and trim ends.
-    4. Remove common legal/business suffixes.
-    5. Mark multi-entity cells (containing `\n` or `;`) as 'multiple proponents'.
-    6. Convert obvious empty tokens ('', 'nan', 'none', 'n/a') to `pd.NA` and drop those rows.
+    4. Mark multi-entity cells (containing `\n` or `;`) as 'multiple proponents'.
+    5. Convert obvious empty tokens ('', 'nan', 'none', 'n/a') to `pd.NA` and drop those rows.
 
     Returns
     - pd.DataFrame:
@@ -345,61 +343,3 @@ def standardize_proponents(proj_df):
     # Drop rows with no proponent
     proj_df.dropna(subset=['Proponent'], inplace=True)
     return proj_df
-
-def find_similar_names(names, score_cutoff=88):
-    """
-    Group similar proponent names using fuzzy matching.
-
-    Parameters
-    - names: iterable[str]
-        Sequence of candidate names (typically the top N most frequent names).
-    - score_cutoff: int
-        RapidFuzz `token_sort_ratio` threshold (0-100) for including a match.
-
-    Returns
-    - dict:
-        Mapping from a representative name -> sorted list of matched names (the cluster).
-        The function marks names already clustered to avoid duplicate clusters.
-    """
-    clusters = {}
-    used = set()
-    for name in names:
-        if name in used:
-            continue
-        matches = process.extract(name, names, scorer=fuzz.token_sort_ratio, score_cutoff=score_cutoff, limit=None)
-        group = {m[0] for m in matches}
-        for member in group:
-            used.add(member)
-        clusters[name] = sorted(group)
-    return clusters
-
-def build_alias_map(series, top_n=500, score_cutoff=88):
-    """
-    Build an alias-to-canonical mapping for common proponent name variants.
-
-    Parameters
-    - series (pd.Series): `Proponent` series from which frequencies are derived.
-    - top_n (int): number of most frequent names to cluster (default 500).
-    - score_cutoff (int): fuzzy-match threshold passed to `find_similar_names`.
-
-    Behavior
-    - Computes value counts on `series`.
-    - Runs fuzzy clustering on the top `top_n` names.
-    - Chooses a canonical name for each cluster by highest observed frequency;
-      ties fall back to the shortest string.
-
-    Returns
-    - dict:
-        alias_map mapping each clustered variant -> canonical name. Intended
-        for use with `series.replace(alias_map)`.
-    """
-    counts = series.value_counts()
-    names = counts.index.tolist()[:top_n]
-    clusters = find_similar_names(names, score_cutoff=score_cutoff)
-    alias_map = {}
-    for members in clusters.items():
-        # choose canonical by highest frequency (fallback to shortest string)
-        canonical = max(members, key=lambda n: (counts.get(n, 0), -len(n)))
-        for m in members:
-            alias_map[m] = canonical
-    return alias_map
