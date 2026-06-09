@@ -13,10 +13,10 @@ cdm_file = 'IGES_CDM_DB_v13.7_20250226.xlsx'
 # Required columns for datasets
 unified_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Proponent','Project Size',
                     'Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
-CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Proponent',
-                    'Other Parties Involved', 'Supplemental Information','Project Size',  
-                    'Investment Analysis Option','Barrier Analysis','Emission Factor （EFOM）','Data Vintage', 
-                    'OM Calculation Method','Emission Factor （EFBM）', 'Weights', 'CM Emission Factor（EFCM）',
+CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Involved', 'Project Type', 'Methodology', 'Proponent',
+                    'Additional Proponents', 'Supplemental Information','Project Size',  
+                    'Investment Analysis Option','Barrier Analysis','Emission Factor (EFOM)','Data Vintage', 
+                    'OM Calculation Method','Emission Factor (EFBM)', 'Weights', 'CM Emission Factor (EFCM)',
                     'Validator','Estimated Emission Reductions', 'Actual Emission Reductions']
 
 def main():
@@ -93,25 +93,29 @@ def main():
     cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Data vintage': 'Data Vintage'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by Host Party)': 'Proponent'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Proponents'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Other Parties Involved': 'Other Countries Involved'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Emission Factor （EFOM）': 'Emission Factor (EFOM)'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Emission Factor （EFBM）': 'Emission Factor (EFBM)'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'CM Emission Factor（EFCM）': 'CM Emission Factor (EFCM)'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
     cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
     cdm_proj_estimated_df['registry_code'] = 'CDM'
     
-    # Standardize the project data
+    # Standardize CDM Methodology and Project Types
     cdm_proj_estimated_df = standardize_methodologies(cdm_proj_estimated_df, 'CDM')
     cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].str.replace(',', ';').str.strip()
     cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].apply(lambda x: standardize_technologies(x, 'CDM'))
     
-    # Filter to only the required columns for the CDM-only dataset and clean up the data
+    # Filter to only the required columns for the CDM-only dataset
     cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
-    cdm_proj_cdm_only_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Participant Authorized'}, inplace=True)
-    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFOM）': 'Emission Factor (EFOM)'}, inplace=True)
-    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFBM）': 'Emission Factor (EFBM)'}, inplace=True)
-    cdm_proj_cdm_only_df.rename(columns={'CM Emission Factor（EFCM）': 'CM Emission Factor (EFCM)'}, inplace=True)
+    
+    # Standardize columns specifically for CDM-Only
+    cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
 
-    # Standardize Countries and Proponents
-    cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df)
+    # Need to deal with multiple additional countries
+    cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
     cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df)
     
     # Validate Project Types/Country Names in the CDM Only Dataset
@@ -119,10 +123,12 @@ def main():
     check_country_names(cdm_proj_cdm_only_df)
     print(f"\nProcessed CDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
     
+    print(cdm_proj_cdm_only_df['Other Countries Involved'].nunique())
+    print(cdm_proj_cdm_only_df['Other Countries Involved'].value_counts())
     print(cdm_proj_cdm_only_df.info())
 
     # UNIFED DATASET
-    # Filter to only the required columns for the unified dataset
+    # Filter CDM to only the required columns for the unified dataset
     cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
 
     # Check estimated/actual ERS for CDM
@@ -135,7 +141,7 @@ def main():
     gold_df['Project ID'] = gold_df['registry_code'].astype(str) + '_' + gold_df['Project ID'].astype(str)
     unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
     unified_df.drop(columns=['registry_code'], inplace=True)
-    unified_df = standardize_countries(unified_df)
+    unified_df = standardize_countries(unified_df, 'Country')
     unified_df = standardize_proponents(unified_df)
     
     # Validate Project Type/Country Names in the unified dataset.

@@ -131,9 +131,9 @@ def _build_country_lookup():
 
 COUNTRY_LOOKUP = _build_country_lookup()
 
-def standardize_countries(proj_df):
+def standardize_countries(proj_df, country_col='Country'):
     """
-    Standardize the 'Country' column in a project DataFrame.
+    Standardize a column in a project DataFrame that Contains Country Names.
 
     Parameters
     ----------
@@ -146,10 +146,11 @@ def standardize_countries(proj_df):
         A copy of proj_df where 'Country' values are normalized to
         canonical ISO country names based on the JSON mapping file.
         Unmapped values are left unchanged, blank strings become pd.NA,
-        and non-country values are converted to pd.NA.
+        and non-country values are converted to pd.NA. Blank values are dropped
+        only when the function is used on the "Country" column.
     """
     proj_df = proj_df.copy()
-    if 'Country' not in proj_df.columns:
+    if country_col not in proj_df.columns:
         return proj_df
 
     def _normalize_country(country):
@@ -171,10 +172,14 @@ def standardize_countries(proj_df):
 
         return COUNTRY_LOOKUP.get(normalized, value)
 
-    proj_df['Country'] = proj_df['Country'].apply(_normalize_country)
+    proj_df[country_col] = proj_df[country_col].apply(_normalize_country)
     
-    # Drop rows where Country was normalized to missing / not provided
-    proj_df = proj_df.dropna(subset=['Country'])
+    # Blanks are dropped for 'Country' but not for 'Other Countries Involved'
+    if country_col == 'Country':
+        proj_df = proj_df.dropna(subset=[country_col])
+    else:
+        proj_df = proj_df.fillna({country_col: 'No Additional Countries'})
+    
     return proj_df
     
 def standardize_methodologies(proj_df, registry_code):
