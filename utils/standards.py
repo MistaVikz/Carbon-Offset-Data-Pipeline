@@ -1,13 +1,13 @@
 import json
 import re
 from pathlib import Path
-
 from utils.processing import *
 
 # Mapping JSON file locations
-TECH_MAPPING_FILE = Path(__file__).resolve().parent / 'project_type_mappings.json'
+TECH_MAPPING_FILE = Path(__file__).resolve().parent / 'project_type_mappings.json'  # CURRENTLY DISABLED
 COUNTRY_MAPPING_FILE = Path(__file__).resolve().parent / 'ISO3166_country_mapping.json'
 
+# ------------------------------- PROJECT TYPES CURRENTLY DISABLED -------------------------------------
 def _load_mappings_data(MAPPING_FILE):
     """
     Load a JSON mapping file.
@@ -93,6 +93,7 @@ def standardize_technologies(project_type, registry_code):
             return category
 
     return project_type
+# ----------------------------------------------------------------------------------------------------
 
 # Load the country mapping data
 COUNTRY_MAPPING = _load_mappings_data(COUNTRY_MAPPING_FILE)

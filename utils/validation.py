@@ -80,6 +80,7 @@ def check_estimated_and_actual(df, estimated_col, actual_col):
         print(f"WARNING: {len(negative_actual)} project(s) has/have negative Actual Emision Reductions.")
         print(negative_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
+# PROJECT TYPE DISABLED
 def check_project_types(df, column = 'Project Type'):
     """
     Check for projects with invalid Project Type values and print details.
