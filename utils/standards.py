@@ -138,16 +138,18 @@ def standardize_countries(proj_df, country_col='Country'):
     Parameters
     ----------
     proj_df : pandas.DataFrame
-        Project metadata containing a 'Country' column.
+        Project metadata containing a country name column.
 
     Returns
     -------
     pandas.DataFrame
-        A copy of proj_df where 'Country' values are normalized to
+        A copy of proj_df where country name values are normalized to
         canonical ISO country names based on the JSON mapping file.
         Unmapped values are left unchanged, blank strings become pd.NA,
         and non-country values are converted to pd.NA. Blank values are dropped
         only when the function is used on the "Country" column.
+        'Multiple countries' and No 'Additional Countries' are allowed for the 
+        'Other Involved Countries' column 
     """
     proj_df = proj_df.copy()
     if country_col not in proj_df.columns:
@@ -155,15 +157,20 @@ def standardize_countries(proj_df, country_col='Country'):
 
     def _normalize_country(country):
         # Define values that indicate missing or non-specific country information
-        not_provided_values = {'international', 'n/a', 'na', 'not provided', 'unknown'}
+        not_provided_values = {'international', 'n/a', 'na', 'not provided', 'unknown', 'tbd', 'eu'}
         
         if pd.isna(country):
             return country
+        
+        # Allow multiple countries in 'Other Countries Involed'
+        if country_col == 'Other Countries Involved':
+            if ';' in country or '\n' in country or ',' in country or 'or' in country:
+                return 'Multiple Additional Countries'
 
         value = str(country).strip()
         if value == '':
             return pd.NA
-
+        
         normalized = normalize_country_label(value)
         
         # Remove non-country labels

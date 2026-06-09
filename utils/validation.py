@@ -134,6 +134,7 @@ def check_country_names(df, country_col='Country'):
       using the COUNTRY_LOOKUP from standards.py.
     - If any invalid countries are found, prints a warning count and displays those rows
       with all columns plus an 'Invalid Country' column.
+    - 'No/Multiple Additional Countries' values are valid in the 'Other Countries Involed' column
     - Returns None.
     """
 
@@ -145,6 +146,12 @@ def check_country_names(df, country_col='Country'):
     def _is_valid_country(country):
         if pd.isna(country):
             return False
+        
+        # Allow additional values for 'Other Countries Involved'
+        if country_col == 'Other Countries Involved':
+            if country == 'No Additional Countries' or country == 'Multiple Additional Countries':
+                return True
+
         s = str(country).strip()
         if s == '':
             return False
@@ -155,6 +162,6 @@ def check_country_names(df, country_col='Country'):
     out = df.loc[mask_invalid].copy()
     if not out.empty:
         out['Invalid Country'] = out[country_col]
-        print(f'WARNING: {len(out)} project(s) has/have invalid Country values. Update ISO3166_country_mapping.json or correct the country names.')
+        print(f'WARNING: {len(out)} project(s) has/have invalid {country_col} values. Update ISO3166_country_mapping.json or correct the country names.')
         print(out)
     return

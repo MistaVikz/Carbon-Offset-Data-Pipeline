@@ -68,7 +68,9 @@
   "Cuba": [],
   "Curaçao": [],
   "Cyprus": [],
-  "Czechia": [],
+  "Czechia": [
+    "Czech Republic"
+  ],
   "Côte d'Ivoire": [
     "Cote D'Ivoire",
     "Côte d`Ivoire",
@@ -258,7 +260,10 @@
   "Suriname": [],
   "Svalbard and Jan Mayen": [],
   "Sweden": [],
-  "Switzerland": [],
+  "Switzerland": [
+    "Swithzerland",
+    "Swiss"
+  ],
   "Syrian Arab Republic": [],
   "Taiwan": [],
   "Tajikistan": [],
@@ -285,7 +290,8 @@
     "UAE"
   ],
   "United Kingdom of Great Britain and Northern Ireland": [
-    "United Kingdom"
+    "United Kingdom",
+    "UK"
   ],
   "United States Minor Outlying Islands": [],
   "United States of America": [

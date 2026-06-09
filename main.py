@@ -120,12 +120,11 @@ def main():
     
     # Validate Project Types/Country Names in the CDM Only Dataset
     check_project_types(cdm_proj_cdm_only_df)
-    check_country_names(cdm_proj_cdm_only_df)
+    check_country_names(cdm_proj_cdm_only_df, 'Country')
+    check_country_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
     print(f"\nProcessed CDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
     
-    print(cdm_proj_cdm_only_df['Other Countries Involved'].nunique())
-    print(cdm_proj_cdm_only_df['Other Countries Involved'].value_counts())
-    print(cdm_proj_cdm_only_df.info())
+    #print(cdm_proj_cdm_only_df.info())
 
     # UNIFED DATASET
     # Filter CDM to only the required columns for the unified dataset
@@ -146,11 +145,8 @@ def main():
     
     # Validate Project Type/Country Names in the unified dataset.
     check_project_types(unified_df)
-    check_country_names(unified_df)
+    check_country_names(unified_df, 'Country')
     print(f"\nProcessed Unified dataset contains {len(unified_df)} projects.")
-
-    # CDM Only Dataset
-    
 
 if __name__ == "__main__":
     main()
