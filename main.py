@@ -11,20 +11,20 @@ gold_file = 'gold_projects.csv'
 cdm_file = 'IGES_CDM_DB_v13.7_20250226.xlsx'
 
 # Required columns for datasets
-unified_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Proponent','Project Size','Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
-CDM_only_cols = ['Project ID', 'Project Name', 'Country','Other Parties Involved',
-                     'Project Participants \n(Authorized by other Parties involved)','Project Type',
-                     'Supplemental Information','Project Size',  'Investment Analysis Option','Barrier Analysis',
-                     'Emission Factor （EFOM）','Data vintage', 'OM Calculation Method','Emission Factor （EFBM）',
-                     'Weights', 'CM Emission Factor（EFCM）','Validator','Estimated Emission Reductions', 'Actual Emission Reductions']
+unified_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Proponent','Project Size',
+                    'Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
+CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Project Type', 'Methodology', 'Proponent',
+                    'Other Parties Involved', 'Supplemental Information','Project Size',  
+                    'Investment Analysis Option','Barrier Analysis','Emission Factor （EFOM）','Data Vintage', 
+                    'OM Calculation Method','Emission Factor （EFBM）', 'Weights', 'CM Emission Factor（EFCM）',
+                    'Validator','Estimated Emission Reductions', 'Actual Emission Reductions']
 
 def main():
     # Load the credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
 
-    # VERRA
-    print("Processing Verra data...")
+    # VERRA DATASET
     verra_proj_df = load_project_data(verra_file, 'CSV')
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
@@ -52,8 +52,7 @@ def main():
     compare_estimated_and_actual(verra_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')    
     print(f"\nProcessed Verra dataset contains {len(verra_df)} projects.")
 
-    # GOLD STANDARD
-    print("\nProcessing Gold Standard data...")  
+    # GOLD STANDARD DATASET
     gold_proj_df = load_project_data(gold_file, 'CSV')
     gold_issued_df = process_credits_data(credits_df, gold_code)
     
@@ -82,17 +81,17 @@ def main():
     compare_estimated_and_actual(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nProcessed Gold Standard dataset contains {len(gold_df)} projects.")
 
-    # CDM
-    print("\nProcessing CDM data...")
+    # CDM-ONLY DATASET
     cdm_proj_df = load_project_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
     
-    # Process the project data
+    # Process the CDM project data
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
     cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'IGES-ID': 'Project ID'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Name of CDM Project Activity': 'Project Name'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Data vintage': 'Data Vintage'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by Host Party)': 'Proponent'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
     cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
@@ -104,6 +103,25 @@ def main():
     cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].str.replace(',', ';').str.strip()
     cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].apply(lambda x: standardize_technologies(x, 'CDM'))
     
+    # Filter to only the required columns for the CDM-only dataset and clean up the data
+    cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
+    cdm_proj_cdm_only_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Participant Authorized'}, inplace=True)
+    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFOM）': 'Emission Factor (EFOM)'}, inplace=True)
+    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFBM）': 'Emission Factor (EFBM)'}, inplace=True)
+    cdm_proj_cdm_only_df.rename(columns={'CM Emission Factor（EFCM）': 'CM Emission Factor (EFCM)'}, inplace=True)
+
+    # Standardize Countries and Proponents
+    cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df)
+    cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df)
+    
+    # Validate Project Types/Country Names in the CDM Only Dataset
+    check_project_types(cdm_proj_cdm_only_df)
+    check_country_names(cdm_proj_cdm_only_df)
+    print(f"\nProcessed CDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
+    
+    print(cdm_proj_cdm_only_df.info())
+
+    # UNIFED DATASET
     # Filter to only the required columns for the unified dataset
     cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
 
@@ -121,23 +139,12 @@ def main():
     unified_df = standardize_proponents(unified_df)
     
     # Validate Project Type/Country Names in the unified dataset.
-    check_unified_project_types(unified_df)
-    check_unified_country_names(unified_df)
-
+    check_project_types(unified_df)
+    check_country_names(unified_df)
     print(f"\nProcessed Unified dataset contains {len(unified_df)} projects.")
 
-    # BUILD CDM ONLY DATASET
-    # Filter to only the required columns for the CDM-only dataset and clean up the data
-    # Remember to standardize countries/proponents
-    cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
-    cdm_proj_cdm_only_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Participant Authorized'}, inplace=True)
-    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFOM）': 'Emission Factor (EFOM)'}, inplace=True)
-    cdm_proj_cdm_only_df.rename(columns={'Emission Factor （EFBM）': 'Emission Factor (EFBM)'}, inplace=True)
-    cdm_proj_cdm_only_df.rename(columns={'CM Emission Factor（EFCM）': 'CM Emission Factor (EFCM)'}, inplace=True)
-
-    # print(f"\nProcessed CDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
+    # CDM Only Dataset
     
 
-    
 if __name__ == "__main__":
     main()
