@@ -112,9 +112,10 @@ def main():
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
     cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Proponents')
     cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Additional Proponents')
-    cdm_proj_cdm_only_df = standardize_investment_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
+    cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
+    cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
 
-    #print(cdm_proj_cdm_only_df.info())
+    print(cdm_proj_cdm_only_df.info())
 
     # Validate the CDM Only Dataset (PROJECT TYPE CURRENTLY DISABLED)
     #check_project_types(cdm_proj_cdm_only_df)
