@@ -42,17 +42,12 @@ def main():
     # PROJECT TYPE CURRENTLY DISABLED
     #verra_proj_df['Project Type'] = verra_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, verra_code))
     
-    # Check for Verra projects with issued credits that are missing from the project dataset
+    # Validate and build the merged dataframe
+    print('VERRA')
     check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
-    
-    # Build Verra dataframe with the required columns for the unified dataset
     verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
     verra_df = verra_df[unified_cols].copy()
-
-    # Check estimated/actual ERS
-    check_estimated_and_actual(verra_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    compare_estimated_and_actual(verra_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')    
-    print(f"\nProcessed Verra dataset contains {len(verra_df)} projects.")
+    print(f"\nVerra dataset contains {len(verra_df)} projects.\n")
 
     # GOLD STANDARD DATASET
     gold_proj_df = load_project_data(gold_file, 'CSV')
@@ -73,22 +68,17 @@ def main():
     # PROJECT TYPE CURRENTLY DISABLED
     #gold_proj_df['Project Type'] = gold_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, gold_code))
     
-    # Check for Gold Standard projects with issued credits that are missing from the project dataset
+    # Validate and build the gold standard dataframe
+    print("GOLD STANDARD")
     check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
-
-    # Build Gold Dataframe with the required columns for the unified dataset
     gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
     gold_df = gold_df[unified_cols].copy()
-
-    # Check estimated/actual ERS
-    check_estimated_and_actual(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    compare_estimated_and_actual(gold_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    print(f"\nProcessed Gold Standard dataset contains {len(gold_df)} projects.")
+    print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
     # CDM-ONLY DATASET
     cdm_proj_df = load_project_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
     
-    # Prepare the CDM project data
+    # Prepare the CDM data
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
     cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
@@ -126,21 +116,19 @@ def main():
 
     #print(cdm_proj_cdm_only_df.info())
 
-    # Validate Country Names in the CDM Only Dataset (PROJECT TYPE CURRENTLY DISABLED)
+    # Validate the CDM Only Dataset (PROJECT TYPE CURRENTLY DISABLED)
     #check_project_types(cdm_proj_cdm_only_df)
+    print("CDM - ONLY")
     check_country_names(cdm_proj_cdm_only_df, 'Country')
     check_country_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
-    print(f"\nProcessed CDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
+    compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    print(f"\nCDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.\n")
     
     # UNIFED DATASET
     # Filter CDM to only the required columns for the unified dataset
     cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
 
-    # Check estimated/actual ERS for CDM
-    compare_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    check_estimated_and_actual(cdm_proj_unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    print(f"\nProcessed CDM dataset contains {len(cdm_proj_unified_df)} projects.")
-    
     # Create the unified dataset
     verra_df['Project ID'] = verra_df['registry_code'].astype(str) + '_' + verra_df['Project ID'].astype(str)
     gold_df['Project ID'] = gold_df['registry_code'].astype(str) + '_' + gold_df['Project ID'].astype(str)
@@ -149,11 +137,13 @@ def main():
     unified_df = standardize_countries(unified_df, 'Country')
     unified_df = standardize_proponents(unified_df, 'Proponents')
     
-    # Validate Country Names in the unified dataset. Project Type currently DISABLED.
+    # Validate the unified dataset. Project Type currently DISABLED.
     #check_project_types(unified_df)
+    print("UNIFIED")
     check_country_names(unified_df, 'Country')
-    print(f"\nProcessed Unified dataset contains {len(unified_df)} projects.")
+    check_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    compare_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+    print(f"\nUnified dataset contains {len(unified_df)} projects.")
 
-    
 if __name__ == "__main__":
     main()
