@@ -80,48 +80,6 @@ def check_estimated_and_actual(df, estimated_col, actual_col):
         print(f"WARNING: {len(negative_actual)} project(s) has/have negative Actual Emision Reductions.")
         print(negative_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
-# PROJECT TYPE DISABLED
-def check_project_types(df, column = 'Project Type'):
-    """
-    Check for projects with invalid Project Type values and print details.
-
-    Parameters
-    - df (pd.DataFrame): DataFrame containing project data with a 'Project Type' column.
-    - column (str): Column name containing project types (default 'Project Type').
-
-    Behavior
-    - Validates that all Project Type values match one of:
-      - Canonical categories (Renewable Energy, Energy Efficiency, Waste & Methane, etc.)
-      - Substring-match categories (Biogas, Biomass)
-      - 'Other' (case-insensitive)
-    - If any invalid values are found, prints a warning count and displays the subset of df
-      with those projects, showing all columns plus an 'Invalid Project Type' column.
-    - Returns None.
-    """
-    if not isinstance(df, pd.DataFrame):
-        raise TypeError("`df` must be a pandas DataFrame")
-    if column not in df.columns:
-        raise ValueError(f"Column '{column}' not found in dataframe")
-
-    allowed = set(PROJECT_TYPE_LOOKUP.keys()) | set(SUBSTRING_MATCHES.keys()) | {'Other'}
-    allowed_lower = {a.lower() for a in allowed}
-
-    def _is_valid(pt):
-        if pd.isna(pt):
-            return False
-        s = str(pt).strip()
-        if s == '':
-            return False
-        return s.lower() in allowed_lower
-
-    mask_invalid = ~df[column].apply(_is_valid)
-    out = df.loc[mask_invalid].copy()
-    if not out.empty:
-        out['Invalid Project Type'] = out[column]
-        print(f'WARNING: {len(out)} project(s) has/have invalid Project Types. Update project_type_mappings.json or set their Project Type to Other. ')
-        print(out)     
-    return
-
 def check_country_names(df, country_col='Country'):
     """
     Check that all countries in the dataset match ISO3166 country names.

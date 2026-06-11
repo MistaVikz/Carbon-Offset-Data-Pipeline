@@ -4,10 +4,8 @@ from pathlib import Path
 from utils.processing import *
 
 # Mapping JSON file locations
-TECH_MAPPING_FILE = Path(__file__).resolve().parent / 'project_type_mappings.json'  # CURRENTLY DISABLED
 COUNTRY_MAPPING_FILE = Path(__file__).resolve().parent / 'ISO3166_country_mapping.json'
 
-# ------------------------------- PROJECT TYPES CURRENTLY DISABLED -------------------------------------
 def _load_mappings_data(MAPPING_FILE):
     """
     Load a JSON mapping file.
@@ -25,76 +23,6 @@ def _load_mappings_data(MAPPING_FILE):
     with open(MAPPING_FILE, 'r', encoding='utf-8') as f:
         return json.load(f)
     
-# Load the technology mapping data
-_MAPPINGS_DATA = _load_mappings_data(TECH_MAPPING_FILE)
-
-# Substring match rules: category -> set(keywords)
-SUBSTRING_MATCHES = {
-    category: set(values)
-    for category, values in _MAPPINGS_DATA.get('SubstringMatches', {}).items()
-}
-
-# Exact lookup table: category -> registry -> set(labels)
-PROJECT_TYPE_LOOKUP = {
-    category: {registry: set(values) for registry, values in registry_map.items()}
-    for category, registry_map in _MAPPINGS_DATA.items()
-    if category not in ('KnownCommaLabels', 'SubstringMatches')
-}
-
-# Known comma-containing labels to preserve as single tokens: registry -> set(labels)
-KNOWN_COMMA_LABELS = {
-    registry: set(labels)
-    for registry, labels in _MAPPINGS_DATA.get('KnownCommaLabels', {}).items()
-}
-
-# Technologies are processed in a specific order to ensure consistent categorization when multiple matches occur
-CATEGORY_ORDER = [
-    'Renewable Energy',
-    'Energy Efficiency',
-    'Waste & Methane',
-    'Transportation',
-    'AFOLU',
-    'Industrial / Manufacturing',
-]
-
-def _split_project_type(project_type, registry_code):
-    """
-    Split `project_type` into normalized parts while preserving known comma labels
-    specific to `registry_code`.
-    """
-    normalized = str(project_type).strip().lower()
-    if normalized in KNOWN_COMMA_LABELS.get(registry_code, set()):
-        return [normalized]
-    return [part.strip() for part in re.split(r';\s*|\s*,\s*', normalized) if part.strip()]
-
-def standardize_technologies(project_type, registry_code):
-    """
-    Standardize a raw `project_type` to a canonical category.
-
-    Priority:
-      1) Substring matches from JSON (e.g., Biogas/Biomass keywords)
-      2) Exact registry-specific matches from PROJECT_TYPE_LOOKUP
-      3) Return original `project_type` if no match
-    """
-    if pd.isna(project_type):
-        return project_type
-
-    parts = _split_project_type(project_type, registry_code)
-
-    # 1) Substring matches (keyword-based)
-    for category, keywords in SUBSTRING_MATCHES.items():
-        if any(keyword in part for part in parts for keyword in keywords):
-            return category
-
-    # 2) Exact registry-specific matches (ordered by CATEGORY_ORDER)
-    for category in CATEGORY_ORDER:
-        lookup = PROJECT_TYPE_LOOKUP.get(category, {})
-        if any(part in lookup.get(registry_code, set()) for part in parts):
-            return category
-
-    return project_type
-# ----------------------------------------------------------------------------------------------------
-
 # Load the country mapping data
 COUNTRY_MAPPING = _load_mappings_data(COUNTRY_MAPPING_FILE)
 
@@ -288,79 +216,6 @@ def standardize_project_size(proj_df):
         return size_map.get(normalized, 'UNKNOWN')
 
     proj_df['Project Size'] = proj_df['Project Size'].apply(_normalize_size)
-    return proj_df
-
-def standardize_proponents(proj_df, prop_col = 'Proponent'):
-    """
-    Normalize and clean a column with Proponent Data in a projects DataFrame.
-
-    Parameters
-    - proj_df (pd.DataFrame): DataFrame.
-    - prop_col: column with proponent name data
-
-    Behavior
-    1. Replace connector characters (e.g. '&' -> ' and ') and strip punctuation.
-    2. Convert values to string and lower-case them.
-    3. Collapse multiple whitespace runs to a single space and trim ends.
-    4. Mark multi-entity cells (containing `\n` or `;`) as 'multiple proponents'.
-    5. Convert obvious empty tokens ('', 'nan', 'none', 'n/a') to `pd.NA` and drop those rows (or set
-       to 'None' for 'Additional Proponents column.).
-
-    Returns
-    - pd.DataFrame:
-        A copy of `proj_df` with a cleaned `Proponent` column.
-    """
-    proj_df = proj_df.copy()
-    if prop_col not in proj_df.columns:
-        return proj_df
-
-    def _multiple_proponents(value):
-        if pd.isna(value):
-            return value
-
-        text = str(value).strip()
-        if text == '':
-            return pd.NA
-
-        if '\n' in text or ';' in text:
-            return 'multiple proponents'
-        return text
-    
-    def _remove_suffixes(text):
-        suffixes = [
-            ' ltd', ' limited', ' inc', ' incorporated', ' corp', ' corporation',
-            ' co', ' gmbh', ' sarl', ' sa', ' plc', ' llc', ' pvt ltd', ' pty ltd',
-            ' ag', ' nv', ' bv', ' se', ' ltda'
-        ]
-        
-        if pd.isna(text):
-            return text
-        
-        text = text.strip()
-        for suffix in suffixes:
-            if text.endswith(suffix):
-                return text[: -len(suffix)].strip()
-        return text
-
-    # Normalize case/punctuation/whitespace
-    proj_df[prop_col] = proj_df[prop_col].str.replace('  ',' ')
-    proj_df[prop_col] = proj_df[prop_col].str.replace('.','')
-    proj_df[prop_col] = proj_df[prop_col].str.replace(',','')
-    proj_df[prop_col] = proj_df[prop_col].str.replace('&','')
-    proj_df[prop_col] = proj_df[prop_col].str.replace('-','')
-    proj_df[prop_col] = proj_df[prop_col].str.lower().str.strip()
-
-    # Remove suffixes
-    proj_df[prop_col] = proj_df[prop_col].apply(_remove_suffixes)
-
-    # Combine multple proponents
-    proj_df[prop_col] = proj_df[prop_col].apply(_multiple_proponents)
-    
-    # Drop rows with no proponent (Additional Proponent set to None)
-    if prop_col == 'Additional Proponents':
-        proj_df.fillna({'Additional Proponents' : 'None'}, inplace=True)
-    else:
-        proj_df.dropna(subset=[prop_col], inplace=True)
     return proj_df
 
 def standardize_analysis(proj_df, inv_col = 'Investment Analysis Option'):

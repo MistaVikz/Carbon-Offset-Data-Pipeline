@@ -10,11 +10,11 @@ verra_file = 'verra_projects.csv'
 gold_file = 'gold_projects.csv'
 cdm_file = 'IGES_CDM_DB_v13.7_20250226.xlsx'
 
-# Required columns for datasets (PROJECT TYPE DISABLED)
-unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology', 'Proponent','Project Size',
+# Required columns for datasets
+unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology','Project Size',
                     'Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
-CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Involved', 'Methodology', 'Proponent',
-                    'Additional Proponents','Project Size', 'Investment Analysis Option','Barrier Analysis',
+CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Involved', 'Methodology', 
+                    'Project Size', 'Investment Analysis Option','Barrier Analysis',
                     'Emission Factor Data Vintage', 'Emission Factor Weights', 'Validator', 
                     'Estimated Emission Reductions', 'Actual Emission Reductions']
 
@@ -37,9 +37,6 @@ def main():
     
     # Standardize the project data
     verra_proj_df = standardize_methodologies(verra_proj_df, verra_code)
-    
-    # PROJECT TYPE CURRENTLY DISABLED
-    #verra_proj_df['Project Type'] = verra_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, verra_code))
     
     # Validate and build the merged dataframe
     print('VERRA')
@@ -64,9 +61,6 @@ def main():
     gold_proj_df = standardize_methodologies(gold_proj_df, gold_code)
     gold_proj_df = standardize_project_size(gold_proj_df)
     
-    # PROJECT TYPE CURRENTLY DISABLED
-    #gold_proj_df['Project Type'] = gold_proj_df['Project Type'].apply(lambda x: standardize_technologies(x, gold_code))
-    
     # Validate and build the gold standard dataframe
     print("GOLD STANDARD")
     check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
@@ -88,9 +82,7 @@ def main():
     cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Data vintage': 'Emission Factor Data Vintage'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Emission Factor Data Vintage' : 'N.A.'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by Host Party)': 'Proponent'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Proponents'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Other Parties Involved': 'Other Countries Involved'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Weights': 'Emission Factor Weights'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Emission Factor Weights' : 'N.A.'}, inplace=True)
@@ -99,23 +91,16 @@ def main():
     # Standardize CDM Methodology
     cdm_proj_estimated_df = standardize_methodologies(cdm_proj_estimated_df, 'CDM')
     
-    # PROJECT TYPE CURRENTLY DISABLED
-    #cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].str.replace(',', ';').str.strip()
-    #cdm_proj_estimated_df['Project Type'] = cdm_proj_estimated_df['Project Type'].apply(lambda x: standardize_technologies(x, 'CDM'))
-    
     # Filter to only the required columns for the CDM-only dataset
     cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
     
     # Standardize columns specifically for CDM-Only
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
-    cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Proponents')
-    cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Additional Proponents')
     cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
     cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
 
-    # Validate the CDM Only Dataset (PROJECT TYPE CURRENTLY DISABLED)
-    #check_project_types(cdm_proj_cdm_only_df)
+    # Validate the CDM Only Dataset
     print("CDM - ONLY")
     check_country_names(cdm_proj_cdm_only_df, 'Country')
     check_country_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
@@ -133,10 +118,8 @@ def main():
     unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
     unified_df.drop(columns=['registry_code'], inplace=True)
     unified_df = standardize_countries(unified_df, 'Country')
-    unified_df = standardize_proponents(unified_df, 'Proponents')
     
-    # Validate the unified dataset. Project Type currently DISABLED.
-    #check_project_types(unified_df)
+    # Validate the unified dataset.
     print("UNIFIED")
     check_country_names(unified_df, 'Country')
     check_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
