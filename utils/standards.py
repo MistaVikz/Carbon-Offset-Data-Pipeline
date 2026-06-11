@@ -139,8 +139,9 @@ def standardize_countries(proj_df, country_col='Country'):
     Parameters
     ----------
     proj_df : pandas.DataFrame
-        Project metadata containing a country name column.
-
+        Dataframe countaining project data.
+    country_col : Column containing country name data.
+        
     Returns
     -------
     pandas.DataFrame
@@ -294,14 +295,16 @@ def standardize_proponents(proj_df, prop_col = 'Proponent'):
     Normalize and clean a column with Proponent Data in a projects DataFrame.
 
     Parameters
-    - proj_df (pd.DataFrame): DataFrame expected to contain a `Proponent` column.
+    - proj_df (pd.DataFrame): DataFrame.
+    - prop_col: column with proponent name data
 
     Behavior
     1. Replace connector characters (e.g. '&' -> ' and ') and strip punctuation.
     2. Convert values to string and lower-case them.
     3. Collapse multiple whitespace runs to a single space and trim ends.
     4. Mark multi-entity cells (containing `\n` or `;`) as 'multiple proponents'.
-    5. Convert obvious empty tokens ('', 'nan', 'none', 'n/a') to `pd.NA` and drop those rows.
+    5. Convert obvious empty tokens ('', 'nan', 'none', 'n/a') to `pd.NA` and drop those rows (or set
+       to 'None' for 'Additional Proponents column.).
 
     Returns
     - pd.DataFrame:
@@ -358,4 +361,25 @@ def standardize_proponents(proj_df, prop_col = 'Proponent'):
         proj_df.fillna({'Additional Proponents' : 'None'}, inplace=True)
     else:
         proj_df.dropna(subset=[prop_col], inplace=True)
+    return proj_df
+
+def standardize_investment_analysis(proj_df, inv_col = 'Investment Analysis Option'):
+    """
+    Normalize and clean a column with Investment Analysis Data in a projects DataFrame.
+
+    Parameters
+    - proj_df (pd.DataFrame): DataFrame.
+    - prop_col: column with Investment Analysis data
+
+    Returns
+    - pd.DataFrame:
+        A copy of `proj_df` with a cleaned Investment Analysis column.
+    """
+    proj_df = proj_df.copy()
+
+    proj_df.fillna({inv_col:'None'}, inplace=True)
+    proj_df[inv_col] = proj_df[inv_col].str.replace('none', 'None')
+    proj_df[inv_col] = proj_df[inv_col].str.replace('\n',' & ')
+    proj_df[inv_col] = proj_df[inv_col].str.replace('  ',' ')
+
     return proj_df

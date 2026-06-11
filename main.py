@@ -88,7 +88,7 @@ def main():
     # CDM-ONLY DATASET
     cdm_proj_df = load_project_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
     
-    # Process the CDM project data
+    # Prepare the CDM project data
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
     cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
@@ -107,7 +107,7 @@ def main():
     cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
     cdm_proj_estimated_df['registry_code'] = 'CDM'
     
-    # Standardize CDM Methodology (PROJECT TYPE CURRENTLY DISABLED)
+    # Standardize CDM Methodology
     cdm_proj_estimated_df = standardize_methodologies(cdm_proj_estimated_df, 'CDM')
     
     # PROJECT TYPE CURRENTLY DISABLED
@@ -122,6 +122,7 @@ def main():
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
     cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Proponents')
     cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Additional Proponents')
+    cdm_proj_cdm_only_df = standardize_investment_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
 
     #print(cdm_proj_cdm_only_df.info())
 
