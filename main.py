@@ -15,9 +15,8 @@ unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology', 'Propone
                     'Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
 CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Involved', 'Methodology', 'Proponent',
                     'Additional Proponents','Project Size', 'Investment Analysis Option','Barrier Analysis',
-                    'Emission Factor (EFOM)','Data Vintage', 'OM Calculation Method','Emission Factor (EFBM)', 
-                    'Weights', 'CM Emission Factor (EFCM)', 'Validator', 'Estimated Emission Reductions', 
-                    'Actual Emission Reductions']
+                    'Emission Factor Data Vintage', 'Emission Factor Weights', 'Validator', 
+                    'Estimated Emission Reductions', 'Actual Emission Reductions']
 
 def main():
     # Load the credits data from the catalog
@@ -82,19 +81,19 @@ def main():
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
     cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
+    cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'IGES-ID': 'Project ID'}, inplace=True)
+    cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
     cdm_proj_estimated_df.rename(columns={'Name of CDM Project Activity': 'Project Name'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Data vintage': 'Data Vintage'}, inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Data vintage': 'Emission Factor Data Vintage'}, inplace=True)
+    cdm_proj_estimated_df.fillna({'Emission Factor Data Vintage' : 'N.A.'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by Host Party)': 'Proponent'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Project Participants \n(Authorized by other Parties involved)': 'Additional Proponents'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Other Parties Involved': 'Other Countries Involved'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Emission Factor （EFOM）': 'Emission Factor (EFOM)'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Emission Factor （EFBM）': 'Emission Factor (EFBM)'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'CM Emission Factor（EFCM）': 'CM Emission Factor (EFCM)'}, inplace=True)
-    cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
-    cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
+    cdm_proj_estimated_df.rename(columns={'Weights': 'Emission Factor Weights'}, inplace=True)
+    cdm_proj_estimated_df.fillna({'Emission Factor Weights' : 'N.A.'}, inplace=True)
     cdm_proj_estimated_df['registry_code'] = 'CDM'
     
     # Standardize CDM Methodology
@@ -114,8 +113,6 @@ def main():
     cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Additional Proponents')
     cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
     cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
-
-    print(cdm_proj_cdm_only_df.info())
 
     # Validate the CDM Only Dataset (PROJECT TYPE CURRENTLY DISABLED)
     #check_project_types(cdm_proj_cdm_only_df)
