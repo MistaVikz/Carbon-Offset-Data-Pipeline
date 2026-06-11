@@ -126,5 +126,9 @@ def main():
     compare_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nUnified dataset contains {len(unified_df)} projects.")
 
+    # Output the datasets
+    cdm_proj_cdm_only_df.to_csv('output\\cdm_dataset.csv')
+    unified_df.to_csv('output\\unified_dataset.csv')
+    print('\nDatasets saved to output directory.')
 if __name__ == "__main__":
     main()
