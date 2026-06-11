@@ -120,8 +120,11 @@ def main():
     # Standardize columns specifically for CDM-Only
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
-    cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df)
-    
+    cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Proponents')
+    cdm_proj_cdm_only_df = standardize_proponents(cdm_proj_cdm_only_df, 'Additional Proponents')
+
+    #print(cdm_proj_cdm_only_df.info())
+
     # Validate Country Names in the CDM Only Dataset (PROJECT TYPE CURRENTLY DISABLED)
     #check_project_types(cdm_proj_cdm_only_df)
     check_country_names(cdm_proj_cdm_only_df, 'Country')
@@ -143,16 +146,13 @@ def main():
     unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
     unified_df.drop(columns=['registry_code'], inplace=True)
     unified_df = standardize_countries(unified_df, 'Country')
-    unified_df = standardize_proponents(unified_df)
+    unified_df = standardize_proponents(unified_df, 'Proponents')
     
     # Validate Country Names in the unified dataset. Project Type currently DISABLED.
     #check_project_types(unified_df)
     check_country_names(unified_df, 'Country')
     print(f"\nProcessed Unified dataset contains {len(unified_df)} projects.")
 
-    # Check Methodology to see if Dropping Project Type is desirable
-    print(f'Number of unique Methodologies: {unified_df['Methodology'].nunique()}')
-    print(unified_df['Methodology'].value_counts())
-
+    
 if __name__ == "__main__":
     main()

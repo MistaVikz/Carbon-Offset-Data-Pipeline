@@ -289,9 +289,9 @@ def standardize_project_size(proj_df):
     proj_df['Project Size'] = proj_df['Project Size'].apply(_normalize_size)
     return proj_df
 
-def standardize_proponents(proj_df):
+def standardize_proponents(proj_df, prop_col = 'Proponent'):
     """
-    Normalize and clean the `Proponent` column in a projects DataFrame.
+    Normalize and clean a column with Proponent Data in a projects DataFrame.
 
     Parameters
     - proj_df (pd.DataFrame): DataFrame expected to contain a `Proponent` column.
@@ -308,7 +308,7 @@ def standardize_proponents(proj_df):
         A copy of `proj_df` with a cleaned `Proponent` column.
     """
     proj_df = proj_df.copy()
-    if 'Proponent' not in proj_df.columns:
+    if prop_col not in proj_df.columns:
         return proj_df
 
     def _multiple_proponents(value):
@@ -340,19 +340,22 @@ def standardize_proponents(proj_df):
         return text
 
     # Normalize case/punctuation/whitespace
-    proj_df['Proponent'] = proj_df['Proponent'].str.replace('  ',' ')
-    proj_df['Proponent'] = proj_df['Proponent'].str.replace('.','')
-    proj_df['Proponent'] = proj_df['Proponent'].str.replace(',','')
-    proj_df['Proponent'] = proj_df['Proponent'].str.replace('&','')
-    proj_df['Proponent'] = proj_df['Proponent'].str.replace('-','')
-    proj_df['Proponent'] = proj_df['Proponent'].str.lower().str.strip()
+    proj_df[prop_col] = proj_df[prop_col].str.replace('  ',' ')
+    proj_df[prop_col] = proj_df[prop_col].str.replace('.','')
+    proj_df[prop_col] = proj_df[prop_col].str.replace(',','')
+    proj_df[prop_col] = proj_df[prop_col].str.replace('&','')
+    proj_df[prop_col] = proj_df[prop_col].str.replace('-','')
+    proj_df[prop_col] = proj_df[prop_col].str.lower().str.strip()
 
     # Remove suffixes
-    proj_df['Proponent'] = proj_df['Proponent'].apply(_remove_suffixes)
+    proj_df[prop_col] = proj_df[prop_col].apply(_remove_suffixes)
 
     # Combine multple proponents
-    proj_df['Proponent'] = proj_df['Proponent'].apply(_multiple_proponents)
+    proj_df[prop_col] = proj_df[prop_col].apply(_multiple_proponents)
     
-    # Drop rows with no proponent
-    proj_df.dropna(subset=['Proponent'], inplace=True)
+    # Drop rows with no proponent (Additional Proponent set to None)
+    if prop_col == 'Additional Proponents':
+        proj_df.fillna({'Additional Proponents' : 'None'}, inplace=True)
+    else:
+        proj_df.dropna(subset=[prop_col], inplace=True)
     return proj_df
