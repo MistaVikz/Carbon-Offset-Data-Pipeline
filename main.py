@@ -1,14 +1,16 @@
 from offsets_db_data.data import catalog
 from utils.validation import *
+from utils.io import *
+import sys
 
 # Registry codes
 verra_code = 'VCS'
 gold_code = 'GLD'
 
 # Project Files
-verra_file = 'verra_projects.csv'
-gold_file = 'gold_projects.csv'
-cdm_file = 'IGES_CDM_DB_v13.7_20250226.xlsx'
+verra_file = 'project data\\verra_projects.csv'
+gold_file = 'project data\\gold_projects.csv'
+cdm_file = 'project data\\IGES_CDM_DB_v13.7_20250226.xlsx'
 
 # Required columns for datasets
 unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology','Project Size',
@@ -22,6 +24,11 @@ def main():
     # Load the credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
+
+    # Download Verra Projects
+    download_verra_projects(verra_file)
+
+    #sys.exit()
 
     # VERRA DATASET
     verra_proj_df = load_project_data(verra_file, 'CSV')

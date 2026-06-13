@@ -7,7 +7,7 @@ def load_project_data(filename, type, sheet='Sheet1', skip = 0, encode='utf-8'):
     Parameters
     ----------
     filename : str
-        The name of the file to load, relative to `project data/`.
+        The name of the file to load.
     type : str
         File type, either `"Excel"` or `"CSV"`.
     sheet : str, optional
@@ -24,12 +24,12 @@ def load_project_data(filename, type, sheet='Sheet1', skip = 0, encode='utf-8'):
     """
     if type == "Excel":
         try:
-            proj_df = pd.read_excel(f'project data\\{filename}', sheet_name=sheet, skiprows=skip)
+            proj_df = pd.read_excel(f'{filename}', sheet_name=sheet, skiprows=skip)
         except FileNotFoundError:
             print(f"Error: '{filename}' not found in the project data folder.")    
     else:
         try:
-            proj_df = pd.read_csv(f'project data\\{filename}', encoding=encode)
+            proj_df = pd.read_csv(f'{filename}', encoding=encode)
         except FileNotFoundError:
             print(f"Error: '{filename}' not found in the data folder.")    
     return proj_df
