@@ -10,7 +10,7 @@ gold_code = 'GLD'
 # Project Files
 verra_file = 'project data\\verra_projects.csv'
 gold_file = 'project data\\gold_projects.json'
-cdm_file = 'project data\\IGES_CDM_DB_v13.7_20250226.xlsx'
+cdm_file = 'project data\\cdm_projects.xlsx'
 
 # Required columns for datasets
 unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology','Project Size',
@@ -26,10 +26,11 @@ def main():
     credits_df = credits.read()
 
     # Download Project Data
-    download_verra_projects(verra_file)
-    download_gold_projects(gold_file)
+    #download_verra_projects(verra_file)
+    #download_gold_projects(gold_file)
+    #download_cdm_projects(cdm_file)
 
-    sys.exit()
+    #sys.exit()
 
     # VERRA DATASET
     verra_proj_df = load_project_data(verra_file, 'CSV')
@@ -54,7 +55,8 @@ def main():
     print(f"\nVerra dataset contains {len(verra_df)} projects.\n")
 
     # GOLD STANDARD DATASET
-    gold_proj_df = load_project_data(gold_file, 'CSV')
+    # Update to use JSON after loading change
+    gold_proj_df = load_project_data('project data\\gold_projects.csv', 'CSV')
     gold_issued_df = process_credits_data(credits_df, gold_code)
     
     # Prepare the project data

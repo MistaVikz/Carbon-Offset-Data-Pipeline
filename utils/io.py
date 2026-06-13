@@ -2,6 +2,10 @@ import json
 import os
 import requests
 
+# CDM Database URL. Excel Filename might change.
+CDM_URL = 'https://www.iges.or.jp/en/publication_documents/pub/data/en/643/IGES_CDM_DB_v13.7_20250226.xlsx'
+
+# Cookies used for Verra API Request.
 VERRA_COOKIES = {
     "ASPSESSIONIDSEBRTARC": "JNIICHMANPKHCBEAAJLDBOMP",
     "ASPSESSIONIDSGCSRBTC": "GDEDCDJBCNJMCNGOIGKJHEKJ",
@@ -10,6 +14,7 @@ VERRA_COOKIES = {
     "ASPSESSIONIDSGSCATRD": "AOGFNNKCJGCCMIDMGOGBELFG",
     }
 
+# Headers used for Verra API request.
 VERRA_HEADERS = {
     "User-Agent": "Carbon Offset Data Pipeline",
     "Accept": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -25,6 +30,7 @@ VERRA_HEADERS = {
     "Cache-Control": "no-cache",
     }
 
+# Headers used for Gold Standard API request.
 GOLD_HEADERS = {
     "User-Agent": "Carbon Offset Data Pipeline",
     "Accept": "application/json, text/plain, */*",
@@ -66,10 +72,9 @@ def download_verra_projects(output_file):
     with open(output_file, "wb") as outfile:
         outfile.write(response.content)
 
-
 def download_gold_projects(output_file):   
     """
-    Downloads all Gold Standard project data into a JSON file..
+    Downloads all Gold Standard project data into a JSON file.
 
     Parameters
     ----------
@@ -85,7 +90,7 @@ def download_gold_projects(output_file):
     page = 1
     while True:
         try:
-            if ((page -1 ) % 10 == 0):
+            if ((page -1 ) % 50 == 0):
                 print(f'Downloading Gold Standard Projects: Page {page}...')
             params = {
                 "query": "",
@@ -116,4 +121,25 @@ def download_gold_projects(output_file):
 
 
 def download_cdm_projects(output_file):
-    pass
+    """
+    Downloads the CDM Excel Database.
+
+    Parameters
+    ----------
+    output_file : str
+        The name of the output file for the download.
+    
+    Returns
+    -------
+    None
+
+    """
+    try:
+        resp = requests.get(CDM_URL)
+        resp.raise_for_status()
+    except requests.exceptions.HTTPError as err:
+        print("CDM Download failed. Check https://www.iges.or.jp/en/pub/iges-cdm-project-database/en for file name changes.")
+        raise SystemExit(err)
+    
+    with open(output_file, 'wb') as output:
+        output.write(resp.content)
