@@ -9,7 +9,7 @@ gold_code = 'GLD'
 
 # Project Files
 verra_file = 'project data\\verra_projects.csv'
-gold_file = 'project data\\gold_projects.csv'
+gold_file = 'project data\\gold_projects.json'
 cdm_file = 'project data\\IGES_CDM_DB_v13.7_20250226.xlsx'
 
 # Required columns for datasets
@@ -25,10 +25,11 @@ def main():
     credits = catalog['credits']
     credits_df = credits.read()
 
-    # Download Verra Projects
+    # Download Project Data
     download_verra_projects(verra_file)
+    download_gold_projects(gold_file)
 
-    #sys.exit()
+    sys.exit()
 
     # VERRA DATASET
     verra_proj_df = load_project_data(verra_file, 'CSV')

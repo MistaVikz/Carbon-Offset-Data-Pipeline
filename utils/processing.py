@@ -22,6 +22,9 @@ def load_project_data(filename, type, sheet='Sheet1', skip = 0, encode='utf-8'):
     pandas.DataFrame
         The loaded project data.
     """
+    # COLUMNS for loading GS Data from the JSON
+    # "GSID","Project Name","Project Developer Name","Status","Sustainable Development Goals","Project Type","Country","Description","Estimated Annual Credits","Methodology","Size","Programme of Activities","POA GSID"
+
     if type == "Excel":
         try:
             proj_df = pd.read_excel(f'{filename}', sheet_name=sheet, skiprows=skip)
