@@ -1,7 +1,7 @@
 from offsets_db_data.data import catalog
 from utils.validation import *
 from utils.io import *
-import sys
+from utils.processing import *
 
 # Registry codes
 verra_code = 'VCS'
@@ -9,7 +9,6 @@ gold_code = 'GLD'
 
 # Project Files
 verra_file = 'project data\\verra_projects.csv'
-gold_file = 'project data\\gold_projects.json'
 cdm_file = 'project data\\cdm_projects.xlsx'
 
 # Required columns for datasets
@@ -25,15 +24,8 @@ def main():
     credits = catalog['credits']
     credits_df = credits.read()
 
-    # Download Project Data
-    #download_verra_projects(verra_file)
-    #download_gold_projects(gold_file)
-    #download_cdm_projects(cdm_file)
-
-    #sys.exit()
-
     # VERRA DATASET
-    verra_proj_df = load_project_data(verra_file, 'CSV')
+    verra_proj_df = load_file_data(verra_file, 'CSV')
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
     # Prepare the project data
@@ -55,31 +47,36 @@ def main():
     print(f"\nVerra dataset contains {len(verra_df)} projects.\n")
 
     # GOLD STANDARD DATASET
-    # Update to use JSON after loading change
-    gold_proj_df = load_project_data('project data\\gold_projects.csv', 'CSV')
+    print("GOLD STANDARD")
+    gold_proj_df = load_gold_data()
     gold_issued_df = process_credits_data(credits_df, gold_code)
     
     # Prepare the project data
-    gold_proj_df.dropna(subset=['Estimated Annual Credits'], inplace=True)
-    gold_proj_df.rename(columns={'Estimated Annual Credits': 'Estimated Annual Emission Reductions'}, inplace=True)
+    gold_proj_df.rename(columns={'estimated_annual_credits': 'Estimated Annual Emission Reductions'}, inplace=True)
+    gold_proj_df.dropna(subset=['Estimated Annual Emission Reductions'], inplace=True)
     gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
-    gold_proj_df.rename(columns={'GSID': 'Project ID'}, inplace=True)
-    gold_proj_df.rename(columns={'Size': 'Project Size'}, inplace=True)
-    gold_proj_df.rename(columns={'Project Developer Name':'Proponent'}, inplace=True)
-
+    gold_proj_df.rename(columns={'gsid': 'Project ID'}, inplace=True)
+    gold_proj_df['Project ID'] = gold_proj_df['Project ID'].astype(int)
+    gold_proj_df.rename(columns={'size': 'Project Size'}, inplace=True)
+    gold_proj_df.rename(columns={'developer':'Proponent'}, inplace=True)
+    gold_proj_df.rename(columns={'country':'Country'}, inplace=True)
+    gold_proj_df.rename(columns={'project_type':'Project Type'}, inplace=True)
+    gold_proj_df.rename(columns={'methodology':'Methodology'}, inplace=True)
+    gold_proj_df.rename(columns={'name':'Project Name'}, inplace=True)
+    gold_proj_df['registry_code'] = gold_code
+    
     # Standardize the project data
     gold_proj_df = standardize_methodologies(gold_proj_df, gold_code)
     gold_proj_df = standardize_project_size(gold_proj_df)
     
     # Validate and build the gold standard dataframe
-    print("GOLD STANDARD")
     check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
     gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
     gold_df = gold_df[unified_cols].copy()
     print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
     # CDM-ONLY DATASET
-    cdm_proj_df = load_project_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
+    cdm_proj_df = load_file_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
     
     # Prepare the CDM data
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)

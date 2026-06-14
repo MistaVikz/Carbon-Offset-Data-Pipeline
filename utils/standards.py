@@ -1,7 +1,7 @@
 import json
 import re
 from pathlib import Path
-from utils.processing import *
+import pandas as pd
 
 # Mapping JSON file locations
 COUNTRY_MAPPING_FILE = Path(__file__).resolve().parent / 'ISO3166_country_mapping.json'

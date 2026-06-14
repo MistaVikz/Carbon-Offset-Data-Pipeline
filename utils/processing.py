@@ -1,42 +1,5 @@
 import pandas as pd
 
-def load_project_data(filename, type, sheet='Sheet1', skip = 0, encode='utf-8'):
-    """
-    Load project metadata from either a CSV or Excel file in the project data folder.
-
-    Parameters
-    ----------
-    filename : str
-        The name of the file to load.
-    type : str
-        File type, either `"Excel"` or `"CSV"`.
-    sheet : str, optional
-        Excel sheet name to read when `type == "Excel"`. Defaults to `'Sheet1'`.
-    skip : int, optional
-        Number of rows to skip when reading an Excel sheet. Defaults to `0`.
-    encode : str, optional
-        Text encoding to use when reading CSV files. Defaults to `'utf-8'`.
-
-    Returns
-    -------
-    pandas.DataFrame
-        The loaded project data.
-    """
-    # COLUMNS for loading GS Data from the JSON
-    # "GSID","Project Name","Project Developer Name","Status","Sustainable Development Goals","Project Type","Country","Description","Estimated Annual Credits","Methodology","Size","Programme of Activities","POA GSID"
-
-    if type == "Excel":
-        try:
-            proj_df = pd.read_excel(f'{filename}', sheet_name=sheet, skiprows=skip)
-        except FileNotFoundError:
-            print(f"Error: '{filename}' not found in the project data folder.")    
-    else:
-        try:
-            proj_df = pd.read_csv(f'{filename}', encoding=encode)
-        except FileNotFoundError:
-            print(f"Error: '{filename}' not found in the data folder.")    
-    return proj_df
-
 def process_credits_data(credits_df, registry_code):
     """
     Process raw credits transactions for a given registry and return per-project totals.

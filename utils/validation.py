@@ -17,7 +17,7 @@ def check_for_missing_projects(proj_df, issued_df, registry_code, project_id_col
     """
     missing_proj = issued_df[~issued_df[issued_id_col].isin(proj_df[project_id_col])]
     if len(missing_proj) > 0:
-        print(f"WARNING: {len(missing_proj)} project(s) with issued credits in registry {registry_code} are missing from the project dataset. Check/update the project dataset.")
+        print(f"\nWARNING: {len(missing_proj)} project(s) with issued credits in registry {registry_code} are missing from the project dataset. Check/update the project dataset.")
     
 def compare_estimated_and_actual(df, estimated_col, actual_col, ACTUAL_THRESHOLD=50., EQUAL_THRESHOLD=10.):
     """
