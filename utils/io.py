@@ -79,22 +79,15 @@ def download_gold_projects():
     """
     Downloads all Gold Standard project data into a JSON file.
 
-    Parameters
-    ----------
-    output_file : str
-        The name of the output file for the download.
-    
     Returns
     -------
-    None
-
+    list
+        All downloaded project records.
     """
     items = []
-    page = 1
+    page = 0
     while True:
         try:
-            if ((page -1 ) % 50 == 0):
-                print(f'Downloading Gold Standard Projects: Page {page}...')
             params = {
                 "query": "",
                 "page": page,
@@ -108,19 +101,25 @@ def download_gold_projects():
                 params=params,
                 headers=GOLD_HEADERS,
             )
+            response.raise_for_status()
 
             _items = response.json()
-            items += _items
+            if not _items:
+                break
+
+            items.extend(_items)
+
+            if len(_items) < 100:
+                break
 
             page += 1
-            if len(_items) == 0:
-                break
+
         except Exception as e:
             print(e)
-            pass
+            break
 
     with open(GOLD_FILE, "w") as outfile:
-       json.dump(items, outfile)
+        json.dump(items, outfile)
 
     return items
 
@@ -196,12 +195,30 @@ class GoldProject:
     
     dict = asdict
 
-def load_gold_data():
+def load_gold_data(download=True):
+    """
+    Load Gold Standard data from the API or a local file.
 
+    Parameters
+    ----------
+    download : bool
+        True = Download from the API. False = Use gold_projects.json
+    Returns
+    -------
+    pandas.DataFrame
+        The loaded project data.
+    """
     proj_list = []
-    projects = download_gold_projects()
+    
+    if download:
+        print("Downloading Gold Projects.")
+        projects = download_gold_projects()
+    else:
+        print(f'Loading Gold Projects from {GOLD_FILE} ')
+        with open(GOLD_FILE, "r") as infile:
+            projects = json.load(infile)
 
-    for p in projects[0:-1]:
+    for p in projects:
         try:
             project = GoldProject (
                 gsid = p['id'],
@@ -220,7 +237,7 @@ def load_gold_data():
     proj_df = pd.DataFrame.from_records(proj_list)
 
     # Test
-    proj_df.to_csv("test_gold_proj.csv")
+    proj_df.to_csv('test_gold.csv')
 
     return proj_df
 

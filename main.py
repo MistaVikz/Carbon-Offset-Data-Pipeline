@@ -3,6 +3,8 @@ from utils.validation import *
 from utils.io import *
 from utils.processing import *
 
+import sys
+
 # Registry codes
 verra_code = 'VCS'
 gold_code = 'GLD'
@@ -48,7 +50,7 @@ def main():
 
     # GOLD STANDARD DATASET
     print("GOLD STANDARD")
-    gold_proj_df = load_gold_data()
+    gold_proj_df = load_gold_data(False)    # Change to true when not debugging.
     gold_issued_df = process_credits_data(credits_df, gold_code)
     
     # Prepare the project data
