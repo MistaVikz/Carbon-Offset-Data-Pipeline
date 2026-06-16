@@ -3,8 +3,6 @@ from utils.validation import *
 from utils.io import *
 from utils.processing import *
 
-import sys
-
 # Registry codes
 verra_code = 'VCS'
 gold_code = 'GLD'
@@ -24,10 +22,13 @@ def main():
     # Load the credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
-
+    
+    # Create formatted master gold list (MOVE TO COMMAND LINE ARG only)
+    #create_master_gold_csv('unused data/gold_projects.csv')
+    
     # VERRA DATASET
     print('VERRA')
-    verra_proj_df = load_verra_data(False, 'utf-8')  # Turn Download on after debugging.
+    verra_proj_df = update_and_load_verra_data(False, 'utf-8')  # Turn Download on after debugging.
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
     # Prepare the project data
@@ -49,7 +50,7 @@ def main():
 
     # GOLD STANDARD DATASET
     print("GOLD STANDARD")
-    gold_proj_df = load_gold_data(False)    # Turn on downloading when finished debugging.
+    gold_proj_df = update_and_load_gold_data(False)    # Turn on downloading when finished debugging.
     gold_issued_df = process_credits_data(credits_df, gold_code)
     
     # Prepare the project data
@@ -77,7 +78,7 @@ def main():
     print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
     # CDM-ONLY DATASET
-    cdm_proj_df = load_cdm_data(False, 'AllProjects', skip = 1)
+    cdm_proj_df = update_and_load_cdm_data(False, 'AllProjects', skip = 1)
     
     # Prepare the CDM data
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)

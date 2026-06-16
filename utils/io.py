@@ -1,12 +1,10 @@
-import json
 import os
 import requests
 import pandas as pd
-from dataclasses import dataclass, asdict
 
 # File/URL addresses
 VERRA_FILE = 'project data\\verra_projects.csv'
-GOLD_FILE = 'project data\\gold_projects.json'
+GOLD_FILE = 'project data\\gold_projects.csv'
 CDM_FILE = 'project data\\cdm_projects.xlsx'
 CDM_URL = 'https://www.iges.or.jp/en/publication_documents/pub/data/en/643/IGES_CDM_DB_v13.7_20250226.xlsx'
 
@@ -87,41 +85,24 @@ def download_gold_projects():
         All downloaded project records.
     """
     items = []
-    page = 0
+    page = 1
     while True:
         try:
-            params = {
-                "query": "",
-                "page": page,
-                "size": "100",
-                "sortColumn": "",
-                "sortDirection": "",
-            }
-
-            response = requests.get(
-                "https://public-api.goldstandard.org/projects",
-                params=params,
-                headers=GOLD_HEADERS,
-            )
-            response.raise_for_status()
-
-            _items = response.json()
-            if not _items:
+            params = {"query": "", "page": page, "size": 200}
+            
+            response = requests.get("https://public-api.goldstandard.org/projects", 
+                                    params=params, headers=GOLD_HEADERS)
+            data = response.json()
+            if not data:
                 break
-
-            items.extend(_items)
-
-            if len(_items) < 100:
+            items.extend(data)
+            if len(data) < 25:
                 break
-
             page += 1
 
         except Exception as e:
             print(e)
             break
-
-    with open(GOLD_FILE, "w") as outfile:
-        json.dump(items, outfile)
 
     return items
 
@@ -149,7 +130,7 @@ def download_cdm_projects(output_file):
     with open(output_file, 'wb') as output:
         output.write(resp.content)
 
-def load_verra_data(download=True, encode='utf-8'):
+def update_and_load_verra_data(download=True, encode='utf-8'):
     """
     Update the Verra Project data from the API, if required, then load. Default is True.
 
@@ -181,67 +162,126 @@ def load_verra_data(download=True, encode='utf-8'):
     
     return proj_df
 
-@dataclass
-class GoldProject:
-    """A normalized gold standard project"""
-    name: str = ""
-    country: str = ""
-    gsid: str = ""
-    developer: str = ""
-    project_type: str = ""
-    methodology: str = ""
-    size: str = ""
-    estimated_annual_credits: float = 0
-    
-    dict = asdict
-
-def load_gold_data(download=True):
+def update_and_load_gold_data(download=True):
     """
-    Load Gold Standard data from the API or a local file.
+    Download Gold Standard projects (optional), update the master CSV, and return it.
+
+    If `download` is True this function calls `download_gold_projects()` to fetch
+    the current API project list, normalizes the records to the columns
+    ["name","country","gsid","developer","project_type","methodology","size","estimated_annual_credits"],
+    updates matching rows in `project data/gold_projects.csv` by `gsid`, appends any new GSIDs,
+    writes the updated CSV back to `project data/gold_projects.csv`, and prints counts of
+    updated and added records.
 
     Parameters
     ----------
     download : bool
-        True = Download from the API. False = Use gold_projects.json. Default is True.
+        If True, fetch data from the API before updating the CSV. If False, the function
+        simply loads and returns the existing CSV.
+
     Returns
     -------
     pandas.DataFrame
-        The loaded project data.
+        DataFrame loaded from `project data/gold_projects.csv` after the update (or as-is
+        when `download=False`).
     """
-    proj_list = []
-    
+    # Columns to download from the API
+    cols = [
+        "name",
+        "country",
+        "gsid",
+        "developer",
+        "project_type",
+        "methodology",
+        "size",
+        "estimated_annual_credits",
+    ]
+
+    # Update the Gold Standard data from the API
     if download:
         print("Updating Gold Standard Projects.")
         projects = download_gold_projects()
-    else:
-        print(f'Loading Gold Standard Projects from {GOLD_FILE} without updating.')
-        with open(GOLD_FILE, "r") as infile:
-            projects = json.load(infile)
 
-    for p in projects:
+        api_rows = []
+        for p in projects:
+            try:
+                api_rows.append({
+                    "gsid": str(p["id"]).strip(),
+                    "name": p["name"] or "",
+                    "developer": p["project_developer"] or "",
+                    "country": p["country"] or "",
+                    "project_type": p["type"] or "",
+                    "methodology": p["methodology"] or "",
+                    "size": p["size"] or "",
+                    "estimated_annual_credits": p["estimated_annual_credits"] or 0,
+                })
+            except TypeError:
+                continue
+        api_df = pd.DataFrame.from_records(api_rows)
+
+        api_df = api_df[[c for c in cols if c in api_df.columns]].copy()
+        api_df["estimated_annual_credits"] = (
+            pd.to_numeric(
+                api_df["estimated_annual_credits"]
+                .fillna(0)
+                .astype(str)
+                .str.replace(",", ""),
+                errors="coerce",
+            )
+            .fillna(0)
+            .astype(int)
+        )
+
         try:
-            project = GoldProject (
-                gsid = p['id'],
-                name = p['name'],
-                developer = p['project_developer'],
-                project_type = p['type'],
-                methodology= p['methodology'],
-                country = p['country'],
-                size = p['size'],
-                estimated_annual_credits=p['estimated_annual_credits']
-                    )
-            proj_list.append(project.dict())
-        except TypeError:
-            continue
+            master_df = pd.read_csv(GOLD_FILE, dtype=str)
+        except FileNotFoundError:
+            master_df = pd.DataFrame(columns=cols)
 
-    proj_df = pd.DataFrame.from_records(proj_list)
+        for c in cols:
+            if c not in master_df.columns:
+                master_df[c] = ""
 
-    # Test
-    proj_df.to_csv('test_gold.csv')
+        master_df["gsid"] = master_df["gsid"].astype(str).str.strip()
+        master_df["estimated_annual_credits"] = (
+            pd.to_numeric(
+                master_df["estimated_annual_credits"]
+                .fillna("0")
+                .astype(str)
+                .str.replace(",", ""),
+                errors="coerce",
+            )
+            .fillna(0)
+            .astype(int)
+        )
 
+        master_idx = master_df.set_index("gsid")
+        api_idx = api_df.set_index("gsid")
+        existing_ids = set(master_idx.index)
+        api_ids = set(api_idx.index)
+        updated_count = len(existing_ids & api_ids)
+        new_count = len(api_ids - existing_ids)
+
+        master_idx.update(api_idx)
+
+        if new_count:
+            master_idx = pd.concat([master_idx, api_idx.loc[sorted(api_ids - existing_ids)]])
+
+        updated_df = master_idx.reset_index()[cols]
+        updated_df.to_csv(GOLD_FILE, index=False)
+
+        print(f"{updated_count} existing projects updated, {new_count} new projects added.")
+
+    else:
+        print(f"Loading Gold Standard Projects from {GOLD_FILE} without updating.")
+
+    try:
+        proj_df = pd.read_csv(GOLD_FILE)
+    except FileNotFoundError:
+        print(f"Error: '{GOLD_FILE}' not found in the data folder.")
+        
     return proj_df
 
-def load_cdm_data(download=False, sheet='Sheet1', skip=0):
+def update_and_load_cdm_data(download=False, sheet='Sheet1', skip=0):
     """
     Download the CDM Project datatase, if required, then load.
 
@@ -275,6 +315,48 @@ def load_cdm_data(download=False, sheet='Sheet1', skip=0):
 
     return proj_df
 
-    
-    
+def create_master_gold_csv(input_path, output_path="project data/gold_projects.csv"):
+    """
+    Create a normalized master Gold Standard CSV from a raw CSV input.
+
+    Reads `input_path`, renames source columns to the canonical names:
+    "name","country","gsid","developer","project_type","methodology","size","estimated_annual_credits",
+    trims `gsid`, coerces `estimated_annual_credits` to integer (commas removed), and
+    writes the result to `output_path` if provided.
+
+    Parameters
+    ----------
+    input_path : str
+        Path to the original CSV export to normalize.
+    output_path : str, optional
+        Destination path for the normalized CSV (default "project data/gold_projects.csv").
+
+    Returns
+    -------
+    pandas.DataFrame
+        The normalized DataFrame (also written to `output_path` when provided).
+    """
+    df = pd.read_csv(input_path, dtype=str)
+    df = df.rename(columns={
+        "Project Name": "name",
+        "Country": "country",
+        "GSID": "gsid",
+        "Project Developer Name": "developer",
+        "Project Type": "project_type",
+        "Methodology": "methodology",
+        "Size": "size",
+        "Estimated Annual Credits": "estimated_annual_credits",
+    })
+    cols = ["name", "country", "gsid", "developer", "project_type", "methodology", "size", "estimated_annual_credits"]
+    df = df[[c for c in cols if c in df.columns]].copy()
+    df["gsid"] = df["gsid"].astype(str).str.strip()
+    df["methodology"] = df.get("methodology").astype(object)
+    df["estimated_annual_credits"] = (
+        pd.to_numeric(df["estimated_annual_credits"].fillna("0").astype(str).str.replace(",", ""), errors="coerce")
+        .fillna(0)
+        .astype(int)
+    )
+    if output_path:
+        df.to_csv(output_path, index=False)
+    return df
 
