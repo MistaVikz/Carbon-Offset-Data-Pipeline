@@ -5,6 +5,7 @@ import pandas as pd
 from dataclasses import dataclass, asdict
 
 # File/URL addresses
+VERRA_FILE = 'project data\\verra_projects.csv'
 GOLD_FILE = 'project data\\gold_projects.json'
 CDM_URL = 'https://www.iges.or.jp/en/publication_documents/pub/data/en/643/IGES_CDM_DB_v13.7_20250226.xlsx'
 
@@ -181,6 +182,36 @@ def load_file_data(filename, type, sheet='Sheet1', skip = 0, encode='utf-8'):
             print(f"Error: '{filename}' not found in the data folder.")    
     return proj_df
 
+def load_verra_data(download=True):
+    """
+    Update the Verra Project data from the API, if required, then load.
+
+    Parameters
+    ----------
+    download : bool
+        True = Download from the API, then use updated verra_projects.csv. False = Use 
+        verra_projects.csv without downloading.
+    
+    Returns
+    -------
+    pandas.DataFrame
+        The loaded project data.
+    """ 
+    # Update verra project file
+    if download:
+        print('Downloading Verra Projects.')
+        download_verra_projects(VERRA_FILE)
+    else:
+        print(f'Loading Verra Projects from {VERRA_FILE} without downloading')
+    
+    # Load verra projects
+    try:
+        proj_df = pd.read_csv(f'{VERRA_FILE}', encoding='utf-8')
+    except FileNotFoundError:
+        print(f"Error: '{VERRA_FILE}' not found in the data folder.") 
+    
+    return proj_df
+
 @dataclass
 class GoldProject:
     """A normalized gold standard project"""
@@ -211,10 +242,10 @@ def load_gold_data(download=True):
     proj_list = []
     
     if download:
-        print("Downloading Gold Projects.")
+        print("Downloading Gold Standard Projects.")
         projects = download_gold_projects()
     else:
-        print(f'Loading Gold Projects from {GOLD_FILE} ')
+        print(f'Loading Gold Standard Projects from {GOLD_FILE} without downloading.')
         with open(GOLD_FILE, "r") as infile:
             projects = json.load(infile)
 

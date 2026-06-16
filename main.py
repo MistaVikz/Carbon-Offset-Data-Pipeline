@@ -10,7 +10,6 @@ verra_code = 'VCS'
 gold_code = 'GLD'
 
 # Project Files
-verra_file = 'project data\\verra_projects.csv'
 cdm_file = 'project data\\cdm_projects.xlsx'
 
 # Required columns for datasets
@@ -27,7 +26,8 @@ def main():
     credits_df = credits.read()
 
     # VERRA DATASET
-    verra_proj_df = load_file_data(verra_file, 'CSV')
+    print('VERRA')
+    verra_proj_df = load_verra_data()
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
     # Prepare the project data
@@ -42,7 +42,6 @@ def main():
     verra_proj_df = standardize_methodologies(verra_proj_df, verra_code)
     
     # Validate and build the merged dataframe
-    print('VERRA')
     check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
     verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
     verra_df = verra_df[unified_cols].copy()
@@ -50,7 +49,7 @@ def main():
 
     # GOLD STANDARD DATASET
     print("GOLD STANDARD")
-    gold_proj_df = load_gold_data(False)    # Change to true when not debugging.
+    gold_proj_df = load_gold_data(False)    # Turn on downloading when finished debugging.
     gold_issued_df = process_credits_data(credits_df, gold_code)
     
     # Prepare the project data
