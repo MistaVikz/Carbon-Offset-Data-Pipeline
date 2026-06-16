@@ -7,6 +7,7 @@ from dataclasses import dataclass, asdict
 # File/URL addresses
 VERRA_FILE = 'project data\\verra_projects.csv'
 GOLD_FILE = 'project data\\gold_projects.json'
+CDM_FILE = 'project data\\cdm_projects.xlsx'
 CDM_URL = 'https://www.iges.or.jp/en/publication_documents/pub/data/en/643/IGES_CDM_DB_v13.7_20250226.xlsx'
 
 # Cookies used for Verra API Request.
@@ -148,49 +149,17 @@ def download_cdm_projects(output_file):
     with open(output_file, 'wb') as output:
         output.write(resp.content)
 
-def load_file_data(filename, type, sheet='Sheet1', skip = 0, encode='utf-8'):
+def load_verra_data(download=True, encode='utf-8'):
     """
-    Load project data from either a CSV or Excel file in the project data folder.
-
-    Parameters
-    ----------
-    filename : str
-        The name of the file to load.
-    type : str
-        File type, either `"Excel"` or `"CSV"`.
-    sheet : str, optional
-        Excel sheet name to read when `type == "Excel"`. Defaults to `'Sheet1'`.
-    skip : int, optional
-        Number of rows to skip when reading an Excel sheet. Defaults to `0`.
-    encode : str, optional
-        Text encoding to use when reading CSV files. Defaults to `'utf-8'`.
-
-    Returns
-    -------
-    pandas.DataFrame
-        The loaded project data.
-    """
-    if type == "Excel":
-        try:
-            proj_df = pd.read_excel(f'{filename}', sheet_name=sheet, skiprows=skip)
-        except FileNotFoundError:
-            print(f"Error: '{filename}' not found in the project data folder.")    
-    else:
-        try:
-            proj_df = pd.read_csv(f'{filename}', encoding=encode)
-        except FileNotFoundError:
-            print(f"Error: '{filename}' not found in the data folder.")    
-    return proj_df
-
-def load_verra_data(download=True):
-    """
-    Update the Verra Project data from the API, if required, then load.
+    Update the Verra Project data from the API, if required, then load. Default is True.
 
     Parameters
     ----------
     download : bool
         True = Download from the API, then use updated verra_projects.csv. False = Use 
         verra_projects.csv without downloading.
+    encode : str
+        Encoding to open the CSV file. Default = 'utf-8'
     
     Returns
     -------
@@ -199,10 +168,10 @@ def load_verra_data(download=True):
     """ 
     # Update verra project file
     if download:
-        print('Downloading Verra Projects.')
+        print('Updating Verra Projects.')
         download_verra_projects(VERRA_FILE)
     else:
-        print(f'Loading Verra Projects from {VERRA_FILE} without downloading')
+        print(f'Loading Verra Projects from {VERRA_FILE} without updating.')
     
     # Load verra projects
     try:
@@ -233,7 +202,7 @@ def load_gold_data(download=True):
     Parameters
     ----------
     download : bool
-        True = Download from the API. False = Use gold_projects.json
+        True = Download from the API. False = Use gold_projects.json. Default is True.
     Returns
     -------
     pandas.DataFrame
@@ -242,10 +211,10 @@ def load_gold_data(download=True):
     proj_list = []
     
     if download:
-        print("Downloading Gold Standard Projects.")
+        print("Updating Gold Standard Projects.")
         projects = download_gold_projects()
     else:
-        print(f'Loading Gold Standard Projects from {GOLD_FILE} without downloading.')
+        print(f'Loading Gold Standard Projects from {GOLD_FILE} without updating.')
         with open(GOLD_FILE, "r") as infile:
             projects = json.load(infile)
 
@@ -271,4 +240,41 @@ def load_gold_data(download=True):
     proj_df.to_csv('test_gold.csv')
 
     return proj_df
+
+def load_cdm_data(download=False, sheet='Sheet1', skip=0):
+    """
+    Download the CDM Project datatase, if required, then load.
+
+    Parameters
+    ----------
+    download : bool
+        True = Download the database, then open cdm_projects.xlsx. False = Use 
+        cdm_projects.xlsx without downloading. Default is False.
+    sheet : str
+        Sheet name for data extration. Default = 'Sheet1'
+    skip : int
+        Number of rows to skip. Default =0
+    
+    Returns
+    -------
+    pandas.DataFrame
+        The loaded project data.
+    """
+    # Download and update the CDM project data
+    if download:
+        print('Updating CDM Projects.')
+        download_cdm_projects(CDM_FILE)
+    else:
+        print(f'Loading CDM Projects from {CDM_FILE} without updating.')
+
+    # Load CDM projects
+    try:
+        proj_df = pd.read_excel(f'{CDM_FILE}', sheet_name=sheet, skiprows=skip)
+    except FileNotFoundError:
+        print(f"Error: '{CDM_FILE}' not found in the project data folder.")
+
+    return proj_df
+
+    
+    
 

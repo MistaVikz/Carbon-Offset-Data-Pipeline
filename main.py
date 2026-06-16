@@ -27,7 +27,7 @@ def main():
 
     # VERRA DATASET
     print('VERRA')
-    verra_proj_df = load_verra_data()
+    verra_proj_df = load_verra_data(False, 'utf-8')  # Turn Download on after debugging.
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
     # Prepare the project data
@@ -77,7 +77,7 @@ def main():
     print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
     # CDM-ONLY DATASET
-    cdm_proj_df = load_file_data(cdm_file, 'Excel', 'AllProjects', skip = 1)
+    cdm_proj_df = load_cdm_data(False, 'AllProjects', skip = 1)
     
     # Prepare the CDM data
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)

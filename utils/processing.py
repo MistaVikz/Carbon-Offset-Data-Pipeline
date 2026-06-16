@@ -77,7 +77,6 @@ def build_merged_dataframe(proj_df, issued_df, registry_code):
 
     return merged_df
 
-
 def get_CDM_total_estimated_ERs(cdm_proj_df):
     """
     Sum CDM annual columns to produce a total estimated emission reductions column.
