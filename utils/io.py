@@ -1,5 +1,6 @@
 import os
 import requests
+import argparse
 import pandas as pd
 
 # File/URL addresses
@@ -336,7 +337,11 @@ def create_master_gold_csv(input_path, output_path="project data/gold_projects.c
     pandas.DataFrame
         The normalized DataFrame (also written to `output_path` when provided).
     """
-    df = pd.read_csv(input_path, dtype=str)
+    try:
+        df = pd.read_csv(input_path, dtype=str)
+    except:
+        f"Error: '{input_path}' not found in the project data folder."
+    
     df = df.rename(columns={
         "Project Name": "name",
         "Country": "country",
@@ -360,3 +365,21 @@ def create_master_gold_csv(input_path, output_path="project data/gold_projects.c
         df.to_csv(output_path, index=False)
     return df
 
+def parse_args():
+    """
+    Parse command line arguments for turn ON Verra and Gold Standard downloads, for turning ON
+    CDM download, and for creating a new master Gold Standard project CSV. WARNING: This overwrites 
+    the current data in project data/gold_projects.csv).
+
+    Returns:
+        args: Parsed command line arguments.
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--verra_off', dest='verra', action='store_false', help='Disable Verra updates')
+    parser.add_argument('--gold_off',  dest='gold',  action='store_false', help='Disable Gold updates')    
+    parser.add_argument('--cdm_on', dest='cdm', action='store_true', help='Enable CDM updates')
+    parser.set_defaults(verra=True, gold=True, cdm=False)
+    parser.add_argument('--create_master_gold', type=str, default=None, 
+                        help='Create master Gold CSV from input CSV file path.')
+    
+    return parser.parse_args()

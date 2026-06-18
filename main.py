@@ -19,16 +19,20 @@ CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Invol
                     'Estimated Emission Reductions', 'Actual Emission Reductions']
 
 def main():
+    # Get command line arguments
+    args = parse_args()
+    download_verra = args.verra
+    download_gold = args.gold
+    download_cdm = args.cdm
+    master_input_file = args.create_master_gold
+
     # Load the credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
     
-    # Create formatted master gold list (MOVE TO COMMAND LINE ARG only)
-    #create_master_gold_csv('unused data/gold_projects.csv')
-    
     # VERRA DATASET
     print('VERRA')
-    verra_proj_df = update_and_load_verra_data(False, 'utf-8')  # Turn Download on after debugging.
+    verra_proj_df = update_and_load_verra_data(download_verra, 'utf-8')
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
     # Prepare the project data
@@ -50,7 +54,13 @@ def main():
 
     # GOLD STANDARD DATASET
     print("GOLD STANDARD")
-    gold_proj_df = update_and_load_gold_data(False)    # Turn on downloading when finished debugging.
+
+    # Create master gold standard csv, if specified in command arguments
+    if master_input_file:
+        print(f'Creating new Gold Standard dataset from {master_input_file}.')
+        create_master_gold_csv(master_input_file)
+
+    gold_proj_df = update_and_load_gold_data(download_gold)
     gold_issued_df = process_credits_data(credits_df, gold_code)
     
     # Prepare the project data
@@ -78,7 +88,7 @@ def main():
     print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
     # CDM-ONLY DATASET
-    cdm_proj_df = update_and_load_cdm_data(False, 'AllProjects', skip = 1)
+    cdm_proj_df = update_and_load_cdm_data(download_cdm, 'AllProjects', skip = 1)
     
     # Prepare the CDM data
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
