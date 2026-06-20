@@ -44,7 +44,7 @@ def main():
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
     # Prepare the project data
-    verra_proj_df.dropna(subset=['Estimated Annual Emission Reductions'], inplace=True)
+    verra_proj_df.dropna(subset=['Estimated Annual Emission Reductions', 'Methodology'], inplace=True)
     verra_proj_df['Estimated Annual Emission Reductions'] = verra_proj_df['Estimated Annual Emission Reductions'].str.replace(",", "").astype(float)
     verra_proj_df.rename(columns={'ID': 'Project ID'}, inplace=True)
     verra_proj_df.rename(columns={'Name': 'Project Name'}, inplace=True)
@@ -57,6 +57,13 @@ def main():
     verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
     verra_df = verra_df[unified_cols].copy()
     print(f"\nVerra dataset contains {len(verra_df)} projects.\n")
+
+    #print(verra_df['Methodology 1'].value_counts())
+    #print(verra_df['Methodology 2'].value_counts())
+    #print(verra_df['Methodology 3'].value_counts())
+    #print(verra_df['Methodology 4'].value_counts())
+    #print(verra_df.info())
+    #sys.exit()
 
     # GOLD STANDARD DATASET
     print("GOLD STANDARD")
@@ -78,8 +85,10 @@ def main():
     gold_proj_df.rename(columns={'size': 'Project Size'}, inplace=True)
     gold_proj_df.rename(columns={'developer':'Proponent'}, inplace=True)
     gold_proj_df.rename(columns={'country':'Country'}, inplace=True)
+    gold_proj_df.dropna(subset=['Country'], inplace=True)
     gold_proj_df.rename(columns={'project_type':'Project Type'}, inplace=True)
     gold_proj_df.rename(columns={'methodology':'Methodology'}, inplace=True)
+    gold_proj_df.dropna(subset=['Methodology'], inplace=True)
     gold_proj_df.rename(columns={'name':'Project Name'}, inplace=True)
     gold_proj_df['registry_code'] = gold_code
     gold_proj_df = process_methodologies(gold_proj_df, gold_code)
@@ -91,6 +100,15 @@ def main():
     gold_df = gold_df[unified_cols].copy()
     print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
+
+    #print(gold_df['Methodology 1'].value_counts())
+    #print(gold_df['Methodology 2'].value_counts())
+    #print(gold_df['Methodology 3'].value_counts())
+    #print(gold_df['Methodology 4'].value_counts())
+    #print(gold_df.info())
+    #sys.exit()
+
+
     # CDM-ONLY DATASET
     cdm_proj_df = update_and_load_cdm_data(download_cdm, 'AllProjects', skip = 1)
     
@@ -98,6 +116,7 @@ def main():
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
     cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
+    cdm_proj_estimated_df.dropna(subset=['Methodology1'], inplace=True)
     cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'IGES-ID': 'Project ID'}, inplace=True)
     cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
@@ -114,7 +133,16 @@ def main():
     
     # Filter to only the required columns for the CDM-only dataset
     cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
-    
+
+
+    #print(cdm_proj_cdm_only_df['Methodology 1'].value_counts())
+    #print(cdm_proj_cdm_only_df['Methodology 2'].value_counts())
+    #print(cdm_proj_cdm_only_df['Methodology 3'].value_counts())
+    #print(cdm_proj_cdm_only_df['Methodology 4'].value_counts())
+    #print(cdm_proj_cdm_only_df.info())
+    #sys.exit()
+
+
     # Standardize columns specifically for CDM-Only
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
