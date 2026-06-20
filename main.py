@@ -3,6 +3,8 @@ from utils.validation import *
 from utils.io import *
 from utils.processing import *
 
+import sys  # REMOVE WHEN DONE TESTING
+
 # Registry codes
 verra_code = 'VCS'
 gold_code = 'GLD'
@@ -11,12 +13,14 @@ gold_code = 'GLD'
 cdm_file = 'project data\\cdm_projects.xlsx'
 
 # Required columns for datasets
-unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology','Project Size',
-                    'Estimated Emission Reductions', 'Actual Emission Reductions', 'registry_code']
-CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Involved', 'Methodology', 
-                    'Project Size', 'Investment Analysis Option','Barrier Analysis',
-                    'Emission Factor Data Vintage', 'Emission Factor Weights', 'Validator', 
-                    'Estimated Emission Reductions', 'Actual Emission Reductions']
+unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology 1', 'Methodology 2', 'Methodology 3',
+                    'Methodology 4', 'Project Size', 'Estimated Emission Reductions', 
+                    'Actual Emission Reductions', 'registry_code']
+CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Involved', 'Methodology 1', 
+                    'Methodology 2', 'Methodology 3', 'Methodology 4', 'Project Size', 
+                    'Investment Analysis Option','Barrier Analysis', 'Emission Factor Data Vintage', 
+                    'Emission Factor Weights', 'Validator', 'Estimated Emission Reductions', 
+                    'Actual Emission Reductions']
 
 def main():
     # Get command line arguments
@@ -25,6 +29,10 @@ def main():
     download_gold = args.gold
     download_cdm = args.cdm
     master_input_file = args.create_master_gold
+
+    # REMOVE WHEN DONE TESTING
+    download_verra = False
+    download_gold = False
 
     # Load the credits data from the catalog
     credits = catalog['credits']
@@ -42,9 +50,7 @@ def main():
     verra_proj_df.rename(columns={'Name': 'Project Name'}, inplace=True)
     verra_proj_df.rename(columns={'Country/Area': 'Country'}, inplace=True)
     verra_proj_df['Project Size'] = 'UNKNOWN'
-    
-    # Standardize the project data
-    verra_proj_df = standardize_methodologies(verra_proj_df, verra_code)
+    verra_proj_df = process_methodologies(verra_proj_df, verra_code)
     
     # Validate and build the merged dataframe
     check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
@@ -62,7 +68,7 @@ def main():
 
     gold_proj_df = update_and_load_gold_data(download_gold)
     gold_issued_df = process_credits_data(credits_df, gold_code)
-    
+
     # Prepare the project data
     gold_proj_df.rename(columns={'estimated_annual_credits': 'Estimated Annual Emission Reductions'}, inplace=True)
     gold_proj_df.dropna(subset=['Estimated Annual Emission Reductions'], inplace=True)
@@ -76,9 +82,7 @@ def main():
     gold_proj_df.rename(columns={'methodology':'Methodology'}, inplace=True)
     gold_proj_df.rename(columns={'name':'Project Name'}, inplace=True)
     gold_proj_df['registry_code'] = gold_code
-    
-    # Standardize the project data
-    gold_proj_df = standardize_methodologies(gold_proj_df, gold_code)
+    gold_proj_df = process_methodologies(gold_proj_df, gold_code)
     gold_proj_df = standardize_project_size(gold_proj_df)
     
     # Validate and build the gold standard dataframe
@@ -105,10 +109,8 @@ def main():
     cdm_proj_estimated_df.rename(columns={'Other Parties Involved': 'Other Countries Involved'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Weights': 'Emission Factor Weights'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Emission Factor Weights' : 'N.A.'}, inplace=True)
-    cdm_proj_estimated_df['registry_code'] = 'CDM'
-    
-    # Standardize CDM Methodology
-    cdm_proj_estimated_df = standardize_methodologies(cdm_proj_estimated_df, 'CDM')
+    cdm_proj_estimated_df['registry_code'] = 'CDM' 
+    cdm_proj_estimated_df = process_methodologies(cdm_proj_estimated_df, 'CDM')
     
     # Filter to only the required columns for the CDM-only dataset
     cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
@@ -144,6 +146,9 @@ def main():
     check_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     compare_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nUnified dataset contains {len(unified_df)} projects.")
+
+    print(cdm_proj_cdm_only_df.info())
+    print(unified_df.info())
 
     # Output the datasets
     cdm_proj_cdm_only_df.to_csv('output\\cdm_dataset.csv')

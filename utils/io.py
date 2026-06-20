@@ -383,3 +383,27 @@ def parse_args():
                         help='Create master Gold CSV from input CSV file path.')
     
     return parser.parse_args()
+
+def print_unique_methodologies(df, cols=['Methodology 1', 'Methodology 2', 'Methodology 3', 'Methodology 4']):
+    """
+    Prints/Returns a list of unique Methodology Names in the dataframe. Used for
+    Debugging.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Dataframe with Methodology columns.
+    registry_code : cols
+        List of Methodology Columns. Methodology 1, Methodology 2, Methodology 3,
+        Methodology 4 as default values.
+
+    Returns
+    -------
+    unique: list
+        A list of unique Methodology Names.
+    """
+    vals = df[cols].fillna('').astype(str).values.ravel()
+    uniques = {v.strip() for v in vals if v.strip()}
+    for name in sorted(uniques):
+        print(name)
+    return uniques

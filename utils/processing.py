@@ -112,3 +112,65 @@ def get_CDM_total_estimated_ERs(cdm_proj_df):
         .sum(axis=1)
     )
     return cdm_proj_df.drop(columns=year_cols)
+
+def process_methodologies(proj_df, registry_code):
+    """
+    Apply separate rules for Verra, Gold Standard and CDM to standardize the formatting for all
+    registries. Split rows with multiple methodologies into separate columns Methodology 1, 
+    Methodology 2, Methodology 3, and Methodology 4 (Verra/Gold). 
+
+    Parameters
+    ----------
+    proj_df : pandas.DataFrame
+        Dataframe with Methodology columns.
+    registry_code : str
+        Registry identifier.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A copy of `proj_df` with:
+        - Formatted Methodology 1, Methodology 2, Methodology 3, and Methodology 4
+        columns.
+    """
+    proj_df = proj_df.copy()
+
+    if registry_code == 'VCS':
+        # Format Original Column
+        proj_df['Methodology'] = proj_df['Methodology'].fillna('Not Provided')
+        proj_df['Methodology'] = proj_df['Methodology'].str.replace('.', '').str.strip()
+        proj_df['Methodology'] = proj_df['Methodology'] + ';'
+    
+        # Split methodologies by ';' and assign to separate columns
+        split_methods = proj_df['Methodology'].str.split(';')
+        split_methods = split_methods.apply(lambda x: [m.strip() for m in x if m.strip()])   
+        for i in range(1, 5):
+            proj_df[f'Methodology {i}'] = split_methods.apply(lambda x: x[i-1] if len(x) > i-1 else '')
+    
+    elif registry_code == 'GLD':
+        proj_df['Methodology'] = proj_df['Methodology'].fillna('')
+
+        # For methodologies starting with 'A', keep only the code (e.g., 'ACM0018', 'AM0022', etc.)
+        mask = proj_df['Methodology'].str.startswith('A')
+        proj_df.loc[mask, 'Methodology'] = proj_df.loc[mask, 'Methodology'].str.split(n=1).str[0]
+
+        # Format the Original Column
+        proj_df['Methodology'] = proj_df['Methodology'].replace({'': 'Not Provided;', 'nan': 'Not Provided'})
+        proj_df['Methodology'] = proj_df['Methodology'].replace({'Not provided': 'Not Provided'})
+        proj_df['Methodology'] = proj_df['Methodology'] + ';'
+    
+        # Split methodologies by ';' and assign to separate columns
+        split_methods = proj_df['Methodology'].str.split(';')
+        split_methods = split_methods.apply(lambda x: [m.strip() for m in x if m.strip()])   
+        for i in range(1, 5):
+            proj_df[f'Methodology {i}'] = split_methods.apply(lambda x: x[i-1] if len(x) > i-1 else '')
+
+    elif registry_code == 'CDM':
+        proj_df = proj_df.rename(columns={
+        'Methodology1': 'Methodology 1',
+        'Methodology2': 'Methodology 2',
+        'Methodology3': 'Methodology 3',
+        'Methodology4': 'Methodology 4'
+        })
+
+    return proj_df

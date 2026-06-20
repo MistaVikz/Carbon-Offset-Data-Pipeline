@@ -1,0 +1,452 @@
+{
+  "VM0001 Refrigerant Leak Detection": [
+    "VM0001"
+  ],
+  "VM0003 Methodology for Improved Forest Management through Extension of Rotation Age": [
+    "VM0003"
+  ],
+  "VM0005 Methodology for Conversion of Low-Productive Forest to High-Productive Forest": [
+    "VM0005"
+  ],
+  "VM0006 Methodology for Carbon Accounting for Mosaic and Landscape-scale REDD Projects": [
+    "VM0006"
+  ],
+  "VM0007 REDD+ Methodology Framework (REDD+MF)": [
+    "VM0007"
+  ],
+  "VM0008 Weatherization of Single Family and Multi-Family Buildings": [
+    "VM0008"
+  ],
+  "VM0010 Methodology for Improved Forest Management: Conversion from Logged to Protected Forest": [
+    "VM0010"
+  ],
+  "VM0011 Methodology for Calculating GHG Benefits from Preventing Planned Degradation": [
+    "VM0011"
+  ],
+  "VM0012 Improved Forest Management in Temperate and Boreal Forests (LtPF)": [
+    "VM0012"
+  ],
+  "VM0015 Methodology for Avoided Unplanned Deforestation": [
+    "VM0015"
+  ],
+  "VM0016 Destruction of Ozone-Depleting Substances and Hydrofluorocarbons": [
+    "VM0016"
+  ],
+  "VM0018 Energy Efficiency and Solid Waste Diversion Activities within a Sustainable Community": [
+    "VM0018"
+  ],
+  "VM0019 Fuel Switch from Gasoline to Ethanol in Flex-Fuel Vehicle Fleets": [
+    "VM0019"
+  ],
+  "VM0025 Campus Clean Energy and Energy Efficiency": [
+    "VM0025"
+  ],
+  "VM0032 Methodology for the Adoption of Sustainable Grasslands through Adjustment of Fire and Grazing": [
+    "VM0032"
+  ],
+  "VM0033 Methodology for Tidal Wetland and Seagrass Restoration": [
+    "VM0033"
+  ],
+  "VM0034 Canadian Forest Carbon Offset Methodology": [
+    "VM0034"
+  ],
+  "VM0035 Methodology for Improved Forest Management through Reduced Impact Logging": [
+    "VM0035"
+  ],
+  "VM0036 Methodology for Rewetting Drained Temperate Peatlands": [
+    "VM0036"
+  ],
+  "VM0038 Methodology for Electric Vehicle Charging Systems": [
+    "VM0038"
+  ],
+  "VM0039 Methodology for Use of Foam Stabilized Base and Emulsion Asphalt Mixtures in Pavement Application": [
+    "VM0039"
+  ],
+  "VM0041 Methodology for the Reduction of Enteric Methane Emissions from Ruminants through the Use of Feed Ingredients": [
+    "VM0041"
+  ],
+  "VM0042 Improved Agricultural Land Management": [
+    "VM0042"
+  ],
+  "VM0043 CO2 Utilization in Concrete Production": [
+    "VM0043"
+  ],
+  "VM0044 Biochar Utilization in Soil and Non-Soil Applications": [
+    "VM0044"
+  ],
+  "VM0045 Improved Forest Management Using Dynamic Matched Baselines from National Forest Inventories": [
+    "VM0045"
+  ],
+  "VM0046 Methodology for Reducing Food Loss and Waste": [
+    "VM0046"
+  ],
+  "VM0047 Afforestation, Reforestation, and Revegetation": [
+    "VM0047"
+  ],
+  "VM0048 Reducing Emissions from Deforestation and Forest Degradation": [
+    "VM0048"
+  ],
+  "VM0049 Carbon Capture and Storage": [
+    "VM0049"
+  ],
+  "VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves": [
+    "VM0050"
+  ],
+  "VM0051 Improved Management in Rice Production Systems": [
+    "VM0051"
+  ],
+  "VM0052 Accelerated Retirement of Coal-Fired Power Plants Using a Just Transition": [
+    "VM0052"
+  ],
+  "VM0053 Alternative Low-Carbon Fuels for Shipping": [
+    "VM0053"
+  ],
+  "VMR0004 Improved Efficiency of Fleet Vehicles": [
+    "VMR0004"
+  ],
+  "VMR0007 Revision to AMS-III.AJ.: Recovery and Recycling of Materials from Solid Wastes": [
+    "VMR0007"
+  ],
+  "VMR0008 Revision to AMS-III.BA.: Recovery and Recycling of Materials from E-waste": [
+    "VMR0008"
+  ],
+  "VMR0009 Revision to AM0057: Avoided Emissions from Biomass Wastes through Use as Feedstock in Pulp and Paper, Cardboard, Fiberboard or Bio-oil Production": [
+    "VMR0009"
+  ],
+  "VMR0010 Electricity Supply for Ships": [
+    "VMR0010"
+  ],
+  "VMR0012 Production of Geopolymer Cement": [
+    "VMR0012"
+  ],
+  "VMR0013 Revision to AMS-III.BM.: Lightweight Two- and Three-Wheeled Personal Transportation": [
+    "VMR0013"
+  ],
+  "VMR0014 Electric and Hybrid Vehicles and Mobile Machinery (AMS-III.C. Revision)": [
+    "VMR0014"
+  ],
+  "VMR0015 Revision to AMS-III.AV.: Low greenhouse gas emitting safe drinking water production systems": [
+    "VMR0015"
+  ],
+  "VMR0016 Flaring or Use of Landfill Gas (ACM0001 Revision)": [
+    "VMR0016"
+  ],
+  "VMR0017 Grid-connected electricity generation from renewable sources (ACM0002 Revision)": [
+    "VMR0017"
+  ],
+  "VMR0018 Methane Avoidance Through Separation of Solids from Wastewater or Manure Treatment Systems (AMS-III.Y. Revision)": [
+    "VMR0018"
+  ],
+  "VM0004": [],
+  "VM0009": [],
+  "VM0013": [],
+  "VM0014": [],
+  "VM0021": [],
+  "VM0022": [],
+  "VM0023": [],
+  "VM0024": [],
+  "VM0026": [],
+  "VM0037": [],
+  "VM0040": [],
+  "VMR0001": [],
+  "VMR0002": [],
+  "VMR0003": [],
+  "VMR0006": [],
+  "Gold Standard Green Ammonia Production": [],
+  "Gold Standard Soil Organic Carbon Framework Methodology": [
+    "Soil Organic Carbon Framework Methodology"
+  ],
+  "Gold Standard Soil Organic Carbon activity module for zero tillage": [],
+  "Gold Standard Soil Organic Carbon Activity Module – Biostimulants for soil revitalisation": [],
+  "Gold Standard Soil Organic Carbon Activity Module for enhancing carbon stocks in managed Pasture": [],
+  "Gold Standard Soil Organic Carbon Activity Module: Increasing Soil Carbon Through Improved Tillage Practices": [],
+  "Gold Standard Soil Organic Carbon Activity Module for Application of organic soil improvers from pulp and paper mill sludges": [],
+  "Gold Standard Soil Organic Carbon Activity Module for Cover crops": [],
+  "Gold Standard Agriculture Methodology for Increasing Soil Carbon Through Improved Tillage Practices": [],
+  "Gold Standard Afforestation – reforestation GHG emissions reductions & sequestration methodology": [
+    "Afforestation/Reforestation"
+  ],
+  "Gold Standard Microbial Carbon di-oxide Mineralisation": [],
+  "Gold Standard Methane Emission Reduction by adjusted Water management practice in rice cultivation": [
+    "Methane Emission Reduction By Adjusted Water Management Practice In Rice Cultivation"
+  ],
+  "Gold Standard Sustainable Management of Mangroves": [],
+  "Gold Standard In-situ Capture and Conversion of Cattle Enteric Methane": [],
+  "Gold Standard Methane emissions reduction from enteric fermentation in beef cattle through application of feed supplements": [],
+  "Gold Standard Reducing Methane Emissions from Enteric Fermentation in Dairy Cows through Application of Feed Supplements": [],
+  "Gold Standard Gold Standard Agriculture Smallholder Dairy Methodology": [],
+  "Gold Standard Water and erosion impact assessment of sustainable agricultural land management projects": [],
+  "Gold Standard Emission reductions from Safe Drinking Water Supply": [
+    "GS Methodology for emission reductions from safe drinking water supply"
+  ],
+  "Gold Standard Animal Manure Management and Biogas Use for Thermal Energy Generation (AWMS)": [
+    "Methodology for animal waste management and biogas application"
+  ],
+  "Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC)": [
+    "GS TPDDTEC V4.0: REDUCED EMISSIONS FROM COOKING AND HEATING – TECHNOLOGIES AND PRACTICES TO DISPLACE DECENTRALIZED THERMAL ENERGY CONSUMPTION",
+    "GS TPDDTEC v 1.",
+    "GS TPDDTEC v 2.",
+    "GS TPDDTEC v 3.",
+    "GS TPDDTEC v3.1"
+  ],
+  "Gold Standard Energy-saving through Elevator Regenerative Power System Implementation": [],
+  "Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC)": [
+    "GS MS Simplified Methodology for Efficient Cookstoves v1.",
+    "GS MS Simplified Methodology for Efficient Cookstoves v1.1",
+    "The Gold Standard Simplified Methodology for Clean and Efficient Cookstoves, Version 3.0"
+  ],
+  "Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires": [
+    "GS Alternative Ignition Coal Fires v1."
+  ],
+  "Gold Standard Thermal energy from plant oil for the user of cooking stoves": [],
+  "Gold Standard Methodology to Estimate and Verify ADALYs from Cleaner Household Air": [],
+  "Gold Standard Metered & measured energy cooking devices (MECD)": [
+    "GS PAA: Methodology for Metered & Measured Energy Cooking Devices, V2.0",
+    "Methodology for Metered & Measured Energy Cooking Devices"
+  ],
+  "Gold Standard Quantification of climate related emission reductions of Black Carbon and Co-emitted Species due to the replacement of less efficient cookstoves with improved efficiency cookstoves": [],
+  "Gold Standard Indicative Program, Baseline and Monitoring Methodology for the Large Scale Supply & Distribution of Efficient Light Bulbs, Shower Heads and Other Water Saving Devices to Households": [],
+  "Gold Standard Methodology for Thermal performance improvements in low-income dwelling structures": [],
+  "Gold Standard Emission reduction by shore-side or off-shore electricity supply system": [],
+  "Gold Standard Ecologically Sound Fuel Switch to Biomass with Reduced Energy Requirement": [
+    "GS SS Ecologically Sound Fuel Switch to Biomass v1."
+  ],
+  "Gold Standard Fuel switch from fossil fuels to biomass residues in boilers for heat generation": [],
+  "Gold Standard Suppressed Demand Methodology Micro-scale Electrification and Energization": [
+    "GS MS Microscale Electrification and Energization v1."
+  ],
+  "Gold Standard Suppressed Demand Small-scale Methodology for Low GHG Food Preservation": [],
+  "Gold Standard Suppressed Demand Small-­scale Methodology for Energy Use for the Processing of Agricultural Products": [],
+  "Gold Standard Methodology for Biodiesel from waste oil/fat from biogenic origin for use as fuel": [
+    "GS Biodiesel from Waste Oil or Fat v1."
+  ],
+  "Gold Standard Article 6.4 /PACM Methodologies": [],
+  "Gold Standard Recovery and recycling of materials from solid wastes": [],
+  "Gold Standard Reduction in methane emissions from landfills through decentralised organic waste processing": [],
+  "Gold Standard Methodology for collection of sargassum and other macroalgae to avoid emissions from decomposition and to use for beneficial products": [],
+  "Gold Standard GHG Emission Reductions from Manure Management Systems and Municipal Solid Waste": [
+    "GS Revised Methodology for Manure Management Systems and MSW v1."
+  ],
+  "Gold Standard Methodology for Reducing Methane Emissions from Combustion Engine Exhaust": [],
+  "Gold Standard Methodology for Marine Fuels and Biobunkers": [],
+  "Gold Standard Retrofit Energy Efficiency Measures in Shipping": [
+    "GS Retrofit Energy Efficiency Measures in Shipping v1.",
+    "GS Retrofit Energy Efficiency Measures in Shipping v2"
+  ],
+  "Gold Standard Reducing Vessel Emissions Through the Use of Advanced Hull Coatings": [],
+  "Gold Standard Installation of Flow Improvement Equipment on Ships": [],
+  "Gold Standard Methodology for Accreditation of Water Benefit Certificates": [
+    "GS Water Access and WASH Methodology v1."
+  ],
+  "Gold Standard Sustainable Sugarcane Initiative Methodology to Quantify Water Efficiency Outcomes from Seedling Nurseries": [],
+  "Gold Standard Biomass Fermentation with Carbon Capture and Geologic storage": [],
+  "Gold Standard Carbon Mineralisation using Reactive Mineral Waste": [],
+  "Gold Standard Two and three wheeled personal transportation": [],
+  "Gold Standard Joined-Up Sustainable Transition (JUST) – Fossil Fuel Generators": [],
+  "Gold Standard Joined-up Sustainable Transition (JUST) – Coal Decommissioning": [],
+  "ACM0001": [],
+  "ACM0002": [],
+  "ACM0003": [],
+  "ACM0004": [],
+  "ACM0005": [],
+  "ACM0006": [],
+  "ACM0007": [],
+  "ACM0008": [],
+  "ACM0009": [],
+  "ACM0010": [],
+  "ACM0011": [],
+  "ACM0012": [],
+  "ACM0013": [],
+  "ACM0014": [],
+  "ACM0015": [],
+  "ACM0016": [],
+  "ACM0017": [],
+  "ACM0018": [],
+  "ACM0019": [],
+  "ACM0021": [],
+  "ACM0022": [],
+  "ACM0025": [],
+  "ACM0026": [],
+  "AM0001": [],
+  "AM0002": [],
+  "AM0003": [],
+  "AM0004": [],
+  "AM0005": [],
+  "AM0006": [],
+  "AM0008": [],
+  "AM0009": [],
+  "AM0010": [],
+  "AM0011": [],
+  "AM0012": [],
+  "AM0013": [],
+  "AM0014": [],
+  "AM0015": [],
+  "AM0016": [],
+  "AM0018": [],
+  "AM0019": [],
+  "AM0021": [],
+  "AM0022": [],
+  "AM0023": [],
+  "AM0024": [],
+  "AM0025": [],
+  "AM0026": [],
+  "AM0027": [],
+  "AM0028": [],
+  "AM0029": [],
+  "AM0030": [],
+  "AM0031": [],
+  "AM0032": [],
+  "AM0033": [],
+  "AM0034": [],
+  "AM0035": [],
+  "AM0036": [],
+  "AM0037": [],
+  "AM0038": [],
+  "AM0039": [],
+  "AM0040": [],
+  "AM0041": [],
+  "AM0042": [],
+  "AM0043": [],
+  "AM0044": [],
+  "AM0045": [],
+  "AM0046": [],
+  "AM0047": [],
+  "AM0048": [],
+  "AM0049": [],
+  "AM0050": [],
+  "AM0051": [],
+  "AM0052": [],
+  "AM0053": [],
+  "AM0055": [],
+  "AM0056": [],
+  "AM0057": [],
+  "AM0058": [],
+  "AM0059": [],
+  "AM0061": [],
+  "AM0062": [],
+  "AM0063": [],
+  "AM0064": [],
+  "AM0065": [],
+  "AM0066": [],
+  "AM0069": [],
+  "AM0070": [],
+  "AM0072": [],
+  "AM0073": [],
+  "AM0074": [],
+  "AM0077": [],
+  "AM0078": [],
+  "AM0079": [],
+  "AM0080": [],
+  "AM0082": [],
+  "AM0083": [],
+  "AM0084": [],
+  "AM0086": [],
+  "AM0088": [],
+  "AM0090": [],
+  "AM0092": [],
+  "AM0097": [],
+  "AM0099": [],
+  "AM0102": [],
+  "AM0103": [],
+  "AM0104": [],
+  "AM0107": [],
+  "AM0109": [],
+  "AM0110": [],
+  "AM0120": [],
+  "AM0123": [],
+  "AMS-I.A.": ["AMS-IA"],
+  "AMS-I.B.": ["AMS-IB"],
+  "AMS-I.C.": ["AMS-IC"],
+  "AMS-I.D": ["AMS-I.D.", "AMS-ID"],
+  "AMS-I.E.": ["AMS-IE"],
+  "AMS-I.F.": ["AMS-IF"],
+  "AMS-I.J.": ["AMS-IJ"],
+  "AMS-I.L.": ["AMS-IL"],
+  "AMS-II.A.": ["AMS-IIA"],
+  "AMS-II.B.": ["AMS-IIB"],
+  "AMS-II.C.": ["AMS-IIC"],
+  "AMS-II.D.": ["AMS-IID"],
+  "AMS-II.E.": ["AMS-IIE"],
+  "AMS-II.F.": ["AMS-IIF"],
+  "AMS-II.G.": ["AMS-IIG"],
+  "AMS-II.H.": ["AMS-IIH"],
+  "AMS-II.J.": ["AMS-IIJ"],
+  "AMS-II.K.": [],
+  "AMS-II.L.": ["AMS-IIL", "AMS-II.L"],
+  "AMS-II.M.": [],
+  "AMS-II.Q.": [],
+  "AMS-II.R.": [],
+  "AMS-II.S.": ["AMS-IIS"],
+  "AMS-III.AA.": [],
+  "AMS-III.AB.": [],
+  "AMS-III.AD.": [],
+  "AMS-III.AF.": ["AMS-IIIAF"],
+  "AMS-III.AG.": [],
+  "AMS-III.AH.": [],
+  "AMS-III.AJ.": ["AMS-IIIAJ"],
+  "AMS-III.AK.": ["AMS-IIIAK"],
+  "AMS-III.AL.": [],
+  "AMS-III.AM.": [],
+  "AMS-III.AN.": [],
+  "AMS-III.AO.": ["AMS-IIIAO"],
+  "AMS-III.AP.": [],
+  "AMS-III.AQ.": ["AMS-IIIAQ"],
+  "AMS-III.AR.": ["AMS-IIIAR"],
+  "AMS-III.AS.": ["AMS-IIIAS"],
+  "AMS-III.AT.": [],
+  "AMS-III.AU.": ["AMS-IIIAU"],
+  "AMS-III.AV.": ["AMS-IIIAV"],
+  "AMS-III.AW.": [],
+  "AMS-III.AY.": [],
+  "AMS-III.B.": ["AMS-IIIB"],
+  "AMS-III.BA.": ["AMS-IIIBA", "AMS-III.BA"],
+  "AMS-III.BB.": [],
+  "AMS-III.BC.": ["AMS-IIIBC"],
+  "AMS-III.BD.": [],
+  "AMS-III.BE.": [],
+  "AMS-III.BF.": [],
+  "AMS-III.BG.": ["AMS-IIIBG", "AMS-III.BG"],
+  "AMS-III.BI.": [],
+  "AMS-III.BL.": [],
+  "AMS-III.BM.": ["AMS-IIIBM", "AMS-III.BM:"],
+  "AMS-III.C.": ["AMS-IIIC"],
+  "AMS-III.D.": ["AMS-IIID"],
+  "AMS-III.E.": ["AMS-IIIE"],
+  "AMS-III.F.": ["AMS-IIIF"],
+  "AMS-III.G.": ["AMS-IIIG"],
+  "AMS-III.H.": ["AMS-IIIH"],
+  "AMS-III.I.": ["AMS-IIII"],
+  "AMS-III.J.": ["AMS-IIIJ"],
+  "AMS-III.L.": ["AMS-IIIL"],
+  "AMS-III.K.": [],
+  "AMS-III.M.": ["AMS-IIIM"],
+  "AMS-III.N.": [],
+  "AMS-III.P": [],
+  "AMS-III.Q.": ["AMS-IIIQ"],
+  "AMS-III.R.": ["AMS-IIIR"],
+  "AMS-III.S": ["AMS-IIIS"],
+  "AMS-III.T.": [],
+  "AMS-III.U.": [],
+  "AMS-III.X.": [],
+  "AMS-III.Y.": ["AMS-IIIY"],
+  "AMS-III.Z.": ["AMS-IIIZ"],
+  "AR-ACM0001": [],
+  "AR-ACM0002": [],
+  "AR-ACM0003": [],
+  "AR-AM0001": [],
+  "AR-AM0002": [],
+  "AR-AM0003": [],
+  "AR-AM0004": [],
+  "AR-AM0005": [],
+  "AR-AM0007": [],
+  "AR-AM0009": [],
+  "AR-AM0010": [],
+  "AR-AM0014": [],
+  "AR-AMS0001": [],
+  "AR-AMS0002": [],
+  "AR-AMS0003": [],
+  "AR-AMS0004": [],
+  "AR-AMS0005": [],
+  "AR-AMS0006": [],
+  "AR-AMS0007": []
+}
