@@ -129,8 +129,11 @@ def main():
 
     # Validate the CDM Only Dataset
     print("CDM - ONLY")
-    check_country_names(cdm_proj_cdm_only_df, 'Country')
-    check_country_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
+    check_canonical_names(cdm_proj_cdm_only_df, 'Country')
+    check_canonical_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
+    for col_name in meth_cols:
+        check_canonical_names(cdm_proj_cdm_only_df, col_name, 'Methodology')
+
     compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nCDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.\n")
@@ -152,13 +155,13 @@ def main():
     
     # Validate the unified dataset.
     print("UNIFIED")
-    check_country_names(unified_df, 'Country')
+    check_canonical_names(unified_df, 'Country')
+    for col_name in meth_cols:
+        check_canonical_names(unified_df, col_name, 'Methodology')
+    
     check_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     compare_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
     print(f"\nUnified dataset contains {len(unified_df)} projects.")
-
-    print(cdm_proj_cdm_only_df.info())
-    print(unified_df.info())
 
     # Output the datasets
     cdm_proj_cdm_only_df.to_csv('output\\cdm_dataset.csv')

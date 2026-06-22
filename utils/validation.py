@@ -80,47 +80,54 @@ def check_estimated_and_actual(df, estimated_col, actual_col):
         print(f"WARNING: {len(negative_actual)} project(s) has/have negative Actual Emision Reductions.")
         print(negative_actual[['Project ID', 'Project Name', 'Estimated Emission Reductions', 'Actual Emission Reductions']])
 
-def check_country_names(df, country_col='Country'):
+def check_canonical_names(df, col, type='Country'):
     """
-    Check that all countries in the dataset match ISO3166 country names.
+    Check that all country/methodologies in the dataset match ISO3166 country names or
+    canonical methodology names.
     
     Parameters
-    - df (pd.DataFrame): DataFrame containing project data with a country column.
-    - country_col (str): Column name containing country names (default 'Country').
+    - df (pd.DataFrame): DataFrame containing project data with a country/methodology column.
+    - col (str): Column name containing country/methodology names.
+    - type (str): Contains 'Country' to indidate that country naming rules apply. For any other
+        value Methodology naming rules apply (default = Country).
     
     Behavior
-    - Validates that all country values are recognized ISO3166 names or aliases
-      using the COUNTRY_LOOKUP from standards.py.
-    - If any invalid countries are found, prints a warning count and displays those rows
-      with all columns plus an 'Invalid Country' column.
+    - Validates that all values are recognized canonical names or aliases
+      using the COUNTRY_LOOKUP/METHODOLOGY_LOOKUP from standards.py.
+    - If any invalid names are found, prints a warning count and displays those rows
+      with all columns plus an 'Invalid Country/Methodology' column.
     - 'No/Multiple Additional Countries' values are valid in the 'Other Countries Involed' column
     - Returns None.
     """
-
     if not isinstance(df, pd.DataFrame):
         raise TypeError("`df` must be a pandas DataFrame")
-    if country_col not in df.columns:
-        raise ValueError(f"Column '{country_col}' not found in dataframe")
+    if col not in df.columns:
+        raise ValueError(f"Column '{col}' not found in dataframe")
     
-    def _is_valid_country(country):
-        if pd.isna(country):
+    def _is_valid_name(name):
+        if pd.isna(name):
             return False
         
         # Allow additional values for 'Other Countries Involved'
-        if country_col == 'Other Countries Involved':
-            if country == 'No Additional Countries' or country == 'Multiple Additional Countries':
-                return True
+        if type == 'Country':
+            if col == 'Other Countries Involved':
+                if name == 'No Additional Countries' or name == 'Multiple Additional Countries':
+                    return True
 
-        s = str(country).strip()
+        s = str(name).strip()
         if s == '':
             return False
-        # Check if normalized country is in the lookup (handles canonical names and aliases)
-        return normalize_label(s) in COUNTRY_LOOKUP
+        
+        # Check if normalized name is in the lookup (handles canonical names and aliases)
+        if type == 'Country':
+            return normalize_label(s) in COUNTRY_LOOKUP
+        else: 
+            return normalize_label(s) in METHODOLOGY_LOOKUP
     
-    mask_invalid = ~df[country_col].apply(_is_valid_country)
+    mask_invalid = ~df[col].apply(_is_valid_name)
     out = df.loc[mask_invalid].copy()
     if not out.empty:
-        out['Invalid Country'] = out[country_col]
-        print(f'WARNING: {len(out)} project(s) has/have invalid {country_col} values. Update ISO3166_country_mapping.json or correct the country names.')
+        out[f'Invalid {type}'] = out[col]
+        print(f'WARNING: {len(out)} project(s) has/have invalid {col} values. Update {type} mapping JSON or correct the {type} names.')
         print(out)
     return
