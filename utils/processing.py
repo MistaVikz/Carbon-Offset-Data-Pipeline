@@ -154,7 +154,7 @@ def process_methodologies(proj_df, registry_code):
 
         # Format the Original Column
         proj_df['Methodology'] = proj_df['Methodology'].replace({'nan': 'None'})
-        proj_df['Methodology'] = proj_df['Methodology'].replace({'Not provided': 'Unkown'})
+        proj_df['Methodology'] = proj_df['Methodology'].replace({'Not provided': 'Not Provided'})
         proj_df['Methodology'] = proj_df['Methodology'] + ';'
     
         # Split methodologies by ';' and assign to separate columns
@@ -162,6 +162,8 @@ def process_methodologies(proj_df, registry_code):
         split_methods = split_methods.apply(lambda x: [m.strip() for m in x if m.strip()])   
         for i in range(1, 5):
             proj_df[f'Methodology {i}'] = split_methods.apply(lambda x: x[i-1] if len(x) > i-1 else 'None')
+
+        # Drop projects with no methodology.
 
     elif registry_code == 'CDM':
         proj_df = proj_df.rename(columns={

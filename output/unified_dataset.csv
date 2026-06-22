@@ -1,16 +1,16 @@
 ,Project ID,Project Name,Country,Methodology 1,Methodology 2,Methodology 3,Methodology 4,Project Size,Estimated Emission Reductions,Actual Emission Reductions
 0,VCS_4657,Energy Efficient Stoves Program (EESP) - CER Conversion,Ethiopia,AMS-II.G.,None,None,None,UNKNOWN,139588.0,48426.0
-1,VCS_4157,Installation of high efficiency wood burning cookstoves in Tanzania - Project 3,Tanzania,VMR0006,None,None,None,UNKNOWN,856017.0,129583.0
+1,VCS_4157,Installation of high efficiency wood burning cookstoves in Tanzania - Project 3,Tanzania,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,856017.0,129583.0
 2,VCS_3940,Lianzhou Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,82464.0,24166.0
 3,VCS_3937,"Improved Cook Stove Project 1, Nkhata Bay District, Malawi - CER Conversion",Malawi,AMS-II.G.,None,None,None,UNKNOWN,32672.0,500.0
 4,VCS_3898,Guizhou Jinsha CMM Power Generation Project,China,ACM0008,None,None,None,UNKNOWN,1008410.0,432737.0
 5,VCS_3901,Anhua LFG Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,194784.0,104950.0
 6,VCS_3889,Household Biogas Project in Madhya Pradesh & Jharkhand,India,AMS-I.E.,None,None,None,UNKNOWN,60308.0,30821.0
-7,VCS_3820,"Distribution of Improved Cookstove in Quang Nam Province, Vietnam",Viet Nam,VMR0006,None,None,None,UNKNOWN,161687.0,19932.0
-8,VCS_3814,Chestnut Carbon Conservation Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age,None,None,None,UNKNOWN,442624.0,1864.0
+7,VCS_3820,"Distribution of Improved Cookstove in Quang Nam Province, Vietnam",Viet Nam,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,161687.0,19932.0
+8,VCS_3814,Chestnut Carbon Conservation Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age (INACTIVE),None,None,None,UNKNOWN,442624.0,1864.0
 9,VCS_3788,Foumbouni-Mitsamiouli solar farm,Comoros,AMS-I.D,None,None,None,UNKNOWN,19020.0,4702.0
 10,VCS_3767,MicroEnergy Credits – Microfinance for Solar Lamps in Kenya,Kenya,AMS-III.AR.,None,None,None,UNKNOWN,114914.0,56007.0
-11,VCS_3769,SMG - Cookstove Program 1,India,VMR0006,None,None,None,UNKNOWN,166372.0,47369.0
+11,VCS_3769,SMG - Cookstove Program 1,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,166372.0,47369.0
 12,VCS_3696,Chongqing Tongliang LFG Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,101458.0,124945.0
 13,VCS_3688,Shandong Xiantan Composting Project,China,AMS-III.D.,AMS-III.F.,None,None,UNKNOWN,110586.0,84886.0
 14,VCS_3662,15 MW Nam Hinboun Downstream Hydropower Project,Lao People's Democratic Republic,AMS-I.D,None,None,None,UNKNOWN,159480.0,57284.0
@@ -26,16 +26,16 @@
 24,VCS_3350,THE ARR HORIZONTE CARBON PROJECT,Brazil,AR-ACM0003,None,None,None,UNKNOWN,173990.0,279168.0
 25,VCS_3298,Blitta – Togo Solar Power Plant,Togo,ACM0002,None,None,None,UNKNOWN,122652.0,70969.0
 26,VCS_3279,IDCOL Improved Cook Stove Program - CER Conversion,Bangladesh,AMS-II.G.,None,None,None,UNKNOWN,1278597.0,456395.0
-27,VCS_3262,Livelihoods Chitetezo Mbaula Project,Malawi,VMR0006,None,None,None,UNKNOWN,262431.0,100959.0
+27,VCS_3262,Livelihoods Chitetezo Mbaula Project,Malawi,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,262431.0,100959.0
 28,VCS_3245,DISTRIBUTION OF HOUSEHOLD BIOGAS IN RURAL AREAS OF INDIA-2,India,AMS-I.E.,None,None,None,UNKNOWN,70694.0,52014.0
 29,VCS_3207,CO2 UTILIZATION IN CONCRETE - Removals & Reductions - CarbonCure - U.S. Project #1,United States of America,VM0043 CO2 Utilization in Concrete Production,None,None,None,UNKNOWN,128108.0,36270.0
-30,VCS_3158,Distribution of energy efficient cookstoves in India-2,India,VMR0006,None,None,None,UNKNOWN,402304.0,243104.0
-31,VCS_3160,Distribution of energy efficient cookstoves in India-4,India,VMR0006,None,None,None,UNKNOWN,340634.0,99737.0
+30,VCS_3158,Distribution of energy efficient cookstoves in India-2,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,402304.0,243104.0
+31,VCS_3160,Distribution of energy efficient cookstoves in India-4,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,340634.0,99737.0
 32,VCS_3161,Displacement of firewood by household biogas stoves in India,India,AMS-I.E.,None,None,None,UNKNOWN,205636.0,127034.0
 33,VCS_3154,"Household Biogas Project in Uttarakhand, India",India,AMS-I.E.,None,None,None,UNKNOWN,161019.0,80947.0
 34,VCS_3128,Luyi Biogas Recovery and Utilization Project,China,ACM0010,None,None,None,UNKNOWN,228849.0,133676.0
 35,VCS_3099,Spectra Solar Park Ltd _35 MW AC Grid-Tied by Spectra Solar Park Limited,Bangladesh,ACM0002,None,None,None,UNKNOWN,74084.0,33223.0
-36,VCS_3109,Biomass Cookstove Project in Jharkhand,India,VMR0006,None,None,None,UNKNOWN,41871.0,7659.0
+36,VCS_3109,Biomass Cookstove Project in Jharkhand,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,41871.0,7659.0
 37,VCS_3094,REDUCING CARBON EMISSIONS ON I-64 CAPACITY IMPROVEMENT PROJECT WITH THE USE OF FSB AND EMULSION ASPHALT MIXTURES,United States of America,VM0039 Methodology for Use of Foam Stabilized Base and Emulsion Asphalt Mixtures in Pavement Application,None,None,None,UNKNOWN,117536.0,17790.0
 38,VCS_3063,Pengmai Composting Project in Fangcheng County,China,AMS-III.D.,AMS-III.F.,None,None,UNKNOWN,172275.0,95492.0
 39,VCS_3059,"Replacement of ICLs with LED lamps in Gujarat, India",India,AMS-II.C.,None,None,None,UNKNOWN,107598.0,40938.0
@@ -50,39 +50,39 @@
 48,VCS_2998,Brascarbon Methane Recovery Project BCA-BRA-16,Brazil,AMS-III.D.,None,None,None,UNKNOWN,55356.0,55246.0
 49,VCS_2992,HG Afforestation Through High Quality Timber Over Degraded Grasslands,Uruguay,AR-ACM0003,None,None,None,UNKNOWN,2056.0,703.0
 50,VCS_2982,BioLite Improved Cook stoves Programme - CER Conversion,Uganda,AMS-II.G.,None,None,None,UNKNOWN,11005.0,116570.0
-51,VCS_2981,Installation of high efficiency wood burning cookstoves in Angola – Project 2,Angola,VMR0006,None,None,None,UNKNOWN,5135576.0,55645.0
+51,VCS_2981,Installation of high efficiency wood burning cookstoves in Angola – Project 2,Angola,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,5135576.0,55645.0
 52,VCS_2965,Niger Acacia Senegal Plantation Project - CER Conversion,Niger,AR-ACM0003,None,None,None,UNKNOWN,24957.0,38769.0
 53,VCS_2957,Wuhan Chenjiachong Landfill Gas Power Generation Project Phase II,China,ACM0001,None,None,None,UNKNOWN,502446.0,273466.0
 54,VCS_2951,Liaoning Xinwang Swine Farm Manure Management System GHG Mitigation Project,China,ACM0010,None,None,None,UNKNOWN,605550.0,308498.0
 55,VCS_2938,Yunshui Wastewater Treatment Plant Project in Guangdong Province,China,AM0080,None,None,None,UNKNOWN,249126.0,110002.0
-56,VCS_2942,Clean Cooking - Cook Stove for Rural India,India,VMR0006,None,None,None,UNKNOWN,50552.0,148546.0
-57,VCS_2944,Clean Cookstoves for Rural India,India,VMR0006,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,UNKNOWN,714414.0,164300.0
-58,VCS_2939,Global Cookstove Program (EKI Phase 01),India,VMR0006,None,None,None,UNKNOWN,380876.0,62977.0
+56,VCS_2942,Clean Cooking - Cook Stove for Rural India,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,50552.0,148546.0
+57,VCS_2944,Clean Cookstoves for Rural India,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,UNKNOWN,714414.0,164300.0
+58,VCS_2939,Global Cookstove Program (EKI Phase 01),India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,380876.0,62977.0
 59,VCS_2930,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,Bangladesh,AM0023,None,None,None,UNKNOWN,6578974.0,8273584.0
-60,VCS_2923,Grouped Projects for Viet Nam Cookstove Program.,Viet Nam,VMR0006,None,None,None,UNKNOWN,61065.0,1020903.0
+60,VCS_2923,Grouped Projects for Viet Nam Cookstove Program.,Viet Nam,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,61065.0,1020903.0
 61,VCS_2925,Grouped Projects for Cambodia Improved Cookstove,Cambodia,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,None,UNKNOWN,14344426.0,608477.0
 62,VCS_2917,Adjusted Water Management in Rice Cultivation in Shengzhou City,China,AMS-III.AU.,None,None,None,UNKNOWN,59727.0,60000.0
 63,VCS_2899,Adjusted Water Management in Rice Cultivation In Dawu County,China,AMS-III.AU.,None,None,None,UNKNOWN,239692.0,240000.0
 64,VCS_2902,Adjusted Water Management in Rice Cultivation In Huangmei County,China,AMS-III.AU.,None,None,None,UNKNOWN,239604.0,240000.0
 65,VCS_2903,Adjusted Water Management in Rice Cultivation In Xiaochang County,China,AMS-III.AU.,None,None,None,UNKNOWN,239664.0,240000.0
-66,VCS_2908,Biomass Cookstove Project in Meghalaya,India,VMR0006,None,None,None,UNKNOWN,44163.0,18067.0
+66,VCS_2908,Biomass Cookstove Project in Meghalaya,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,44163.0,18067.0
 67,VCS_2909,Adjusted Water Management in Rice Cultivation In Yingcheng City,China,AMS-III.AU.,None,None,None,UNKNOWN,239608.0,240000.0
 68,VCS_2910,Wude Adjusted Water Management in Rice Cultivation,China,AMS-III.AU.,None,None,None,UNKNOWN,59751.0,60000.0
 69,VCS_2911,Adjusted Water Management in Rice Cultivation in Haiyan County,China,AMS-III.AU.,None,None,None,UNKNOWN,59882.0,60000.0
 70,VCS_2912,Adjusted Water Management in Rice Cultivation in Tongxiang City,China,AMS-III.AU.,None,None,None,UNKNOWN,59863.0,60000.0
 71,VCS_2913,Guizhou Yingxing CMM Power Generation Project,China,ACM0008,None,None,None,UNKNOWN,208084.0,134683.0
 72,VCS_2897,Forest Conservation in Boumba-et-Ngoko,Cameroon,VM0010 Methodology for Improved Forest Management: Conversion from Logged to Protected Forest,None,None,None,UNKNOWN,724190.0,177835.0
-73,VCS_2886,Installation of high efficiency wood burning cookstoves in Malawi – Project 3,Malawi,VMR0006,None,None,None,UNKNOWN,2941626.0,73560.0
-74,VCS_2888,Installation of high efficiency wood burning cookstoves in Mozambique – Project 2,Mozambique,VMR0006,None,None,None,UNKNOWN,1722330.0,49437.0
-75,VCS_2890,Installation of high efficiency wood burning cookstoves in Zimbabwe - Project 2,Zimbabwe,VMR0006,None,None,None,UNKNOWN,1737100.0,197050.0
+73,VCS_2886,Installation of high efficiency wood burning cookstoves in Malawi – Project 3,Malawi,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,2941626.0,73560.0
+74,VCS_2888,Installation of high efficiency wood burning cookstoves in Mozambique – Project 2,Mozambique,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,1722330.0,49437.0
+75,VCS_2890,Installation of high efficiency wood burning cookstoves in Zimbabwe - Project 2,Zimbabwe,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,1737100.0,197050.0
 76,VCS_2880,"BINZHOU TOPIGS NORSVIN BREEDING SWINE CO., LTD. BINHAI SWINE FARM BIOGAS RECOVERY AND UTILIZATION PROJECT",China,AMS-III.D.,None,None,None,UNKNOWN,47180.0,20326.0
 77,VCS_2879,Henan Lehuijia Composting Project,China,AMS-III.D.,AMS-III.F.,None,None,UNKNOWN,115137.0,60125.0
 78,VCS_2864,Xuancheng Composting Project Phase I,China,AMS-III.D.,AMS-III.F.,None,None,UNKNOWN,148638.0,81094.0
 79,VCS_2866,Xuan Cheng Composting Project Phase II,China,AMS-III.D.,AMS-III.F.,None,None,UNKNOWN,206112.0,123401.0
 80,VCS_2846,FSW AMMS GHG Mitigation Project in Nanyang City,China,ACM0010,None,None,None,UNKNOWN,1094250.0,597264.0
 81,VCS_2848,Taikefeng Composting Project in Gaomi City,China,AMS-III.D.,AMS-III.F.,None,None,UNKNOWN,147753.0,92691.0
-82,VCS_2852,Xinjiang Burqin Improved Grassland Management Project,China,VM0026,None,None,None,UNKNOWN,1359235.0,678291.0
-83,VCS_2835,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – Africa – Solar Lamps & Efficient cook stoves – 10341 –CPA - 0001,Kenya,AMS-II.G.,VMR0006,AMS-III.AR.,None,UNKNOWN,552000.0,110457.0
+82,VCS_2852,Xinjiang Burqin Improved Grassland Management Project,China,VM0026 Methodology for Sustainable Grassland Management (INACTIVE),None,None,None,UNKNOWN,1359235.0,678291.0
+83,VCS_2835,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – Africa – Solar Lamps & Efficient cook stoves – 10341 –CPA - 0001,Kenya,AMS-II.G.,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,AMS-III.AR.,None,UNKNOWN,552000.0,110457.0
 84,VCS_2836,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – Africa – Solar Lamps & Efficient cook stoves – 10341 –CPA - 0002,Kenya,AMS-II.G.,AMS-III.AR.,None,None,UNKNOWN,260110.0,188724.0
 85,VCS_2837,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – Africa – Solar Lamps & Efficient cook stoves – 10341 –CPA - 0003,Kenya,AMS-II.G.,AMS-III.AR.,None,None,UNKNOWN,363656.0,148258.0
 86,VCS_2838,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – Africa – Solar Lamps & Efficient cook stoves – 10341 –CPA - 0004,Uganda,AMS-II.G.,AMS-III.AR.,None,None,UNKNOWN,262150.0,44951.0
@@ -96,8 +96,8 @@
 94,VCS_2768,Associated Gas Recovery and Utilization at Khamilah oil field area at Block-27 in Wilayat lbri of the Sultanate of Oman,Oman,AM0009,None,None,None,UNKNOWN,1895304.0,1103504.0
 95,VCS_2762,Guizhou Xintian CMM Power Generation Project,China,ACM0008,None,None,None,UNKNOWN,1903830.0,350473.0
 96,VCS_2754,"Household Biogas Carbon Offset Project for Clean, Convenient and Efficient Cooking by INSEDA Engineers and Consultants Private Limited (INSEDA-Engg)",India,AMS-I.E.,None,None,None,UNKNOWN,51784.0,35820.0
-97,VCS_2748,Zhangye Improved Grassland Management Project,China,VM0026,None,None,None,UNKNOWN,3680030.0,2458517.0
-98,VCS_2749,DelAgua Clean Cooking Grouped Project,Rwanda,VMR0006,None,None,None,UNKNOWN,1637136.0,2408517.0
+97,VCS_2748,Zhangye Improved Grassland Management Project,China,VM0026 Methodology for Sustainable Grassland Management (INACTIVE),None,None,None,UNKNOWN,3680030.0,2458517.0
+98,VCS_2749,DelAgua Clean Cooking Grouped Project,Rwanda,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,1637136.0,2408517.0
 99,VCS_2745,Wuwei City Afforestation Project in Gansu Province,China,AR-ACM0003,None,None,None,UNKNOWN,316760.0,61108.0
 100,VCS_2746,Guangzhou Eastern Solid Resource Recycling Center MSW Integrated treatment Plant Project,China,ACM0022,None,None,None,UNKNOWN,718028.0,332556.0
 101,VCS_2739,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,Bangladesh,AM0023,None,None,None,UNKNOWN,743722.0,545662.0
@@ -108,10 +108,10 @@
 106,VCS_2728,Huaibin MSW Landfill Site LFG Recovery and Comprehensive Utilization Project,China,ACM0001,None,None,None,UNKNOWN,177588.0,118926.0
 107,VCS_2723,CONDOTO REDD+,Colombia,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,499886.0,253838.0
 108,VCS_2716,Improved Cookstoves Program in Honduras “Vida Mejor con Ecofogones de Alto Rendimiento” - CER Conversion,Honduras,AMS-II.G.,None,None,None,UNKNOWN,42222.0,74491.0
-109,VCS_2711,Distribution of Improved Cook Stoves in Sub-Saharan Africa-Malawi-CPA-002,Malawi,VMR0006,None,None,None,UNKNOWN,151630.0,707458.0
-110,VCS_2712,Distribution of Improved Cook Stoves in Sub-Saharan Africa-Malawi-CPA-006,Malawi,VMR0006,None,None,None,UNKNOWN,1935244.0,1935244.0
+109,VCS_2711,Distribution of Improved Cook Stoves in Sub-Saharan Africa-Malawi-CPA-002,Malawi,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,151630.0,707458.0
+110,VCS_2712,Distribution of Improved Cook Stoves in Sub-Saharan Africa-Malawi-CPA-006,Malawi,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,1935244.0,1935244.0
 111,VCS_2706,Shuangbaotai AWMS GHG Mitigation Project in Jiangsu Province,China,ACM0010,None,None,None,UNKNOWN,300424.0,186241.0
-112,VCS_2707,ICS distribution for Improving life style of Malagasy Community,Madagascar,VMR0006,None,None,None,UNKNOWN,626474.0,30628.0
+112,VCS_2707,ICS distribution for Improving life style of Malagasy Community,Madagascar,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,626474.0,30628.0
 113,VCS_2708,BluSmart EV Project in India,India,AMS-I.F.,AMS-III.C.,None,None,UNKNOWN,50502.0,237.0
 114,VCS_2696,Zhengbang AWMS GHG Mitigation Project in Guangdong Province,China,ACM0010,None,None,None,UNKNOWN,620001.0,429056.0
 115,VCS_2697,Zhengbang AWMS GHG Mitigation Project in Sichuan Province,China,ACM0010,None,None,None,UNKNOWN,196824.0,118598.0
@@ -124,15 +124,15 @@
 122,VCS_2679,Jiyuan MSW Landfill Site LFG Recovery to Power Project,China,AMS-I.D,AMS-III.G.,None,None,UNKNOWN,161985.0,158009.0
 123,VCS_2680,Yichang Huangjiawan MSW Landfill site LFG Recovery to power project,China,AMS-I.D,AMS-III.G.,None,None,UNKNOWN,250565.0,224201.0
 124,VCS_2687,Madagascar Improved Cook Stove Project by KCM-Wood#CPA-W-010,Madagascar,AMS-II.G.,None,None,None,UNKNOWN,75900.0,73990.0
-125,VCS_2676,Community Carbon Efficient Cooking Programme - Tanzania-1,Tanzania,VMR0006,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,UNKNOWN,899445.0,1193.0
-126,VCS_2664,Installation of High Efficient Cook Stoves by EKI Energy Services Limited,India,VMR0006,None,None,None,UNKNOWN,635568.0,619982.0
+125,VCS_2676,Community Carbon Efficient Cooking Programme - Tanzania-1,Tanzania,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,UNKNOWN,899445.0,1193.0
+126,VCS_2664,Installation of High Efficient Cook Stoves by EKI Energy Services Limited,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,635568.0,619982.0
 127,VCS_2659,Ruijing Geothermal Based Space Heating System,China,AM0072,None,None,None,UNKNOWN,1485867.0,867337.0
 128,VCS_2657,SHINE – Distribution of LED Lightbulbs in India-3,India,AMS-II.C.,None,None,None,UNKNOWN,110092.0,982595.0
 129,VCS_2652,HENAN YIYANG AFFORESTATION PROJECT,China,AR-ACM0003,None,None,None,UNKNOWN,1408365.0,47976.0
 130,VCS_2649,HOUSING DECARBONISATION IN THE UNITED KINGDOM,United Kingdom of Great Britain and Northern Ireland,VM0008 Weatherization of Single Family and Multi-Family Buildings,None,None,None,UNKNOWN,69.0,1481.0
 131,VCS_2639,Feitian 11 & Dabatian CMM Power Generation Project,China,ACM0008,None,None,None,UNKNOWN,307867.0,155404.0
 132,VCS_2635,Luohe Geothermal Based Space Heating System,China,AM0072,None,None,None,UNKNOWN,963488.0,400579.0
-133,VCS_2636,Eastern DRC Cookstove Project - South Kivu,"Congo, Democratic Republic of the",VMR0006,None,None,None,UNKNOWN,569700.0,612048.0
+133,VCS_2636,Eastern DRC Cookstove Project - South Kivu,"Congo, Democratic Republic of the",VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,569700.0,612048.0
 134,VCS_2629,Adjusted Water Management in Rice Cultivation in South Jiangjin District,China,AMS-III.AU.,None,None,None,UNKNOWN,213848.0,240000.0
 135,VCS_2631,Adjusted Water Management in Rice Cultivation in Dazu District,China,AMS-III.AU.,None,None,None,UNKNOWN,235608.0,240000.0
 136,VCS_2632,Adjusted Water Management in Rice Cultivation in Eastern Hechuan District,China,AMS-III.AU.,None,None,None,UNKNOWN,210692.0,240000.0
@@ -162,21 +162,21 @@
 160,VCS_2551,BRAZILIAN AMAZON APD GROUPED PROJECT,Brazil,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,812538.0,803858.0
 161,VCS_2540,Improved cookstoves for Burundi restaurants,Burundi,AMS-I.E.,None,None,None,UNKNOWN,1322014.0,575239.0
 162,VCS_2539,EVERGREEN REDD+ PROJECT,Brazil,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,3133094.0,766356.0
-163,VCS_2538,Pendjari and W-Benin National Parks REDD+ Project,Benin,VM0009,None,None,None,UNKNOWN,915692.0,290700.0
+163,VCS_2538,Pendjari and W-Benin National Parks REDD+ Project,Benin,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,915692.0,290700.0
 164,VCS_2537,Gansu Gaotai Biogas Recovery and Utilization Project,China,AMS-III.D.,None,None,None,UNKNOWN,126524.0,35332.0
-165,VCS_2533,Improved Cookstove Programme by SDG13 in India,India,VMR0006,None,None,None,UNKNOWN,1966523.0,338883.0
-166,VCS_2535,Skyridge Farms Advanced Solid Separation Project,United States of America,AMS-III.Y.,VMR0003,None,None,UNKNOWN,40000.0,20692.0
+165,VCS_2533,Improved Cookstove Programme by SDG13 in India,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,1966523.0,338883.0
+166,VCS_2535,Skyridge Farms Advanced Solid Separation Project,United States of America,AMS-III.Y.,VMR0003 Revisions to AMS-III.Y to Include Use of Organic Bedding Material (INACTIVE),None,None,UNKNOWN,40000.0,20692.0
 167,VCS_2532,Cumare carbon project,Colombia,AR-ACM0003,None,None,None,UNKNOWN,116720.0,453063.0
 168,VCS_2525,Ziyang LFG Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,243873.0,160657.0
 169,VCS_2521,Installation of high efficiency wood burning cookstoves in Laos,Lao People's Democratic Republic,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,None,UNKNOWN,373095.0,94224.0
-170,VCS_2522,Installation of high efficiency wood burning cookstoves in Thailand,Thailand,VMR0006,None,None,None,UNKNOWN,3800000.0,61162.0
-171,VCS_2523,Installation of high efficiency wood burning cookstoves in Vietnam,Viet Nam,VMR0006,None,None,None,UNKNOWN,1180000.0,44863.0
+170,VCS_2522,Installation of high efficiency wood burning cookstoves in Thailand,Thailand,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,3800000.0,61162.0
+171,VCS_2523,Installation of high efficiency wood burning cookstoves in Vietnam,Viet Nam,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,1180000.0,44863.0
 172,VCS_2512,"AFFORESTATION OF DEGRADED GRASSLANDS IN VICHADA, COLOMBIA",Colombia,AR-ACM0003,None,None,None,UNKNOWN,557956.0,482168.0
 173,VCS_2516,Lianyuan LFG Power Generation Project,China,AMS-I.D,AMS-III.G.,None,None,UNKNOWN,81126.0,47869.0
 174,VCS_2511,Joburg Landfill Gas to Energy Project. - CER Conversion,South Africa,ACM0001,None,None,None,UNKNOWN,1920620.0,11645.0
-175,VCS_2510,"CHINKO CONSERVATION AREA REDD+ PROJECT, CENTRAL AFRICAN REPUBLIC",Central African Republic,VM0009,None,None,None,UNKNOWN,797106.0,496335.0
+175,VCS_2510,"CHINKO CONSERVATION AREA REDD+ PROJECT, CENTRAL AFRICAN REPUBLIC",Central African Republic,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,797106.0,496335.0
 176,VCS_2504,Adjusted Water Management in Rice Cultivation in Xuanzhou District,China,AMS-III.AU.,None,None,None,UNKNOWN,232256.0,240000.0
-177,VCS_2505,Fuel Efficient Cooking in South Africa,South Africa,VMR0006,None,None,None,UNKNOWN,311541.0,1022034.0
+177,VCS_2505,Fuel Efficient Cooking in South Africa,South Africa,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,311541.0,1022034.0
 178,VCS_2506,Adjusted Water Management in Rice Cultivation In Northern Lujiang County,China,AMS-III.AU.,None,None,None,UNKNOWN,177846.0,180000.0
 179,VCS_2507,Adjusted Water Management in Rice Cultivation In Southern Lujiang County,China,AMS-III.AU.,None,None,None,UNKNOWN,177129.0,180000.0
 180,VCS_2508,UNITOR REDD+ PROJECT,Brazil,VM0015 Methodology for Avoided Unplanned Deforestation,None,None,None,UNKNOWN,2614615.0,2314892.0
@@ -190,13 +190,13 @@
 188,VCS_2476,Huaining Adjusted Water Management in Rice Cultivation,China,AMS-III.AU.,None,None,None,UNKNOWN,174123.0,180000.0
 189,VCS_2477,Wanfan Adjusted Water Management in Rice Cultivation,China,AMS-III.AU.,None,None,None,UNKNOWN,179958.0,180000.0
 190,VCS_2478,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,Bangladesh,AM0023,None,None,None,UNKNOWN,10445166.0,6874812.0
-191,VCS_2473,Installation of High Efficient Cook Stoves by Enking International,India,VMR0006,None,None,None,UNKNOWN,347300.0,275987.0
+191,VCS_2473,Installation of High Efficient Cook Stoves by Enking International,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,347300.0,275987.0
 192,VCS_2469,Afforestation and restoration of degraded forests in Eastern Paraguay or Forestal Azul Carbon Project,Paraguay,AR-ACM0003,None,None,None,UNKNOWN,42744.0,25559.0
 193,VCS_2468,Gaizhou Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,257180.0,235966.0
-194,VCS_2465,Avoided Conversion Cerrado,Brazil,VM0009,None,None,None,UNKNOWN,500000.0,316781.0
+194,VCS_2465,Avoided Conversion Cerrado,Brazil,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,500000.0,316781.0
 195,VCS_2464,Nanning Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,695433.0,574214.0
 196,VCS_2463,Fuel Efficient Stoves in Zambia CPA 3. - CER Conversion,Zambia,AMS-II.G.,None,None,None,UNKNOWN,40864.0,7890.0
-197,VCS_2458,Guoluo Grassland Sustainable Management Project,China,VM0026,None,None,None,UNKNOWN,2284765.0,2593172.0
+197,VCS_2458,Guoluo Grassland Sustainable Management Project,China,VM0026 Methodology for Sustainable Grassland Management (INACTIVE),None,None,None,UNKNOWN,2284765.0,2593172.0
 198,VCS_2455,Haicheng Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,245742.0,144234.0
 199,VCS_2457,BYZ GLOBAL ENERGY BIOGAS PLANT,Türkiye,AMS-I.D,AMS-III.D.,None,None,UNKNOWN,202304.0,168812.0
 200,VCS_2452,Laizhou Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,234552.0,126210.0
@@ -230,7 +230,7 @@
 228,VCS_2415,Distribution of Improved cook stove - Phase 11,India,AMS-II.G.,None,None,None,UNKNOWN,67140.0,55467.0
 229,VCS_2416,Distribution of Improved cook stove - Phase 12,India,AMS-II.G.,None,None,None,UNKNOWN,69650.0,60203.0
 230,VCS_2417,Distribution of Improved cook stove - Phase 13,India,AMS-II.G.,None,None,None,UNKNOWN,67100.0,60837.0
-231,VCS_2414,Davidson County Landfill,United States of America,Climate Action Reserve Landfill Project Protocol,None,None,None,UNKNOWN,350000.0,338863.0
+231,VCS_2414,Davidson County Landfill,United States of America,CAR Landfill Project Protocol,None,None,None,UNKNOWN,350000.0,338863.0
 232,VCS_2412,Mindanao Tree Planting Program for our Climate and Communities (MinTrees),Philippines,AR-ACM0003,None,None,None,UNKNOWN,198090.0,12685.0
 233,VCS_2410,"REFORESTATION OF DEGRADED FOREST RESERVE AREAS IN GHANA, WEST AFRICA",Ghana,AR-ACM0003,None,None,None,UNKNOWN,184916.0,178535.0
 234,VCS_2409,Cleaner Cooking Solutions Program,Cambodia,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,None,UNKNOWN,841424.0,146182.0
@@ -246,7 +246,7 @@
 244,VCS_2393,Omnia Nitrous Oxide (N20) Reduction Project - CER Conversion,South Africa,AM0028,None,None,None,UNKNOWN,3797217.0,127098.0
 245,VCS_2394,Project for the catalytic reduction of N2O emissions with a secondary catalyst inside the ammonia reactor of the No. 9 nitric acid plant at African Explosives Ltd (“AEL”) - CER Conversion,South Africa,AM0034,None,None,None,UNKNOWN,700674.0,261199.0
 246,VCS_2391,Gansu Tianshui Afforestation Project,China,AR-ACM0003,None,None,None,UNKNOWN,1710015.0,109527.0
-247,VCS_2390,Installation of high efficiency wood burning cookstoves in Angola,Angola,VMR0006,None,None,None,UNKNOWN,5135576.0,11058.0
+247,VCS_2390,Installation of high efficiency wood burning cookstoves in Angola,Angola,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,5135576.0,11058.0
 248,VCS_2389,Clean Cook Stoves in Sub-Saharan Africa by ClimateCare Limited - CER Conversion,Ghana,AMS-II.G.,None,None,None,UNKNOWN,136734.0,3508.0
 249,VCS_2387,Liugui Afforestation Project,China,AR-ACM0003,None,None,None,UNKNOWN,4390690.0,292465.0
 250,VCS_2388,N2O ABATEMENT PROJECT AT AEL 11_. - CER Conversion,South Africa,AM0034,None,None,None,UNKNOWN,2156648.0,637391.0
@@ -257,14 +257,14 @@
 255,VCS_2378,Miaoling Afforestation Project,China,AR-ACM0003,None,None,None,UNKNOWN,2750694.0,437802.0
 256,VCS_2379,Huadu Afforestation Project,China,AR-ACM0003,None,None,None,UNKNOWN,3512025.0,810767.0
 257,VCS_2375,Jilin Sanchazi Afforestation Project,China,AR-ACM0003,None,None,None,UNKNOWN,52880.0,111338.0
-258,VCS_2371,Installation of high efficiency wood burning cookstoves in Zambia - Project 2,Zambia,VMR0006,None,None,None,UNKNOWN,6852312.0,951836.0
-259,VCS_2372,Installation of high efficiency wood burning cookstoves in Malawi - Project 2,Malawi,VMR0006,None,None,None,UNKNOWN,7698276.0,4444642.0
+258,VCS_2371,Installation of high efficiency wood burning cookstoves in Zambia - Project 2,Zambia,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,6852312.0,951836.0
+259,VCS_2372,Installation of high efficiency wood burning cookstoves in Malawi - Project 2,Malawi,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,7698276.0,4444642.0
 260,VCS_2373,Yellow Ipê Grouped REDD Project,Brazil,VM0015 Methodology for Avoided Unplanned Deforestation,None,None,None,UNKNOWN,540179.0,16772.0
 261,VCS_2369,Forestal Apepu Carbon Project,Paraguay,AR-ACM0003,None,None,None,UNKNOWN,12902.0,1457.0
 262,VCS_2370,Zhangye City Afforestation Project in Gansu Province,China,AR-ACM0003,None,None,None,UNKNOWN,1191960.0,182466.0
 263,VCS_2367,"Afforestation in Eucalyptus and Acacia plantations for Burapha Agroforestry Co., Ltd.",Lao People's Democratic Republic,AR-ACM0003,None,None,None,UNKNOWN,179784.0,134440.0
 264,VCS_2365,Integrated Project for Reforestation and Agroforestry on Degraded lands in Nicaragua,Nicaragua,AR-ACM0003,None,None,None,UNKNOWN,29287.0,15912.0
-265,VCS_2366,Installation of high efficiency wood burning cookstoves in Tanzania,Tanzania,VMR0006,None,None,None,UNKNOWN,7529084.0,1041714.0
+265,VCS_2366,Installation of high efficiency wood burning cookstoves in Tanzania,Tanzania,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,7529084.0,1041714.0
 266,VCS_2362,Adjusted Water Management in Rice Cultivation in Tongcheng City,China,AMS-III.AU.,None,None,None,UNKNOWN,160503.0,180000.0
 267,VCS_2361,Afforestation in cooperation with local landowners for Forestal San Pedro S.A,Paraguay,AR-ACM0003,None,None,None,UNKNOWN,273294.0,158816.0
 268,VCS_2358,Nanchang Zhonglan Huanneng Technical Service Co. Ltd. Maiyuan LFG Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,622796.0,733155.0
@@ -274,18 +274,18 @@
 272,VCS_2353,Qingdao Xiaojianxi Phase II MSW landfill site LFG recovery to power project,China,ACM0001,None,None,None,UNKNOWN,365785.0,524297.0
 273,VCS_2354,Yichang Sunjiawan MSW landfill site LFG recovery to power project,China,ACM0001,None,None,None,UNKNOWN,195736.0,150918.0
 274,VCS_2349,Installation of high efficiency wood burning cookstoves in Kenya,Kenya,VM0050 Energy Efficiency and Fuel-Switch Measures in Cookstoves,None,None,None,UNKNOWN,4500000.0,246107.0
-275,VCS_2350,Installation of high efficiency wood burning cookstoves in Uganda,Uganda,VMR0006,None,None,None,UNKNOWN,2919960.0,31545.0
-276,VCS_2351,Installation of high efficiency wood burning cookstoves in Mozambique,Mozambique,VMR0006,None,None,None,UNKNOWN,5139234.0,200824.0
+275,VCS_2350,Installation of high efficiency wood burning cookstoves in Uganda,Uganda,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,2919960.0,31545.0
+276,VCS_2351,Installation of high efficiency wood burning cookstoves in Mozambique,Mozambique,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,5139234.0,200824.0
 277,VCS_2348,Motion Energy EV Industry Charger Project,United Kingdom of Great Britain and Northern Ireland,VM0038 Methodology for Electric Vehicle Charging Systems,None,None,None,UNKNOWN,20000.0,128.0
 278,VCS_2347,FOÇA BIOGAS ENERGY POWER PLANT,Türkiye,AM0073,None,None,None,UNKNOWN,995385.0,412136.0
 279,VCS_2343,Zhanjiang Mangrove Afforestation Project,China,AR-AM0014,None,None,None,UNKNOWN,4020.0,5880.0
-280,VCS_2340,Installation of high efficiency wood burning cookstoves in Zambia,Zambia,VMR0006,None,None,None,UNKNOWN,6852312.0,780281.0
-281,VCS_2341,Installation of high efficiency wood burning cookstoves in Zimbabwe,Zimbabwe,VMR0006,None,None,None,UNKNOWN,1817096.0,1249487.0
-282,VCS_2342,Installation of high efficiency wood burning cookstoves in Malawi,Malawi,VMR0006,None,None,None,UNKNOWN,3663352.0,2803221.0
+280,VCS_2340,Installation of high efficiency wood burning cookstoves in Zambia,Zambia,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,6852312.0,780281.0
+281,VCS_2341,Installation of high efficiency wood burning cookstoves in Zimbabwe,Zimbabwe,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,1817096.0,1249487.0
+282,VCS_2342,Installation of high efficiency wood burning cookstoves in Malawi,Malawi,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,3663352.0,2803221.0
 283,VCS_2338,"TIST Program in Kenya, VCS-CCB 010",Kenya,AR-AMS0007,None,None,None,UNKNOWN,93619.0,22104.0
 284,VCS_2339,"TIST Program in Uganda, VCS-CCB 010",Uganda,AR-AMS0007,None,None,None,UNKNOWN,83340.0,155813.0
 285,VCS_2337,Sanya Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,269253.0,238749.0
-286,VCS_2336,Energy Efficient Cook Stove Implementation in India,India,VMR0006,None,None,None,UNKNOWN,223560.0,104799.0
+286,VCS_2336,Energy Efficient Cook Stove Implementation in India,India,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,223560.0,104799.0
 287,VCS_2335,Zhangjiakou Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,411468.0,325553.0
 288,VCS_2334,Oaxaca II Wind Energy Project. - CER Conversion,Mexico,ACM0002,None,None,None,UNKNOWN,240159.0,1832.0
 289,VCS_2332,Culiacan Norther Landfill Ga Project - CER Conversion,Mexico,ACM0001,None,None,None,UNKNOWN,42746.0,375.0
@@ -306,7 +306,7 @@
 304,VCS_2302,Guizhou Dongyijing CMM Power Generation Project,China,ACM0008,None,None,None,UNKNOWN,522660.0,259641.0
 305,VCS_2299,Hunan Xiangtan Landfill Gas Power Generation Project,China,ACM0001,None,None,None,UNKNOWN,418328.0,301718.0
 306,VCS_2296,CYY Global Plus Wastewater Treatment and Biogas Utilization Project,Thailand,ACM0014,None,None,None,UNKNOWN,372291.0,119905.0
-307,VCS_2293,NIHT Topaiyo REDD +,Papua New Guinea,VM0009,None,None,None,UNKNOWN,2262521.0,1327442.0
+307,VCS_2293,NIHT Topaiyo REDD +,Papua New Guinea,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,2262521.0,1327442.0
 308,VCS_2291,Guizhou Panjiang Low Concentration Coal Mine Methane Power Generation Project Phase 2,China,ACM0008,None,None,None,UNKNOWN,1679700.0,1111716.0
 309,VCS_2292,Guizhou Panjiang Low Concentration Coal Mine Methane Power Generation Project Phase 3,China,ACM0008,None,None,None,UNKNOWN,2356748.0,1346326.0
 310,VCS_2290,BLUE CARBON PROJECT GULF OF MORROSQUILLO “VIDA MANGLAR”,Colombia,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,125240.0,59363.0
@@ -432,7 +432,7 @@
 430,VCS_47,Jinan Landfill Gas to Energy Project,China,ACM0001,AMS-I.D,None,None,UNKNOWN,225816.0,27092.0
 431,VCS_48,Shandong Tuoji Island Wind Farm Project,China,AMS-I.D,None,None,None,UNKNOWN,49996.0,34528.0
 432,VCS_49,Liaoning Huanren Niumaodashan Wind Power Project,China,ACM0002,None,None,None,UNKNOWN,493912.0,284016.0
-433,VCS_50,Willow Creek Dairy Farm Project,United States of America,AMS-III.Y.,VMR0003,None,None,UNKNOWN,96108.0,100340.0
+433,VCS_50,Willow Creek Dairy Farm Project,United States of America,AMS-III.Y.,VMR0003 Revisions to AMS-III.Y to Include Use of Organic Bedding Material (INACTIVE),None,None,UNKNOWN,96108.0,100340.0
 434,VCS_51,29.70 MW Wind Power project in Karnataka India,India,ACM0002,None,None,None,UNKNOWN,705920.0,553437.0
 435,VCS_210,"Haus Aden, Utilization of Coal-Mine-Methane",Germany,ACM0008,None,None,None,UNKNOWN,398042.0,562260.0
 436,VCS_55,Lucevans Ceramic Fuel Switching Project,Brazil,AMS-I.E.,None,None,None,UNKNOWN,36576.0,31713.0
@@ -926,7 +926,7 @@
 924,VCS_743,Pawan Urja Vistaran: Small entities combined wind power project in India - 2007,India,ACM0002,None,None,None,UNKNOWN,107626.0,52467.0
 925,VCS_1964,Quang Minh Solar Power Project,Viet Nam,ACM0002,None,None,None,UNKNOWN,223536.0,234369.0
 926,VCS_1962,Daan Laifu Wind Farm Phase II Project,China,ACM0002,None,None,None,UNKNOWN,109116.0,52267.0
-927,VCS_1960,Northern Great Plains Regenerative Grazing Project,United States of America,VM0026,None,None,None,UNKNOWN,65028.0,56508.0
+927,VCS_1960,Northern Great Plains Regenerative Grazing Project,United States of America,VM0026 Methodology for Sustainable Grassland Management (INACTIVE),None,None,None,UNKNOWN,65028.0,56508.0
 928,VCS_1958,My Son - Hoan Loc Viet Solar Energy Project,Viet Nam,ACM0002,None,None,None,UNKNOWN,263484.0,225840.0
 929,VCS_1959,Aussenkehr solar,Namibia,AMS-I.D,None,None,None,UNKNOWN,73365.0,61964.0
 930,VCS_1953,Floresta Verde REDD+ Project,Brazil,VM0015 Methodology for Avoided Unplanned Deforestation,None,None,None,UNKNOWN,1360000.0,941618.0
@@ -1007,7 +1007,7 @@
 1005,VCS_1863,ENERGY EFFICIENCY COOK STOVE IMPLEMENTATION IN NEPAL,Nepal,AMS-II.G.,None,None,None,UNKNOWN,170433.0,37555.0
 1006,VCS_1364,Hydroelectric Project PCH Luzma,Colombia,ACM0002,None,None,None,UNKNOWN,499960.0,265005.0
 1007,VCS_1862,Bundled Wind Power Project in Gujarat and Tamil Nadu,India,AMS-I.D,None,None,None,UNKNOWN,149935.0,118336.0
-1008,VCS_1052,North Pikounda REDD+,Congo,VM0011 Methodology for Calculating GHG Benefits from Preventing Planned Degradation,None,None,None,UNKNOWN,231110.0,56209.0
+1008,VCS_1052,North Pikounda REDD+,Congo,VMR0011 Switch from Non-Renewable Biomass For Thermal Applications by the User,None,None,None,UNKNOWN,231110.0,56209.0
 1009,VCS_1163,Wind Power Project in Tirupur District,India,ACM0002,None,None,None,UNKNOWN,874448.0,831607.0
 1010,VCS_1861,3.5MW Manuni Hydro Electric Project in Himanchal Pradesh by Winsome Textile Industries Ltd,India,AMS-I.D,None,None,None,UNKNOWN,52857.0,51723.0
 1011,VCS_1859,Heqing Solar Cooker Project II,China,AMS-I.C.,None,None,None,UNKNOWN,862572.0,755045.0
@@ -1087,7 +1087,7 @@
 1085,VCS_250,"Bundled Wind Power Project in Tamil Nadu, India, Co-ordinated by Tamil Nadu Spinning Mills Association(TASMA-V1)",India,ACM0002,None,None,None,UNKNOWN,738576.0,771336.0
 1086,VCS_799,Bukaleba Forest Project,Uganda,AR-ACM0001,None,None,None,UNKNOWN,35709.0,351909.0
 1087,VCS_1774,Grid-connected Solar PV project in Bokhol,Senegal,ACM0002,None,None,None,UNKNOWN,196910.0,150693.0
-1088,VCS_1775,Luangwa Community Forests Project,Zambia,VM0009,None,None,None,UNKNOWN,20899550.0,8020809.0
+1088,VCS_1775,Luangwa Community Forests Project,Zambia,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,20899550.0,8020809.0
 1089,VCS_1776,Wind Power Project by Green Infra Wind Power Generation Limited,India,ACM0002,None,None,None,UNKNOWN,554029.0,459483.0
 1090,VCS_982,"Combined cycle natural gas based grid connected power plant at Jegurupadu, India",India,AM0029,None,None,None,UNKNOWN,1890015.0,1407860.0
 1091,VCS_837,"Natural Gas Based Combined Cycle Power Generation, at Kothapeta, East Godavari, Andhra Pradesh, India",India,AM0029,None,None,None,UNKNOWN,4076571.0,1610556.0
@@ -1117,7 +1117,7 @@
 1115,VCS_1751,"Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA) - CER Conversion",India,ACM0002,None,None,None,UNKNOWN,686697.0,1030.0
 1116,VCS_249,"Bundled Wind Power Project in Tamilnadu, India, Co-ordinated by Tamilnadu Spinning Mills Association(TASMA-II)",India,ACM0002,None,None,None,UNKNOWN,5306651.0,5406943.0
 1117,VCS_1750,PFC Emission Reductions at PT. Indonesia Asahan Aluminium (PT. INALUM) Kuala Tanjung - CER Conversion,Indonesia,AM0030,None,None,None,UNKNOWN,78041.0,15811.0
-1118,VCS_1748,Southern Cardamom REDD+ Project,Cambodia,VM0009,None,None,None,UNKNOWN,27072976.0,27627237.0
+1118,VCS_1748,Southern Cardamom REDD+ Project,Cambodia,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,27072976.0,27627237.0
 1119,VCS_974,"Sarbari II hydro power project by DSL Hydrowatt Limited in Kullu, Himachal Pradesh",India,AMS-I.D,None,None,None,UNKNOWN,257715.0,197614.0
 1120,VCS_483,"Sarbari-I small hydro project of DSL Hydrowatt Limited (DSLHL), Himachal Pradesh, India",India,AMS-I.D,None,None,None,UNKNOWN,117125.0,90842.0
 1121,VCS_1002,"Natural Gas based grid connected power project at Peddapuram, A.P. by Gautami Power Limited",India,AM0029,None,None,None,UNKNOWN,3880266.0,2600983.0
@@ -1159,8 +1159,8 @@
 1157,VCS_1723,Escuela de Minas Hydroelectric Project,Colombia,ACM0002,None,None,None,UNKNOWN,250572.0,195205.0
 1158,VCS_669,Wind Energy project by Ramco group in india,India,ACM0002,None,None,None,UNKNOWN,2396728.0,1992223.0
 1159,VCS_727,CECIC HKE Zhangbei Lvnaobao Wind Power Project,China,ACM0002,None,None,None,UNKNOWN,1894113.0,1552905.0
-1160,VCS_1720,ONIL Stoves —Guatemala – CPA 002,Guatemala,VMR0006,None,None,None,UNKNOWN,342184.0,381141.0
-1161,VCS_1721,ONIL Stoves  Guatemala Uspantan,Guatemala,VMR0006,None,None,None,UNKNOWN,556049.0,599072.0
+1160,VCS_1720,ONIL Stoves —Guatemala – CPA 002,Guatemala,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,342184.0,381141.0
+1161,VCS_1721,ONIL Stoves  Guatemala Uspantan,Guatemala,VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications,None,None,None,UNKNOWN,556049.0,599072.0
 1162,VCS_1719,Improved Cookstoves Project for Malawi and cross-border regions of Mozambique CPA MAL  005,Malawi,AMS-II.G.,None,None,None,UNKNOWN,89706.0,6761.0
 1163,VCS_1718,Inner Mongolia Keyihe IFM (conversion of logged to protected forest) Project,China,VM0010 Methodology for Improved Forest Management: Conversion from Logged to Protected Forest,None,None,None,UNKNOWN,1028504.0,999160.0
 1164,VCS_1716,Matebe Hydroelectric plant,"Congo, Democratic Republic of the",AMS-I.L.,None,None,None,UNKNOWN,324898.0,162403.0
@@ -1197,7 +1197,7 @@
 1195,VCS_1693,"Wind Power Project in Maharashtra State, India",India,AMS-I.D,None,None,None,UNKNOWN,48669.0,27582.0
 1196,VCS_1691,5 MW Upper Awa Hydro Power Project in Himachal Pradesh by M/s Astha Projects (India) Limited,India,AMS-I.D,None,None,None,UNKNOWN,77644.0,73852.0
 1197,VCS_1690,Biogas Utilization Project in Zhejiang Jingxing Paper Joint Stock Co. Ltd. - CER Conversion,China,AMS-III.H.,None,None,None,UNKNOWN,60577.0,12793.0
-1198,VCS_1689,Tumring REDD+ Project,Cambodia,VM0009,None,None,None,UNKNOWN,1892170.0,645410.0
+1198,VCS_1689,Tumring REDD+ Project,Cambodia,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,1892170.0,645410.0
 1199,VCS_682,"Wind Power Project at Anthiyur, Tamil Nadu",India,AMS-I.D,None,None,None,UNKNOWN,494848.0,508222.0
 1200,VCS_83,"Guaraí, Itabira and Santa Izabel Ceramics Fuel Switching Project",Brazil,AMS-I.C.,None,None,None,UNKNOWN,465344.0,297688.0
 1201,VCS_1120,"Vaayu India Wind Power Project in Jaisalmer, Rajasthan",India,ACM0002,None,None,None,UNKNOWN,174318.0,85813.0
@@ -1302,7 +1302,7 @@
 1300,VCS_1192,"Metro Line 1 Lima, Peru",Peru,ACM0016,None,None,None,UNKNOWN,171682.0,44224.0
 1301,VCS_1100,SANIBEY DAM AND HYDROELECTRIC POWER PLANT,Türkiye,ACM0002,None,None,None,UNKNOWN,4722561.0,4596206.0
 1302,VCS_1119,RFC Grouped Wind Projects Phase II,United States of America,AMS-I.D,None,None,None,UNKNOWN,12640.0,5110.0
-1303,VCS_1225,Kenya Agricultural Carbon Project,Kenya,VM0017,None,None,None,UNKNOWN,594024.0,325825.0
+1303,VCS_1225,Kenya Agricultural Carbon Project,Kenya,VM0017 Adoption of Sustainable Agricultural Land Management (INACTIVE),None,None,None,UNKNOWN,594024.0,325825.0
 1304,VCS_1231,"Mordogan Wind Power Project, Turkey",Türkiye,AMS-I.D,None,None,None,UNKNOWN,159558.0,127874.0
 1305,VCS_1232,"Yaylaköy Wind Power Project, Turkey",Türkiye,AMS-I.D,None,None,None,UNKNOWN,145812.0,122458.0
 1306,VCS_1229,Fronteira and Novicel Ceramics Fuel Switching Project,Brazil,AMS-I.E.,None,None,None,UNKNOWN,142278.0,43527.0
@@ -1352,7 +1352,7 @@
 1350,VCS_846,"BRASCARBON Methane Recovery Project BCA-BRA-05, Brazil",Brazil,AMS-III.D.,None,None,None,UNKNOWN,105022.0,51608.0
 1351,VCS_1644,Larimar Wind Farm Project,Dominican Republic,ACM0002,None,None,None,UNKNOWN,1326955.0,798761.0
 1352,VCS_942,ROCHELLE LANDFILL METHANE RECOVERY AND DESTRUCTION PROJECT,United States of America,ACM0001,None,None,None,UNKNOWN,100000.0,42495.0
-1353,VCS_1147,Amazon Rio IFM,Brazil,VM0011 Methodology for Calculating GHG Benefits from Preventing Planned Degradation,None,None,None,UNKNOWN,244952.0,182347.0
+1353,VCS_1147,Amazon Rio IFM,Brazil,VMR0011 Switch from Non-Renewable Biomass For Thermal Applications by the User,None,None,None,UNKNOWN,244952.0,182347.0
 1354,VCS_1332,"Reforestation Project in Yingjing County, Sichuan Province",China,AR-ACM0003,None,None,None,UNKNOWN,3365.0,1568.0
 1355,VCS_1015,"Community-based reforestation project on degraded lands in Uttar Pradesh, India by Indian Farm Forestry Development Co-operative Limited",India,AR-AMS0005,None,None,None,UNKNOWN,84765.0,78003.0
 1356,VCS_993,"TIST Program in Uganda, VCS 005",Uganda,AR-AMS0001,None,None,None,UNKNOWN,58026.0,625885.0
@@ -1384,7 +1384,7 @@
 1382,VCS_1085,EcoPlanet Bamboo Central America - Reforestation Project,Nicaragua,AR-ACM0001,None,None,None,UNKNOWN,81630.0,263426.0
 1383,VCS_1113,The Valparaiso Project,Brazil,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,923118.0,1079264.0
 1384,VCS_1118,Suruí Forest Carbon Project,Brazil,VM0015 Methodology for Avoided Unplanned Deforestation,None,None,None,UNKNOWN,247460.0,251529.0
-1385,VCS_856,The Chocó-Darién Conservation Corridor REDD Project,Colombia,VM0009,None,None,None,UNKNOWN,161876.0,435287.0
+1385,VCS_856,The Chocó-Darién Conservation Corridor REDD Project,Colombia,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,161876.0,435287.0
 1386,VCS_904,"Reduced Emissions from Deforestation and Degradation in Community Forests – Oddar Meanchey, Cambodia",Cambodia,VM0006 Methodology for Carbon Accounting for Mosaic and Landscape-scale REDD Projects,None,None,None,UNKNOWN,204792.0,597210.0
 1387,VCS_812,Bull Run Overseas Forest Carbon Project,Belize,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,24630.0,244057.0
 1388,VCS_796,"Alto Huayabamba: Carbon Dioxide sequestration through reforestation with small-scale farmers in Peru, San Martin Region",Peru,AR-AMS0001,None,None,None,UNKNOWN,9688.0,267008.0
@@ -1429,7 +1429,7 @@
 1427,VCS_911,Grid Connected Wind Energy Project in Tamil Nadu,India,ACM0002,None,None,None,UNKNOWN,1190409.0,1018638.0
 1428,VCS_1577,Fujian Yong’an Improved Forest Management Project,China,VM0010 Methodology for Improved Forest Management: Conversion from Logged to Protected Forest,None,None,None,UNKNOWN,632005.0,550604.0
 1429,VCS_1161,Bali Landfill Gas Recovery to Electricity Project,Taiwan,AMS-I.D,None,None,None,UNKNOWN,3148.0,1532.0
-1430,VCS_562,The Kasigau Corridor REDD Project – Phase I Rukinga Sanctuary,Kenya,VM0009,None,None,None,UNKNOWN,4525776.0,3818704.0
+1430,VCS_562,The Kasigau Corridor REDD Project – Phase I Rukinga Sanctuary,Kenya,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,4525776.0,3818704.0
 1431,VCS_1023,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,India,AMS-I.D,None,None,None,UNKNOWN,190872.0,148328.0
 1432,VCS_237,7.5 MW Wind Power Project by M/s. NITCO Limited in Maharashtra,India,AMS-I.D,None,None,None,UNKNOWN,35709.0,65631.0
 1433,VCS_129,10 MW biomass based power project of Ind Power Limited.,India,AMS-I.D,None,None,None,UNKNOWN,68258.0,35219.0
@@ -1489,7 +1489,7 @@
 1487,VCS_412,"Bundled wind energy generation projects in Gujarat, India",India,ACM0002,None,None,None,UNKNOWN,1368990.0,1259773.0
 1488,VCS_1006,Bursa Light Rail System II Phase,Türkiye,ACM0016,None,None,None,UNKNOWN,14794.0,7092.0
 1489,VCS_925,Bundled Wind Power Project by M/s D. J Malpani,India,AMS-I.D,None,None,None,UNKNOWN,89864.0,72478.0
-1490,VCS_934,The Mai Ndombe REDD+ Project,"Congo, Democratic Republic of the",VM0009,None,None,None,UNKNOWN,56716130.0,37025604.0
+1490,VCS_934,The Mai Ndombe REDD+ Project,"Congo, Democratic Republic of the",VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,56716130.0,37025604.0
 1491,VCS_835,"44.40 MW Wind Energy Project by Ruchi Soya Industries Limited, India",India,ACM0002,None,None,None,UNKNOWN,982236.0,624039.0
 1492,VCS_1390,Carmen del Darién (CDD) REDD+ Project,Colombia,VM0006 Methodology for Carbon Accounting for Mosaic and Landscape-scale REDD Projects,None,None,None,UNKNOWN,249600.0,681565.0
 1493,VCS_1564,"Landfill gas recovery and electricity generation at “Mtoni Dumpsite”, Dar Es Salaam, Tanzania - CER Conversion",Tanzania,ACM0001,None,None,None,UNKNOWN,202271.0,25200.0
@@ -1499,7 +1499,7 @@
 1497,VCS_875,FLORESTAL SANTA MARIA PROJECT,Brazil,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,10971884.0,8247669.0
 1498,VCS_956,"Anaerobic digestion at Animalia Genetics Ltd., Cyprus",Cyprus,AMS-III.D.,None,None,None,UNKNOWN,6390.0,6390.0
 1499,VCS_403,Siam Cement Biomass Project,Thailand,ACM0003,None,None,None,UNKNOWN,1288272.0,4023906.0
-1500,VCS_1408,Chyulu Hills REDD+ Project,Kenya,VM0009,None,None,None,UNKNOWN,8807544.0,5172697.0
+1500,VCS_1408,Chyulu Hills REDD+ Project,Kenya,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,8807544.0,5172697.0
 1501,VCS_1396,Rio Pepe y ACABA REDD+ Project,Colombia,VM0006 Methodology for Carbon Accounting for Mosaic and Landscape-scale REDD Projects,None,None,None,UNKNOWN,273816.0,567286.0
 1502,VCS_248,"1.25 MW Wind Power Project by M/s. Garden Court Distilleries Pvt. Ltd. at Sangli, Maharashtra, India",India,AMS-I.D,None,None,None,UNKNOWN,7936.0,5744.0
 1503,VCS_1353,"Bundled Wind Power Project in Tamilnadu, India, co-ordinated by Tamilnadu Spinning Mills Association (TASMA-V2)",India,ACM0002,None,None,None,UNKNOWN,4591312.0,4145050.0
@@ -1571,7 +1571,7 @@
 1569,VCS_1337,AAC blocks manufacturing unit based on an energy efficient brick/block manufacturing technology by Biltech Building Elements (surat),India,AMS-III.Z.,None,None,None,UNKNOWN,46108.0,92164.0
 1570,VCS_1533,Grouped Dairy Manure Separation Projects; Phase I,United States of America,AMS-III.Y.,None,None,None,UNKNOWN,2218.0,1020.0
 1571,VCS_1152,Arca Hydro Electricity Power Plant,Türkiye,ACM0002,None,None,None,UNKNOWN,314050.0,255174.0
-1572,VCS_1532,COMACO Landscape Management Project,Zambia,VM0015 Methodology for Avoided Unplanned Deforestation,VM0017,None,None,UNKNOWN,976376.0,1638099.0
+1572,VCS_1532,COMACO Landscape Management Project,Zambia,VM0015 Methodology for Avoided Unplanned Deforestation,VM0017 Adoption of Sustainable Agricultural Land Management (INACTIVE),None,None,UNKNOWN,976376.0,1638099.0
 1573,VCS_940,Replacement of existing luminaires with LED lightings in common areas of residential buildings,Singapore,AMS-II.C.,None,None,None,UNKNOWN,14382.0,13407.0
 1574,VCS_1348,Las Pizarras Project,Peru,ACM0002,None,None,None,UNKNOWN,112806.0,107925.0
 1575,VCS_783,Bangkok Kamphaeng Saen East: Landfill Gas to Electricity Project,Thailand,ACM0001,None,None,None,UNKNOWN,546172.0,146381.0
@@ -1580,7 +1580,7 @@
 1578,VCS_93,86 MW Hydro Project in Himachal Pradesh,India,ACM0002,None,None,None,UNKNOWN,5025660.0,4642339.0
 1579,VCS_1529,Inner Mongolia Chao’er Improved Forest Management Project,China,VM0010 Methodology for Improved Forest Management: Conversion from Logged to Protected Forest,None,None,None,UNKNOWN,810315.0,654517.0
 1580,VCS_1026,Solar Power Plant of 5 MW in Rajasthan by Essel Mining and Refex Refrigerants Limited,India,AMS-I.D,None,None,None,UNKNOWN,60942.0,80716.0
-1581,VCS_1377,Lock Haven Improved Forest Management Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age,None,None,None,UNKNOWN,44688.0,82271.0
+1581,VCS_1377,Lock Haven Improved Forest Management Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age (INACTIVE),None,None,None,UNKNOWN,44688.0,82271.0
 1582,VCS_1527,Wolf Creek Landfill - CER Conversion,United States of America,ACM0011,None,None,None,UNKNOWN,109562.0,4270.0
 1583,VCS_1528,Granger South Jordan Landfill Gas Destruction Project - CER Conversion,United States of America,ACM0011,None,None,None,UNKNOWN,45730.0,45730.0
 1584,VCS_1141,Fresh Breeze Afforestation Project,Mexico,AR-ACM0003,None,None,None,UNKNOWN,515424.0,1033143.0
@@ -1624,7 +1624,7 @@
 1622,VCS_1506,Cirakdami Hydro Electricity Power Plant,Türkiye,ACM0002,None,None,None,UNKNOWN,516992.0,373493.0
 1623,VCS_673,Natural High Forest Rehabilitation Project on degraded land of Kibale National Park,Uganda,AR-ACM0001,None,None,None,UNKNOWN,296724.0,987772.0
 1624,VCS_1175,"AVOIDING PLANNED DEFORESTATION AND DEGRADATION IN THE VALDIVIAN COASTAL RESERVE, CHILE",Chile,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,639694.0,533654.0
-1625,VCS_612,The Kasigau Corridor REDD Project - Phase II The Community Ranches,Kenya,VM0009,None,None,None,UNKNOWN,17537748.0,17720553.0
+1625,VCS_612,The Kasigau Corridor REDD Project - Phase II The Community Ranches,Kenya,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,17537748.0,17720553.0
 1626,VCS_1144,Composting Project in Santa Catarina,Brazil,AMS-III.D.,AMS-III.F.,None,None,UNKNOWN,162693.0,70864.0
 1627,VCS_1386,Recast Energy Louisville Fuel Switch from Coal to Biomass for Thermal Energy,United States of America,AMS-I.C.,None,None,None,UNKNOWN,482490.0,448690.0
 1628,VCS_1403,"The Paraguay Forest Conservation Project – Reduction of GHG Emissions from Deforestation and Forest Degradation in the Parana Atlantic Ecosystem – Forest Protection in the La Amistad Community, San Rafael",Paraguay,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,6325.0,6553.0
@@ -1644,7 +1644,7 @@
 1642,VCS_1076,Manaus Landfill Gas Project,Brazil,ACM0001,None,None,None,UNKNOWN,251634.0,311911.0
 1643,VCS_1504,Xinjiang Alashankou Phase II Wind Power Project - CER Conversion,China,ACM0002,None,None,None,UNKNOWN,97241.0,104180.0
 1644,VCS_1334,Yunnan Tengzhong New Energy Technology Co. Ltd. Biomass Heating System Retrofitting and Biomass Collection Station Project,China,AMS-I.C.,None,None,None,UNKNOWN,3356.0,1723.0
-1645,VCS_1502,"Reduction of GHG emissions in Propylene Oxide production at MTP HPPO Manufacturing Co., Ltd",Thailand,VM0023,None,None,None,UNKNOWN,1196780.0,629969.0
+1645,VCS_1502,"Reduction of GHG emissions in Propylene Oxide production at MTP HPPO Manufacturing Co., Ltd",Thailand,VM0023 Reduction of GHG Emissions in Propylene Oxide Production (INACTIVE),None,None,None,UNKNOWN,1196780.0,629969.0
 1646,VCS_1503,RESEX Rio Preto-Jacundá REDD+ Project,Brazil,VM0015 Methodology for Avoided Unplanned Deforestation,None,None,None,UNKNOWN,607204.0,1363327.0
 1647,VCS_393,Qingdao Huawei Windpower (QHW) Project,China,ACM0002,None,None,None,UNKNOWN,100000.0,95918.0
 1648,VCS_1056,CECIC Zhangbei Gaojialiang Wind farm Project.,China,ACM0002,None,None,None,UNKNOWN,357464.0,242558.0
@@ -1661,7 +1661,7 @@
 1659,VCS_834,FULTON COUNTY MUD ROAD LANDFILL CARBON OFFSET PROJECT,United States of America,ACM0001,None,None,None,UNKNOWN,329148.0,177137.0
 1660,VCS_686,FC Landfill Energy Facility,United States of America,ACM0001,None,None,None,UNKNOWN,160584.0,83471.0
 1661,VCS_775,Northeast Farm Separation Project – Phase 1,United States of America,AMS-III.Y.,None,None,None,UNKNOWN,7239.0,19122.0
-1662,VCS_765,Jet Engine Washing and Emissions Reduction for Airlines,United States of America,VM0013,None,None,None,UNKNOWN,1012000.0,181.0
+1662,VCS_765,Jet Engine Washing and Emissions Reduction for Airlines,United States of America,VM0013 Calculating Emission Reductions from Jet Engine Washing (INACTIVE),None,None,None,UNKNOWN,1012000.0,181.0
 1663,VCS_642,West Star North Dairy,United States of America,AMS-III.Y.,None,None,None,UNKNOWN,20682.0,20153.0
 1664,VCS_1496,Jubilación Segura : Agroforestry And Reforestation With Smallscale Farmers in Peru,Peru,AR-AMS0007,None,None,None,UNKNOWN,72878.0,157662.0
 1665,VCS_1495,Selco Clean Energy Products Grouped Project,India,AMS-I.J.,AMS-I.F.,AMS-III.AR.,None,UNKNOWN,172755.0,65471.0
@@ -1675,10 +1675,10 @@
 1673,VCS_1489,CECIC Urumqi Tuoli Phase I Wind Farm Project - CER Conversion,China,ACM0002,None,None,None,UNKNOWN,116644.0,86983.0
 1674,VCS_1490,Nanjing Jinling Grid Connected Natural Gas Combined Cycle Power Plant Project,China,AM0029,None,None,None,UNKNOWN,3132984.0,2285039.0
 1675,VCS_1126,Jilin Liaoyuan 50MW Level Biomass Cogeneration Project,China,ACM0006,None,None,None,UNKNOWN,1711251.0,1137248.0
-1676,VCS_559,Cambria 33 Abandoned Mine Methane Capture and use Project,United States of America,VMR0002,None,None,None,UNKNOWN,277784.0,107064.0
+1676,VCS_559,Cambria 33 Abandoned Mine Methane Capture and use Project,United States of America,VMR0002 Revisions to ACM0008 to Include Methane Capture and Destruction from Abandoned Coal Mines (INACTIVE),None,None,None,UNKNOWN,277784.0,107064.0
 1677,VCS_1342,"AAC Block/Panel Manufacturing unit at Krishna, Andhra Pradesh",India,AMS-III.Z.,None,None,None,UNKNOWN,448856.0,185615.0
 1678,VCS_1486,10.9 MW Bundled Solar Power Project,India,AMS-I.D,None,None,None,UNKNOWN,52701.0,33221.0
-1679,VCS_674,Rimba Raya Biodiversity Reserve Project,Indonesia,VM0004,None,None,None,UNKNOWN,38798881.0,33625616.0
+1679,VCS_674,Rimba Raya Biodiversity Reserve Project,Indonesia,VM0004 Methodology for Avoided Planned Land Use Conversion in Peat Swamp Forests (INACTIVE),None,None,None,UNKNOWN,38798881.0,33625616.0
 1680,VCS_1206,Montanitas Hydroelectric Project,Colombia,ACM0002,None,None,None,UNKNOWN,390957.0,257975.0
 1681,VCS_897,Exploitation of the biogas from Controlled Landfill in Solid Waste Management Central – CTRS / BR.040,Brazil,ACM0001,None,None,None,UNKNOWN,268320.0,305302.0
 1682,VCS_1423,"Teesta Low Dam Project, Stage-IV",India,ACM0002,None,None,None,UNKNOWN,1393632.0,805717.0
@@ -1690,20 +1690,20 @@
 1688,VCS_1050,Cermikler 25.00 MW Hydroelectric Power Plant Project,Türkiye,ACM0002,None,None,None,UNKNOWN,227436.0,159177.0
 1689,VCS_1091,SENA HYDROELECTRIC POWER PLANT,Türkiye,ACM0002,None,None,None,UNKNOWN,82752.0,81341.0
 1690,VCS_1485,Chorokhi Hydro Power Plant Project,Georgia,ACM0002,None,None,None,UNKNOWN,2116225.0,442368.0
-1691,VCS_13,Coal Mine Methane Capture and Use Project at the North Antelope Rochelle Coal Mine Complex,United States of America,VMR0001,None,None,None,UNKNOWN,361848.0,1072724.0
+1691,VCS_13,Coal Mine Methane Capture and Use Project at the North Antelope Rochelle Coal Mine Complex,United States of America,VMR0001 Revisions to ACM0008 to Include Pre-drainage of Methane from an Active Open Cast Mine as a Methane Emission Reduction Activity (INACTIVE),None,None,None,UNKNOWN,361848.0,1072724.0
 1692,VCS_1483,La Ferme - Bambous solar photovoltaic power plant,Mauritius,ACM0002,None,None,None,UNKNOWN,200034.0,180599.0
 1693,VCS_1479,Wind Power Project of CLP Wind Farms (India) Private Limited at Jath,India,ACM0002,None,None,None,UNKNOWN,779200.0,833041.0
 1694,VCS_1480,"Wind power project in Maharashtra, India - Andhra Lake Phase - I",India,ACM0002,None,None,None,UNKNOWN,911735.0,1060297.0
 1695,VCS_1481,"Wind power project in Maharashtra, India - Andhra Lake Phase - II",India,ACM0002,None,None,None,UNKNOWN,1245486.0,1023521.0
 1696,VCS_1482,"Wind Energy Project in Harapanahalli, Karnataka",India,ACM0002,None,None,None,UNKNOWN,907164.0,1027071.0
-1697,VCS_573,Corinth Abandoned Mine Methane Recovery Project,United States of America,VMR0002,None,None,None,UNKNOWN,611425.0,490456.0
+1697,VCS_573,Corinth Abandoned Mine Methane Recovery Project,United States of America,VMR0002 Revisions to ACM0008 to Include Methane Capture and Destruction from Abandoned Coal Mines (INACTIVE),None,None,None,UNKNOWN,611425.0,490456.0
 1698,VCS_1383,University of Wisconsin - Stevens Point Campus Wide Clean Energy & Energy Efficiency Project,United States of America,VM0025 Campus Clean Energy and Energy Efficiency,None,None,None,UNKNOWN,1238.0,3789.0
 1699,VCS_29,Gansu Zhouqu Shimenping 15 MW Hydropower Station Project,China,ACM0002,AMS-I.D,None,None,UNKNOWN,133318.0,45209.0
 1700,VCS_1413,Grid Interactive Solar Photovoltaic Power Project in Gujarat,India,ACM0002,None,None,None,UNKNOWN,451374.0,370472.0
 1701,VCS_748,MRO Grouped Wind Projects Phase I,United States of America,AMS-I.D,AMS-I.F.,None,None,UNKNOWN,60624.0,45647.0
 1702,VCS_1261,Grid connected electricity generation using natural gas by Lanco Kondapalli Power Limited,India,AM0029,None,None,None,UNKNOWN,2490399.0,1575098.0
 1703,VCS_1478,"Wind Energy Project in Dewas, Madhya Pradesh (India)",India,AMS-I.D,None,None,None,UNKNOWN,70014.0,52348.0
-1704,VCS_648,TOWER ABANDONED MINE METHANE UTILIZATION PROJECT,United States of America,ACM0008,VMR0002,None,None,UNKNOWN,266991.0,245489.0
+1704,VCS_648,TOWER ABANDONED MINE METHANE UTILIZATION PROJECT,United States of America,ACM0008,VMR0002 Revisions to ACM0008 to Include Methane Capture and Destruction from Abandoned Coal Mines (INACTIVE),None,None,UNKNOWN,266991.0,245489.0
 1705,VCS_1477,Katingan Peatland Restoration and Conservation Project,Indonesia,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,42754074.0,39998290.0
 1706,VCS_1476,Guodian Xinjiang Alashankou Phase II Wind Power Project - CER Conversion,China,ACM0002,None,None,None,UNKNOWN,103551.0,106997.0
 1707,VCS_1417,"Aura Solar I Solar Project in Baja California Sur, Mexico",Mexico,ACM0002,None,None,None,UNKNOWN,73352.0,28298.0
@@ -1728,15 +1728,15 @@
 1726,VCS_1463,India Sundarbans Mangrove Restoration,India,AR-AM0014,None,None,None,UNKNOWN,153747.0,554016.0
 1727,VCS_1233,Reforestation with Rubber on degraded lands of Colombia,Colombia,AR-ACM0003,None,None,None,UNKNOWN,311568.0,211765.0
 1728,VCS_780,Dempsey Ridge Wind Project,United States of America,ACM0002,None,None,None,UNKNOWN,2813922.0,2156214.0
-1729,VCS_1060,Bethlehem Authority Improved Forest Management Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age,None,None,None,UNKNOWN,217700.0,265425.0
+1729,VCS_1060,Bethlehem Authority Improved Forest Management Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age (INACTIVE),None,None,None,UNKNOWN,217700.0,265425.0
 1730,VCS_1380,Akinci Hydroelectric Power Plant,Türkiye,ACM0002,None,None,None,UNKNOWN,903324.0,500392.0
 1731,VCS_1361,Reforestation Project in Qinghai Province 2012,China,AR-ACM0003,None,None,None,UNKNOWN,53664.0,28883.0
 1732,VCS_1081,"Clean Energy Generation in Gujarat, India",India,AMS-I.D,None,None,None,UNKNOWN,281232.0,188634.0
-1733,VCS_902,KARIBA REDD+ PROJECT,Zimbabwe,VM0009,None,None,None,UNKNOWN,58954176.0,29016364.0
+1733,VCS_902,KARIBA REDD+ PROJECT,Zimbabwe,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,58954176.0,29016364.0
 1734,VCS_985,Cordillera Azul National Park REDD Project,Peru,VM0007 REDD+ Methodology Framework (REDD+MF),None,None,None,UNKNOWN,14177412.0,36612042.0
 1735,VCS_941,Efficient Cook Stove Programme: Kenya CPA No. 1,Kenya,AMS-II.G.,None,None,None,UNKNOWN,369712.0,125922.0
 1736,VCS_1461,Grouped Connect Solar PV Power Generation Project in China,China,ACM0002,None,None,None,UNKNOWN,1815768.0,1265672.0
-1737,VCS_1367,EFM Improved Forest Management Group Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age,None,None,None,UNKNOWN,40008.0,117969.0
+1737,VCS_1367,EFM Improved Forest Management Group Project,United States of America,VM0003 Methodology for Improved Forest Management through Extension of Rotation Age (INACTIVE),None,None,None,UNKNOWN,40008.0,117969.0
 1738,VCS_756,Crow Lake Wind Emissions Reduction Project,United States of America,ACM0002,None,None,None,UNKNOWN,3457024.0,3258296.0
 1739,VCS_98,Pamir I Hydropower Generation,Tajikistan,AMS-I.D,None,None,None,UNKNOWN,506670.0,315553.0
 1740,VCS_1378,"Forestry Project for the Basin of the Chinchina River, an Environmental and Productive Alternative for the City and the Region",Colombia,AR-ACM0003,None,None,None,UNKNOWN,121890.0,242990.0
@@ -1761,14 +1761,14 @@
 1759,VCS_318,Clinton Landfill Gas Collection and Combustion Project,United States of America,ACM0001,None,None,None,UNKNOWN,1122240.0,959595.0
 1760,VCS_729,Culbertson Waste Heat Project,United States of America,AMS-III.Q.,None,None,None,UNKNOWN,116240.0,135681.0
 1761,VCS_1448,Putian Shicheng Wind Farm Project,China,ACM0002,None,None,None,UNKNOWN,419176.0,262224.0
-1762,VCS_1202,LOWER ZAMBEZI REDD+ PROJECT,Zambia,VM0009,None,None,None,UNKNOWN,2647638.0,1980233.0
+1762,VCS_1202,LOWER ZAMBEZI REDD+ PROJECT,Zambia,VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE),None,None,None,UNKNOWN,2647638.0,1980233.0
 1763,VCS_448,Methane Capture and Destruction at Simplot's Moses Lake Wastewater Treatment Facility,United States of America,ACM0014,None,None,None,UNKNOWN,237765.0,390397.0
 1764,VCS_468,Capricorn Ridge 4 Wind Farm,United States of America,ACM0002,None,None,None,UNKNOWN,1914615.0,1389354.0
 1765,VCS_702,Garvin Waste Heat Capture Project,United States of America,AMS-III.Q.,None,None,None,UNKNOWN,158825.0,162897.0
 1766,VCS_1418,Renewable Energy Project by LNB Group,India,ACM0002,None,None,None,UNKNOWN,267021.0,262739.0
 1767,VCS_332,Dori Alimentos Ltda - Biomass Based Project - Brazil,Brazil,AMS-I.C.,None,None,None,UNKNOWN,170655.0,219965.0
 1768,VCS_1447,199.70 MW Wind Project in Maharashtra by BWDPL,India,ACM0002,None,None,None,UNKNOWN,1245186.0,2764745.0
-1769,VCS_937,Southern Ute Indian Tribe Westside CBM Seep Capture & Use Project,United States of America,VM0014,None,None,None,UNKNOWN,288180.0,416759.0
+1769,VCS_937,Southern Ute Indian Tribe Westside CBM Seep Capture & Use Project,United States of America,VM0014 Interception and Destruction of Fugitive Methane from Coal Bed Methane Seeps (INACTIVE),None,None,None,UNKNOWN,288180.0,416759.0
 1770,VCS_1317,Reforestation Grouped Project at Pratigi Environmental Protection Area,Brazil,AR-AMS0007,None,None,None,UNKNOWN,1636.0,1358.0
 1771,VCS_1376,Spelman College Campus Wide Clean Energy & Energy Efficiency Project,United States of America,VM0025 Campus Clean Energy and Energy Efficiency,None,None,None,UNKNOWN,10386.0,13279.0
 1772,VCS_1445,Putian Shijing Wind Farm Project,China,ACM0002,None,None,None,UNKNOWN,385984.0,197327.0
@@ -2106,7 +2106,7 @@
 2104,GLD_7623,Rural electrification program Madagascar,Madagascar,AMS-I.L.,None,None,None,MICRO,10000.0,350.0
 2105,GLD_7615,MRMPL Wind Power Project.,India,ACM0002,None,None,None,LARGE,65576.0,35268.0
 2106,GLD_7614,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,India,AMS-I.D,None,None,None,SMALL,65421.0,45213.0
-2107,GLD_10466,FCN GS PoA for Rural Communities VPA 04,India,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,SMALL,120000.0,9244.0
+2107,GLD_10466,FCN GS PoA for Rural Communities VPA 04,India,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,SMALL,120000.0,9244.0
 2108,GLD_7606,Zaoyuan Solar Cooker Project,China,AMS-I.C.,None,None,None,SMALL,546470.0,422695.0
 2109,GLD_7605,Shifosi Solar Cooker Project,China,AMS-I.C.,None,None,None,SMALL,546470.0,414991.0
 2110,GLD_7604,Houji Solar Cooker Project ,China,AMS-I.C.,None,None,None,SMALL,546470.0,424614.0
@@ -2192,7 +2192,6 @@
 2190,GLD_382,*Sri Balaji 6 MW Non-Conventional Renewable Sources Biomass Power Project,India,AMS-I.D,None,None,None,SMALL,314490.0,249584.0
 2191,GLD_7444,Carbon Emission Reduction Program through CCDB Improved Cook Stove (ICS) in Bangladesh – VPA 1 – Patharghata and Morrelganj 1  ,Bangladesh,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,27759.0,14550.0
 2192,GLD_3901,Zarafshan Wind Farm,Uzbekistan,ACM0002,None,None,None,LARGE,2977800.0,8576.0
-2193,GLD_4530,Diverting Sargassum from Landfills in Mexico,Mexico,Unkown,None,None,None,LARGE,258696.0,20556.0
 2194,GLD_7433,Henan Funiushan Solar Cooker Project Phase I,China,AMS-I.C.,None,None,None,SMALL,362892.0,301410.0
 2195,GLD_5801,African Biogas Carbon Programme (ABC) - Kenya - VPA006,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,SMALL,0.0,53846.0
 2196,GLD_369,*Sayalar Wind Farm Turkey,Türkiye,ACM0002,None,None,None,LARGE,765315.0,390970.0
@@ -2203,7 +2202,7 @@
 2201,GLD_4922,Improved Cookstoves and Healthy Lives in Nepal - VPA 4,Nepal,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,30000.0,136809.0
 2202,GLD_2543,GS1366 VPA 34 Coastal Kenya Borehole Rehabilitation Project,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,UNKNOWN,30000.0,99043.0
 2203,GLD_3852,Solar Power for Rural Regions in Nigeria,Nigeria,AMS-I.F.,None,None,None,MICRO,30000.0,55833.0
-2204,GLD_832,Efficient Cook Stoves in the Bahian Reconcavo region,Brazil,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,MICRO,70672.0,54769.0
+2204,GLD_832,Efficient Cook Stoves in the Bahian Reconcavo region,Brazil,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,70672.0,54769.0
 2205,GLD_7436,GS5658 VPA 10: Resilience with Safe drinking water in Drought Prone Areas of Bale Zone in Oromia (Ethiopia) phase II,Ethiopia,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,50000.0,17483.0
 2206,GLD_3405,Los Santos Wind Power Project,Costa Rica,AMS-I.D,None,None,None,SMALL,68298.0,33380.0
 2207,GLD_6275,Domestic Biogas Project for rural households in India,India,AMS-I.E.,None,None,None,SMALL,274296.0,204761.0
@@ -2211,7 +2210,6 @@
 2209,GLD_1378,Nanyang Danjiang River Solar Cooker Project Phase I,China,AMS-I.C.,None,None,None,SMALL,631428.0,454084.0
 2210,GLD_7434,Henan Funiushan Solar Cooker Project Phase II,China,AMS-I.C.,None,None,None,SMALL,360000.0,299122.0
 2211,GLD_7438,Improved Cookstove Project In Uganda,Uganda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,LARGE,514485.0,199274.0
-2212,GLD_6513,VPA - Spring Health - 1,India,Unkown,None,None,None,MICRO,39968.0,28244.0
 2213,GLD_7395,GS5047 VPA26 African Improved Cookstoves and Clean Water Programme: Nyagatare Safe Water Project VI,Rwanda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,35072.0,22044.0
 2214,GLD_1124,Native Hydraid Water Filtration in Kenya,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,100000.0,69874.0
 2215,GLD_3509,Yandun 8C Wind Farm Project,China,ACM0002,None,None,None,LARGE,2345938.0,56359.0
@@ -2223,7 +2221,6 @@
 2221,GLD_7398,GS5047 VPA29 African Improved Cookstoves and Clean Water Programme: Nyagatare Safe Water Project IX,Rwanda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,35072.0,22210.0
 2222,GLD_7397,GS5047 VPA28 African Improved Cookstoves and Clean Water Programme: Nyagatare Safe Water Project VIII,Rwanda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,35072.0,22148.0
 2223,GLD_7396,GS5047 VPA27 African Improved Cookstoves and Clean Water Programme: Nyagatare Safe Water Project VII,Rwanda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,35072.0,22455.0
-2224,GLD_1294,GS1264: Native Clean Water Programme West Africa: VPA(01) Ghana,Ghana,Unkown,None,None,None,MICRO,100000.0,74103.0
 2225,GLD_6607,Biomass based power project of VPL,India,AMS-I.D,None,None,None,SMALL,294636.0,213685.0
 2226,GLD_2758,"GS1247 VPA 261 Improved Kitchen Regimes Multi-Country PoA - Dowa Boreholes, Malawi",Malawi,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,100000.0,2399363.0
 2227,GLD_690,*Proyecto Mirador enhanced distribution of efficient woodstoves,Honduras,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,SMALL,190745.0,248531.0
@@ -2237,7 +2234,7 @@
 2235,GLD_5391,EcoMakala Virunga Energy project,"Congo, Democratic Republic of the",AMS-III.BG.,None,None,None,LARGE,583025.0,83617.0
 2236,GLD_7364,GS1247 VPA 185 Lango Safe Water Project,Uganda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,37700.0,15273.0
 2237,GLD_7362,GS1247 VPA 183 Lango Safe Water Project,Uganda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,40000.0,13890.0
-2238,GLD_500,Darfur Efficient Cook-stove Project,Sudan,GS Methodology for Improved Cook stoves and Kitchen Regimes v1.,None,None,None,SMALL,373934.0,329887.0
+2238,GLD_500,Darfur Efficient Cook-stove Project,Sudan,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,SMALL,373934.0,329887.0
 2239,GLD_7366,GS1247 VPA 187 Lango Safe Water Project,Uganda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,39356.0,12577.0
 2240,GLD_7365,GS1247 VPA 186 Lango Safe Water Project,Uganda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,39912.0,12119.0
 2241,GLD_7363,GS1247 VPA 184 Lango Safe Water Project,Uganda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,39912.0,13841.0
@@ -2335,7 +2332,7 @@
 2333,GLD_3028,Yongren Ganbala Grid-connected Photovoltaic Power Project-Pre CDM clone,China,ACM0002,None,None,None,LARGE,111566.0,16373.0
 2334,GLD_1117,60MW Solar PV - Monte Plata,Dominican Republic,ACM0002,None,None,None,LARGE,265000.0,138901.0
 2335,GLD_1059,Rural Education for Development Society (REDS) Photovoltaic Lighting Project,India,AMS-I.L.,None,None,None,UNKNOWN,11688.0,9890.0
-2336,GLD_997,LAYA Paderu Energy Efficient Woodstoves Project,India,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,MICRO,45000.0,40707.0
+2336,GLD_997,LAYA Paderu Energy Efficient Woodstoves Project,India,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,45000.0,40707.0
 2337,GLD_993,Highveld Air Quality - Wesselton project,South Africa,"Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires",None,None,None,UNKNOWN,32000.0,30118.0
 2338,GLD_992,Highveld Air Quality - Seme project,South Africa,"Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires",None,None,None,UNKNOWN,28000.0,27249.0
 2339,GLD_991,Highveld Air Quality - Sakhile project,South Africa,"Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires",None,None,None,UNKNOWN,12000.0,5455.0
@@ -2346,35 +2343,35 @@
 2344,GLD_986,Highveld Air Quality - NFS project,South Africa,"Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires",None,None,None,UNKNOWN,28000.0,8377.0
 2345,GLD_980,Accion Fraterna Biogas CDM project for rural communities in Anantapur Andhra Pradesh,India,AMS-I.E.,None,None,None,SMALL,183084.0,23121.0
 2346,GLD_978,West Kisumu Improved Cook Stoves,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,SMALL,450000.0,14841.0
-2347,GLD_977,Msambweni Improved Cook Stoves,Kenya,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,SMALL,24288.0,16261.0
+2347,GLD_977,Msambweni Improved Cook Stoves,Kenya,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,SMALL,24288.0,16261.0
 2348,GLD_976,Meru Improved Cook Stoves,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,SMALL,600000.0,180964.0
 2349,GLD_971,Balikesir 142.5 MW Wind Power Plant Project,Türkiye,ACM0002,None,None,None,LARGE,1875181.0,1629436.0
-2350,GLD_966,Paradigm Healthy Cookstove and Water Treatment Project,Kenya,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,LARGE,3393222.0,1577010.0
+2350,GLD_966,Paradigm Healthy Cookstove and Water Treatment Project,Kenya,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,LARGE,3393222.0,1577010.0
 2351,GLD_963,Sares 22.5 MW Wind Power Plant,Türkiye,ACM0002,None,None,None,LARGE,265145.0,245630.0
 2352,GLD_961,Nam Hong Hydropower Project,Viet Nam,ACM0002,None,None,None,LARGE,179800.0,84553.0
-2353,GLD_949,Clean and Efficient Cooking and Heating Project China,China,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,LARGE,2796507.0,1778775.0
+2353,GLD_949,Clean and Efficient Cooking and Heating Project China,China,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,LARGE,2796507.0,1778775.0
 2354,GLD_1746,"20 MW Solar Project in Sanwreej, Jodhpur, Rajasthan- Pre CDM Clone",India,Other,None,None,None,LARGE,69764.0,7663.0
 2355,GLD_939,Nairobi River Basin Biogas Project,Kenya,AMS-I.E.,None,None,None,SMALL,323541.0,22027.0
 2356,GLD_931,Miaoli 49.8MW Wind Farm Project,Taiwan,ACM0002,None,None,None,LARGE,932169.0,570190.0
 2357,GLD_918,GS1205 Sustainable Energy for Development PoA VPA 1: Improved Cook Stove project in Longjie Guizhou,China,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,UNKNOWN,20550.0,10985.0
 2358,GLD_917,Cakirlar Run-off-River Hydro Power Plant,Türkiye,ACM0002,None,None,None,SMALL,110440.0,95664.0
 2359,GLD_906,Canakkale WPP,Türkiye,ACM0002,None,None,None,LARGE,435016.0,339977.0
-2360,GLD_886,Sustainable Deployment of the LifeStraw Family in rural Kenya,Kenya,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,LARGE,8293312.0,4476205.0
-2361,GLD_883,Aberdares Improved Cook Stoves,Kenya,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,SMALL,490000.0,101776.0
+2360,GLD_886,Sustainable Deployment of the LifeStraw Family in rural Kenya,Kenya,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,LARGE,8293312.0,4476205.0
+2361,GLD_883,Aberdares Improved Cook Stoves,Kenya,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,SMALL,490000.0,101776.0
 2362,GLD_880,Improved cook-stoves in Guinea,Guinea,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,18416.0,11779.0
 2363,GLD_869,Biogas utilization project in Zhejiang Jingxing Paper Joint Stock Co. Ltd.. (300660),China,AMS-I.F.,None,None,None,SMALL,121154.0,37246.0
 2364,GLD_866,Univanich Lamthap POME Biogas Project PreCDMVER,Thailand,AMS-I.D,None,None,None,LARGE,96000.0,29764.0
 2365,GLD_858,Improved Cook Stoves CDM project of JSMBT,India,AMS-II.G.,None,None,None,SMALL,302505.0,153547.0
 2366,GLD_850,Dissemination of fuel efficient biomass stoves and water purification systems in Tanzania,Tanzania,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,LARGE,248574.0,194902.0
-2367,GLD_843,Kisumu Improved Cook Stoves,Kenya,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,SMALL,211043.0,168776.0
+2367,GLD_843,Kisumu Improved Cook Stoves,Kenya,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,SMALL,211043.0,168776.0
 2368,GLD_841,DAKFOCAM Wastewater project,Viet Nam,AMS-I.C.,None,None,None,SMALL,52671.0,23803.0
 2369,GLD_840,La La Hydropower Project Vietnam,Viet Nam,AMS-I.D,None,None,None,SMALL,20715.0,7884.0
 2370,GLD_836,Amayo 40 MW Wind Power Project-Nicaragua - Pre CDM VERs,Nicaragua,ACM0002,None,None,None,LARGE,11427.0,11429.0
 2371,GLD_835,Hunan Guanbaodu-Liangjiangkou Small-scale Hydropower Bundle Project,China,ACM0002,None,None,None,SMALL,168090.0,206200.0
-2372,GLD_827,Shimoni Improved Cook Stoves,Kenya,GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,UNKNOWN,14766.0,4119.0
+2372,GLD_827,Shimoni Improved Cook Stoves,Kenya,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,UNKNOWN,14766.0,4119.0
 2373,GLD_825,Likoni and Shimoni Improved Cook Stove Project,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,UNKNOWN,29544.0,10284.0
 2374,GLD_824,Shimba Hills Improved Cook Stoves,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,SMALL,335552.0,233416.0
-2375,GLD_813,Solar Cookstoves Project in Bolivia,"Bolivia, Plurinational State of",GS Methodology for Improved Cook stoves and Kitchen Regimes v2.,None,None,None,UNKNOWN,32142.0,21344.0
+2375,GLD_813,Solar Cookstoves Project in Bolivia,"Bolivia, Plurinational State of",Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,UNKNOWN,32142.0,21344.0
 2376,GLD_784,Guangzhou Zhujiang Beer Methane Recovery Project (300068)_pre-CDM VER,China,AMS-I.D,None,None,None,SMALL,56000.0,17656.0
 2377,GLD_778,Blue Fire Bio wastewater treatment and biogas utilization project (300147)_pre-CDM VER,Thailand,AMS-I.C.,None,None,None,SMALL,103634.0,19332.0
 2378,GLD_777,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,Thailand,AMS-I.D,None,None,None,SMALL,83402.0,22591.0
@@ -2385,23 +2382,22 @@
 2383,GLD_764,Bolu Landfill Gas to Energy Project Turkey,Türkiye,AMS-III.G.,None,None,None,SMALL,172711.0,86339.0
 2384,GLD_756,Efficient Fuel Wood Cooking Stoves Project in Foothills and Plains of Central Region of Nepal,Nepal,AMS-II.G.,None,None,None,SMALL,98164.0,39672.0
 2385,GLD_750,Hebei Yingxin Glass Group Co. Ltd. Glass Furnace Flue Gas Waste Heat To Energy Project (300502),China,ACM0012,None,None,None,LARGE,679060.0,585390.0
-2386,GLD_748,Dissemination of improved stoves (Mogogo) in the Eritrean highlands,Eritrea,GS Methodology for Improved Cook stoves and Kitchen Regimes v1.,None,None,None,UNKNOWN,49390.0,25701.0
+2386,GLD_748,Dissemination of improved stoves (Mogogo) in the Eritrean highlands,Eritrea,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,UNKNOWN,49390.0,25701.0
 2387,GLD_746,Metro Group Energy WWT Project (300392),Thailand,AMS-I.C.,None,None,None,SMALL,284790.0,65178.0
 2388,GLD_745,Gaziantep Landfill Gas to Energy Project Turkey,Türkiye,ACM0001,None,None,None,LARGE,730320.0,401947.0
 2389,GLD_744,60 MW Bandirma Wind Power Plant Project,Türkiye,ACM0002,None,None,None,LARGE,543460.0,523907.0
 2390,GLD_733,Şenbük Wind Power Project Turkey,Türkiye,ACM0002,None,None,None,SMALL,646811.0,292152.0
-2391,GLD_716,Sidlaghatta Biogas Project,India,GS Baseline and Monitoring Methodology Biodigester v1.,None,None,None,SMALL,381084.0,94464.0
+2391,GLD_716,Sidlaghatta Biogas Project,India,Gold Standard Baseline and Monitoring Methodology for Biodigesters,None,None,None,SMALL,381084.0,94464.0
 2392,GLD_702,Boreas-1 Enez Wind Power Plant,Türkiye,AMS-I.D,None,None,None,SMALL,432000.0,232608.0
-2393,GLD_817,Arakalagudu Biodigester Project II,India,GS Baseline and Monitoring Methodology Biodigester v1.,None,None,None,UNKNOWN,38500.0,40236.0
+2393,GLD_817,Arakalagudu Biodigester Project II,India,Gold Standard Baseline and Monitoring Methodology for Biodigesters,None,None,None,UNKNOWN,38500.0,40236.0
 2394,GLD_849,Social Education and Development Society (SEDS) Biogas CDM project for the rural poor,India,AMS-I.E.,None,None,None,SMALL,173239.0,108583.0
 2395,GLD_710,Federal Intertrade Haiyuan Solar Cooker Project,China,AMS-I.C.,None,None,None,SMALL,133928.0,97820.0
 2396,GLD_707,LANDFILL GAS EXTRACTION AND ELECTRICITY GENERATION PROJECT - ISTANBUL TURKEY,Türkiye,ACM0001,None,None,None,LARGE,5731887.0,8320766.0
 2397,GLD_696,Orb Energy Solar Project India,India,AMS-I.A.,None,None,None,SMALL,114160.0,45089.0
-2398,GLD_689,Zhaoyang rural household biogas tank program,China,GS Baseline and Monitoring Methodology Biodigester v1.,None,None,None,UNKNOWN,19712.0,20240.0
+2398,GLD_689,Zhaoyang rural household biogas tank program,China,Gold Standard Baseline and Monitoring Methodology for Biodigesters,None,None,None,UNKNOWN,19712.0,20240.0
 2399,GLD_687,Jilin Huaneng Zhenlai Mali Wind Power Project,China,ACM0002,None,None,None,LARGE,348951.0,219785.0
-2400,GLD_685,GS1005 Qori Q'oncha - Improved cookstoves diffusion programme in Peru - VPA1,Peru,GS Methodology for Improved Cook stoves and Kitchen Regimes v1.,None,None,None,LARGE,1384656.0,822955.0
+2400,GLD_685,GS1005 Qori Q'oncha - Improved cookstoves diffusion programme in Peru - VPA1,Peru,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,LARGE,1384656.0,822955.0
 2401,GLD_670,Kolar Biogas Project,India,AMS-I.C.,None,None,None,SMALL,224802.0,338635.0
-2402,GLD_666,Installation of Biogas Plant by INSEDA Members & Partners,India,Unkown,None,None,None,SMALL,265870.0,228805.0
 2403,GLD_663,ARALIK HEPP ,Türkiye,AMS-I.D,None,None,None,SMALL,89016.0,77956.0
 2404,GLD_662,Blue Fire Bio wastewater treatment and biogas utilisation project (300147),Thailand,AMS-I.C.,None,None,None,SMALL,103634.0,51054.0
 2405,GLD_660,Lam Soon Wastewater Treatment for Energy Generation Trang,Thailand,AMS-III.H.,None,None,None,SMALL,9754.0,1892.0
@@ -2413,8 +2409,6 @@
 2411,GLD_6520,GS1247 VPA 144 Manicaland Safe Water,Zimbabwe,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,40000.0,25776.0
 2412,GLD_6519,GS1247 VPA 143 Manicaland Safe Water,Zimbabwe,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,40000.0,25513.0
 2413,GLD_6518,GS1247 VPA 142 Manicaland Safe Water,Zimbabwe,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,40000.0,25453.0
-2414,GLD_6445,VPA - Spouts - 3,Uganda,Unkown,None,None,None,MICRO,40000.0,26622.0
-2415,GLD_6444,VPA - Spouts - 2,Uganda,Unkown,None,None,None,MICRO,40000.0,27142.0
 2416,GLD_6443,"GS5658 VPA 3: Borehole project ""Antonio Giaffreda"" Senegal",Senegal,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,42990.0,14697.0
 2417,GLD_642,Bulam 7MW HEPP,Türkiye,ACM0002,None,None,None,SMALL,126942.0,76466.0
 2418,GLD_6289,Renoe Acipayam Solar Power Plant,Türkiye,AMS-I.D,None,None,None,SMALL,50.0,50480.0
@@ -2436,8 +2430,8 @@
 2434,GLD_617,Ziyaret Wind Power Project Turkey,Türkiye,ACM0002,None,None,None,LARGE,1737192.0,1549197.0
 2435,GLD_616,*Huadian Ningxia Ningdong Yangjiayao 45MW Wind-farm Project preCDM VERs,China,ACM0002,None,None,None,SMALL,187876.0,22823.0
 2436,GLD_6155,Efficient And Clean Cooking For Mozambican Low Income Housholds - George Dimitrov VPA1,Mozambique,AMS-II.G.,None,None,None,SMALL,30000.0,70431.0
-2437,GLD_615,Hassan Composite Vermicompost Biogas Project,India,GS Baseline and Monitoring Methodology Biodigester v1.,None,None,None,UNKNOWN,29348.0,24864.0
-2438,GLD_614,Biogas Tanks in Guizhou Province in China,China,GS Baseline and Monitoring Methodology Biodigester v1.,None,None,None,UNKNOWN,32585.0,12156.0
+2437,GLD_615,Hassan Composite Vermicompost Biogas Project,India,Gold Standard Baseline and Monitoring Methodology for Biodigesters,None,None,None,UNKNOWN,29348.0,24864.0
+2438,GLD_614,Biogas Tanks in Guizhou Province in China,China,Gold Standard Baseline and Monitoring Methodology for Biodigesters,None,None,None,UNKNOWN,32585.0,12156.0
 2439,GLD_613,Integrated Biomass Energy Conservation Project - Malawi,Malawi,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,LARGE,295145.0,256522.0
 2440,GLD_612,InfraVest Guanyin Wind Farm Project - Taiwan,Taiwan,ACM0002,None,None,None,LARGE,1213223.0,874697.0
 2441,GLD_6116,Improved Cookstoves Project Activity in Honduras “Vida Mejor con Ecofogones de Alto Rendimiento” – CPA No 009,Honduras,AMS-II.G.,None,None,None,SMALL,168888.0,58416.0
@@ -2447,12 +2441,10 @@
 2445,GLD_6112,Improved Cookstoves Project Activity in Honduras “Vida Mejor con Ecofogones de Alto Rendimiento” – CPA No 005,Honduras,AMS-II.G.,None,None,None,SMALL,168888.0,93307.0
 2446,GLD_6111,Improved Cookstoves Project Activity in Honduras “Vida Mejor con Ecofogones de Alto Rendimiento” – CPA No 004,Honduras,AMS-II.G.,None,None,None,SMALL,168888.0,98925.0
 2447,GLD_6109,Improved Cookstoves Project Activity in Honduras “Vida Mejor con Ecofogones de Alto Rendimiento” – CPA No 003,Honduras,AMS-II.G.,None,None,None,SMALL,168888.0,99748.0
-2448,GLD_6108,Improved Cookstoves Project Activity in Honduras Vida Mejor con Ecofogones de Alto Rendimiento CPA No 002,Honduras,Unkown,None,None,None,SMALL,168888.0,98290.0
-2449,GLD_6101,VPA - Spouts - 1,Uganda,Unkown,None,None,None,MICRO,40000.0,25432.0
 2450,GLD_609,Highveld Air Quality - Phumula project,South Africa,"Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires",None,None,None,UNKNOWN,12000.0,8436.0
 2451,GLD_607,The 2nd 45MW Wind-farm project of Huadian Ningxia Ningdong Yangjiayao,China,ACM0002,None,None,None,SMALL,93595.0,49420.0
 2452,GLD_6051,Adavikanda Kuruwita Division Mini Hydro Power Project,Sri Lanka,AMS-I.D,None,None,None,SMALL,26968.0,14802.0
-2453,GLD_6050,Efficient Cookstoves in Bahia III,Brazil,GS Methodology for Improved Cook stoves and Kitchen Regimes v1.,None,None,None,MICRO,15284.0,15012.0
+2453,GLD_6050,Efficient Cookstoves in Bahia III,Brazil,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,15284.0,15012.0
 2454,GLD_605,Antai Group Waste Gas Recovery for Power Generation Project (300303),China,ACM0012,None,None,None,LARGE,2800764.0,1568125.0
 2455,GLD_601,Kores Kocadag Wind Power Project Turkey,Türkiye,ACM0002,None,None,None,SMALL,506632.0,494687.0
 2456,GLD_6008,GS2489 – Efficient cookstoves in Benin and Togo – VPA2 – EcoBénin – Wanrou efficient cookstoves in Atacora/Donga region,Benin,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,55902.0,29349.0
@@ -2475,10 +2467,6 @@
 2473,GLD_567,Amayo 40 MW Wind Power Project – Nicaragua,Nicaragua,ACM0002,None,None,None,LARGE,1570543.0,1162802.0
 2474,GLD_566,Prony and Kafeate wind-farms New Caledonia (300344),New Caledonia,ACM0002,None,None,None,LARGE,472407.0,464170.0
 2475,GLD_565,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084),Thailand,AMS-I.D,None,None,None,SMALL,417010.0,345441.0
-2476,GLD_5637,GS4424 VPA5 African Cookstoves and Water Programme,Rwanda,Unkown,None,None,None,MICRO,73432.0,37001.0
-2477,GLD_5636,GS4424 VPA4 African Cookstoves and Water Programme,Rwanda,Unkown,None,None,None,MICRO,77752.0,36714.0
-2478,GLD_5635,GS4424 VPA3 African Cookstoves and Water Programme,Rwanda,Unkown,None,None,None,MICRO,77752.0,37052.0
-2479,GLD_5634,GS4424 VPA2 African Cookstoves and Water Prorgamme,Rwanda,Unkown,None,None,None,MICRO,77752.0,37030.0
 2480,GLD_5614,100.8 MW Wind Power Project in Beluguppa Andhra Pradesh,India,ACM0002,None,None,None,LARGE,1120065.0,812936.0
 2481,GLD_560,CYY Biopower Wastewater treatment plant including biogas reuse for thermal oil replacement and electricity generation Project Thailand (300059),Thailand,AMS-I.D,None,None,None,LARGE,584808.0,366956.0
 2482,GLD_554,Gansu Anxi Wind Farm Project 100.5 MW,China,ACM0002,None,None,None,LARGE,1376520.0,848493.0
@@ -2486,7 +2474,6 @@
 2484,GLD_547,Gansu Nanyangshan 1.26MW Hydro Power Project,China,AMS-I.D,None,None,None,UNKNOWN,21345.0,22065.0
 2485,GLD_5463,Oromia Cookstove Distribution Project,Ethiopia,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,SMALL,287034.0,99115.0
 2486,GLD_545,Hunan Luantang 1 MW Hydro Power Project,China,ACM0002,None,None,None,UNKNOWN,10240.0,6440.0
-2487,GLD_5447,GS5382 Energy for Sustainable Development – Malawi 2,Malawi,Unkown,None,None,None,SMALL,120402.0,36766.0
 2488,GLD_5417,The Breathing Space Improved Cooking Stoves Programme India - VPA No. 12 Envirofit,India,AMS-II.G.,None,None,None,SMALL,144960.0,159652.0
 2489,GLD_5341,GS1247 VPA 101 Improved Kitchen Regimes Multi-Country PoA - Kasungu Boreholes Malawi,Malawi,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,60000.0,54289.0
 2490,GLD_5245,GS1247 VPA 85 Zoba Maekel Community Boreholes,Eritrea,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,70000.0,43333.0
@@ -2517,7 +2504,7 @@
 2515,GLD_503,Kemerburgaz wind farm project,Türkiye,ACM0002,None,None,None,LARGE,238896.0,163471.0
 2516,GLD_5013,"Safe Drinking Water Dharni, Melghat",India,Gold Standard Emission reductions from Safe Drinking Water Supply,None,None,None,SMALL,361340.0,684874.0
 2517,GLD_5003,Bamako Clean Cookstoves - Improving livelihoods and fighting desertification in the Sahel zone,Mali,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,LARGE,711550.0,407458.0
-2518,GLD_493,Nagapattinam District Biogas Project for Tsunami affected Poor,India,GS Baseline and Monitoring Methodology Biodigester v1.,None,None,None,SMALL,32904.0,11330.0
+2518,GLD_493,Nagapattinam District Biogas Project for Tsunami affected Poor,India,Gold Standard Baseline and Monitoring Methodology for Biodigesters,None,None,None,SMALL,32904.0,11330.0
 2519,GLD_4900,GS1247 VPA 59 Improved Kitchen Regimes: Kayonza District Borehole Project Rwanda,Rwanda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,60000.0,41611.0
 2520,GLD_4798,Mezgilder Qushteri Wind Power Project,Kazakhstan,ACM0002,None,None,None,LARGE,1816800.0,43477.0
 2521,GLD_4899,GS1247 VPA 58 Improved Kitchen Regimes: Kayonza District Borehole Project Rwanda,Rwanda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,60000.0,41334.0
@@ -2569,8 +2556,7 @@
 2567,GLD_423,*Salido Kecil Mini Hydropower Plant,Indonesia,AMS-I.D,None,None,None,MICRO,67695.0,33006.0
 2568,GLD_419,Zhangbei Mijiagou 49.5 MW Wind Farm Project in China,China,ACM0002,None,None,None,LARGE,217716.0,160224.0
 2569,GLD_417,Hebei Shangyi Manjing East Wind Farm Project,China,ACM0002,None,None,None,LARGE,480832.0,311368.0
-2570,GLD_414,*Improved Household Charcoal Stoves in Mali,Mali,Unkown,None,None,None,LARGE,793232.0,1001341.0
-2571,GLD_413,*Improved Household Charcoal Stoves in Ghana,Ghana,GS Methodology for Improved Cook stoves and Kitchen Regimes v1.,None,None,None,LARGE,721193.0,1534448.0
+2571,GLD_413,*Improved Household Charcoal Stoves in Ghana,Ghana,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,LARGE,721193.0,1534448.0
 2572,GLD_4126,GS1247 VPA 313 Guatemala Improved Cookstoves Project,Guatemala,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,9263.0,4030.0
 2573,GLD_4124,Brigo Sustainable Transport,Italy,AMS-III.S.,None,None,None,SMALL,466.0,107412.0
 2574,GLD_411,Efficient Fuel Wood Stoves for Nigeria,Nigeria,AMS-II.G.,None,None,None,SMALL,220000.0,97297.0
@@ -2632,8 +2618,6 @@
 2630,GLD_3422,Bhesada Wind Power Project in Rajasthan,India,ACM0002,None,None,None,LARGE,1295525.0,45989.0
 2631,GLD_3404,Biodigestor Program in the State of Kerala by  INSEDA and SDA,India,AMS-I.E.,None,None,None,SMALL,136620.0,112334.0
 2632,GLD_3372,Thuan Nhien Phong Wind Farm,Viet Nam,ACM0002,None,None,None,LARGE,171472.0,53837.0
-2633,GLD_3367,The Breathing Space Improved Cooking Stoves Programme India - VPA No. 09 Envirofit,India,Unkown,None,None,None,SMALL,106350.0,158152.0
-2634,GLD_3366,The Breathing Space Improved Cooking Stoves Programme India - VPA No. 08 Envirofit,India,Unkown,None,None,None,SMALL,152810.0,143986.0
 2635,GLD_3364,GS10875 Namene Solar Lights Distribution Programme in Southern African Countries - Zimbabwe VPA 1 (GS 11343),Zimbabwe,AMS-III.AR.,None,None,None,SMALL,255630.0,116679.0
 2636,GLD_3080,GS1247 VPA 297 - Burkina Faso Safe Water,Burkina Faso,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,30000.0,4937.0
 2637,GLD_3079,GS1247 VPA 296 - Burkina Faso Safe Water,Burkina Faso,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,30000.0,4665.0
@@ -2651,7 +2635,6 @@
 2649,GLD_3014,Song Chung Hydropower Project ,Viet Nam,ACM0002,None,None,None,LARGE,105348.0,69860.0
 2650,GLD_2772,Avoidance of Methane Emissions at Organic Compost Soil Amendment Facility,United States of America,ACM0010,None,None,None,LARGE,201712.0,5352.0
 2651,GLD_2767,Biogas Support Program – Nepal (BSP-Nepal) Activity-1,Nepal,AMS-I.E.,None,None,None,SMALL,142428.0,171049.0
-2652,GLD_2744,SÜTAŞ BINGOL BIOGAS PLANT,Türkiye,Unkown,None,None,None,LARGE,390000.0,33637.0
 2653,GLD_2736, GS1340 Efficient cookstoves in Burkina Faso - VPA-15 - Improved Cookstove F3PA project in Nahouri,Burkina Faso,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,9599.0,59334.0
 2654,GLD_2735,GS1340 Efficient cookstoves in Burkina Faso - VPA-14 - Improved Cookstove F3PA project in Nahouri ,Burkina Faso,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,MICRO,19198.0,27810.0
 2655,GLD_2722,Fuel efficient stoves for Ethiopia Programme of Activities CPA 001,Ethiopia,AMS-II.G.,None,None,None,SMALL,86194.0,24458.0
@@ -2695,7 +2678,6 @@
 2693,GLD_2542,GS1366 VPA 33 Coastal Kenya Borehole Rehabilitation Project,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,UNKNOWN,80000.0,198041.0
 2694,GLD_2540,GS1366 VPA 31 Coastal Kenya Borehole Rehabilitation Project,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,UNKNOWN,50000.0,31286.0
 2695,GLD_2539,GS1366 VPA 30 Coastal Kenya Borehole Rehabilitation Project,Kenya,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,UNKNOWN,50000.0,46003.0
-2696,GLD_2525,Avoided methane emission through aerobic composting at Vietstar municipal solid waste treatment facility,Viet Nam,Unkown,None,None,None,LARGE,1451936.0,1224108.0
 2697,GLD_2497,Kurtkayasi Wind Power Plant,Türkiye,ACM0002,None,None,None,LARGE,393984.0,296487.0
 2698,GLD_2514,GS1205 Sustainable Energy for Development PoA VPA 3: Improved Cook Stove Project in Brazzaville,Congo,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,MICRO,15906.0,13559.0
 2699,GLD_2510,Xe Namnoy 2 - Xe Katam 1 Hydropower project,Lao People's Democratic Republic,AMS-I.D,None,None,None,SMALL,185752.0,203032.0
@@ -2791,7 +2773,7 @@
 2789,GLD_1370,Bangkok Kamphaeng Saen West: Landfill Gas to Electricity Project,Thailand,ACM0001,None,None,None,LARGE,452154.0,922836.0
 2790,GLD_1368,Edincik Wind Power Plant,Türkiye,ACM0002,None,None,None,LARGE,638610.0,399695.0
 2791,GLD_1367,Betulia Hydroelectric project,Honduras,AMS-I.D,None,None,None,SMALL,57225.0,43772.0
-2792,GLD_1365,GS1005 Qori Q'oncha - Improved cookstoves diffusion programme in Peru â€“ VPA3,Peru,GS Methodology for Improved Cook stoves and Kitchen Regimes v1.,None,None,None,LARGE,151109.0,155896.0
+2792,GLD_1365,GS1005 Qori Q'oncha - Improved cookstoves diffusion programme in Peru â€“ VPA3,Peru,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,LARGE,151109.0,155896.0
 2793,GLD_1353,CPA # 3 Improved Cooking Stoves for Nigeria GS 1353,Nigeria,AMS-II.G.,None,None,None,SMALL,113560.0,46431.0
 2794,GLD_1352,CPA # 2 Improved Cooking Stoves for Nigeria GS 1352,Nigeria,AMS-II.G.,None,None,None,SMALL,112900.0,63866.0
 2795,GLD_1350,InfraVest Taiwan Wind Farms Bundled Project 2012,Taiwan,ACM0002,None,None,None,LARGE,630600.0,330657.0
@@ -2850,15 +2832,14 @@
 2848,GLD_1064,Efficient Cookstoves for Cameroon's Littoral and South-West regions,Cameroon,AMS-II.G.,None,None,None,UNKNOWN,30000.0,51367.0
 2849,GLD_1061,Kayseri Molu Landfill Gas to Energy Project Turkey,Türkiye,ACM0001,None,None,None,SMALL,271377.0,1167370.0
 2850,GLD_1060,Improved Cook Stoves programme for Rwanda,Rwanda,AMS-II.G.,None,None,None,SMALL,546939.0,285200.0
-2851,GLD_1049,GS1005 Qori Q'oncha - Improved cookstoves diffusion programme in Peru - VPA2,Peru,GS Methodology for Improved Cook stoves and Kitchen Regimes v1.,None,None,None,LARGE,614520.0,1516361.0
+2851,GLD_1049,GS1005 Qori Q'oncha - Improved cookstoves diffusion programme in Peru - VPA2,Peru,Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC),None,None,None,LARGE,614520.0,1516361.0
 2852,GLD_1048,MicroEnergy Credits XacBank Microfinance for Home Insulation,Mongolia,AMS-II.E.,None,None,None,UNKNOWN,14985.0,8703.0
 2853,GLD_1044,GS VER UpEnergy's Uganda Biomass Cookstove Project,Uganda,Gold Standard Reduced emissions from cooking and heating (RECH) (formerly TPDDTEC),None,None,None,LARGE,1078605.0,505153.0
-2854,GLD_1042,Ceará Renewable Energy Bundled Project,Brazil,Unkown,None,None,None,SMALL,397903.0,505363.0
 2855,GLD_1041,Ferrosilicon waste heat power generation project,China,ACM0012,None,None,None,LARGE,581472.0,273212.0
 2856,GLD_1040,Highveld Air Quality - Standerton project,South Africa,"Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires",None,None,None,UNKNOWN,8000.0,1140.0
 2857,GLD_1039,Maluti Air Quality Project - West,South Africa,"Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires",None,None,None,UNKNOWN,12000.0,6432.0
 2858,GLD_1038,Highveld Air Quality - Maluti East,South Africa,AMS-II.C.,None,None,None,UNKNOWN,24000.0,13841.0
-2859,GLD_1033,Xuyong household biogas Gold Standard VER Project,China,GS Baseline and Monitoring Methodology Biodigester v1.,None,None,None,MICRO,49489.0,45900.0
+2859,GLD_1033,Xuyong household biogas Gold Standard VER Project,China,Gold Standard Baseline and Monitoring Methodology for Biodigesters,None,None,None,MICRO,49489.0,45900.0
 2860,GLD_1031,The Breathing Space Improved Cooking Stoves Programme India - VPA No. 04 Envirofit,India,AMS-II.G.,None,None,None,SMALL,245052.0,112254.0
 2861,GLD_1030,The Breathing Space Improved Cooking Stoves Programme India - VPA No. 03 Envirofit,India,AMS-II.G.,None,None,None,SMALL,235458.0,91286.0
 2862,GLD_1029,The Breathing Space Improved Cooking Stoves Programme India - VPA No. 02 Envirofit,India,AMS-II.G.,None,None,None,SMALL,229644.0,108612.0

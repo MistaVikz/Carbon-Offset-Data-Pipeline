@@ -2,8 +2,14 @@
   "VM0001 Refrigerant Leak Detection": [
     "VM0001"
   ],
-  "VM0003 Methodology for Improved Forest Management through Extension of Rotation Age": [
+  "VM0002 New Cogeneration Facilities Supplying Less Carbon Intensive Electricity to Grid and/or Hot Water to One or More Grid Customers" : [
+    "VM0002"
+  ],
+  "VM0003 Methodology for Improved Forest Management through Extension of Rotation Age (INACTIVE)": [
     "VM0003"
+  ],
+  "VM0004 Methodology for Avoided Planned Land Use Conversion in Peat Swamp Forests (INACTIVE)": [
+    "VM0004"
   ],
   "VM0005 Methodology for Conversion of Low-Productive Forest to High-Productive Forest": [
     "VM0005"
@@ -17,6 +23,9 @@
   "VM0008 Weatherization of Single Family and Multi-Family Buildings": [
     "VM0008"
   ],
+  "VM0009 Methodology for Avoided Ecosystem Conversion (INACTIVE)" : [
+    "VM0009"
+  ],
   "VM0010 Methodology for Improved Forest Management: Conversion from Logged to Protected Forest": [
     "VM0010"
   ],
@@ -26,11 +35,20 @@
   "VM0012 Improved Forest Management in Temperate and Boreal Forests (LtPF)": [
     "VM0012"
   ],
+  "VM0013 Calculating Emission Reductions from Jet Engine Washing (INACTIVE)" : [
+    "VM0013"
+  ],
+  "VM0014 Interception and Destruction of Fugitive Methane from Coal Bed Methane Seeps (INACTIVE)" : [
+    "VM0014"
+  ],
   "VM0015 Methodology for Avoided Unplanned Deforestation": [
     "VM0015"
   ],
   "VM0016 Destruction of Ozone-Depleting Substances and Hydrofluorocarbons": [
     "VM0016"
+  ],
+  "VM0017 Adoption of Sustainable Agricultural Land Management (INACTIVE)" : [
+    "VM0017"
   ],
   "VM0018 Energy Efficiency and Solid Waste Diversion Activities within a Sustainable Community": [
     "VM0018"
@@ -38,8 +56,41 @@
   "VM0019 Fuel Switch from Gasoline to Ethanol in Flex-Fuel Vehicle Fleets": [
     "VM0019"
   ],
+  "VM0020 Transport Energy Efficiency from Lightweight Pallets (INACTIVE)" : [
+    "VM0020"
+  ],
+  "VM0021 Soil Carbon Quantification Methodology (INACTIVE)" : [
+    "VM0021"
+  ],
+  "VM0022 Quantifying N2O Emissions Reductions in Agricultural Crops through Nitrogen Fertilizer Rate Reduction (INACTIVE)" : [
+    "VM0022"
+  ],
+  "VM0023 Reduction of GHG Emissions in Propylene Oxide Production (INACTIVE)" : [
+    "VM0023"
+  ],
+  "VM0024 Methodology for Coastal Wetland Creation (INACTIVE)" : [
+    "VM0024"
+  ],
   "VM0025 Campus Clean Energy and Energy Efficiency": [
     "VM0025"
+  ],
+  "VM0026 Methodology for Sustainable Grassland Management (INACTIVE)" : [
+    "VM0026"
+  ],
+  "VM0027 Methodology for Rewetting Drained Tropical Peatlands (INACTIVE)" : [
+    "VM0027"
+  ],
+  "VM0028 Methodology for Carpooling (INACTIVE)" : [
+    "VM0028"
+  ],
+  "VM0029 Methodology for Avoided Forest Degradation through Fire Management (INACTIVE)" : [
+    "VM0029"
+  ],
+  "VM0030 Methodology for Pavement Application using Sulphur Substitute (INACTIVE)" : [
+    "VM0030"
+  ],
+  "VM0031 Methodology for Precast Concrete Production using Sulphur Substitute (INACTIVE)" : [
+    "VM0031"
   ],
   "VM0032 Methodology for the Adoption of Sustainable Grasslands through Adjustment of Fire and Grazing": [
     "VM0032"
@@ -56,11 +107,17 @@
   "VM0036 Methodology for Rewetting Drained Temperate Peatlands": [
     "VM0036"
   ],
+  "VM0037 Methodology for Implementation of REDD+ Activities in Landscapes Affected by Mosaic Deforestation and Degradation (INACTIVE)" : [
+    "VM0037"
+  ],
   "VM0038 Methodology for Electric Vehicle Charging Systems": [
     "VM0038"
   ],
   "VM0039 Methodology for Use of Foam Stabilized Base and Emulsion Asphalt Mixtures in Pavement Application": [
     "VM0039"
+  ],
+  "VM0040 Methodology for Greenhouse Gas Capture and Utilization in Plastic Materials (INACTIVE)" : [
+    "VM0040"
   ],
   "VM0041 Methodology for the Reduction of Enteric Methane Emissions from Ruminants through the Use of Feed Ingredients": [
     "VM0041"
@@ -101,8 +158,23 @@
   "VM0053 Alternative Low-Carbon Fuels for Shipping": [
     "VM0053"
   ],
+  "VMR0001 Revisions to ACM0008 to Include Pre-drainage of Methane from an Active Open Cast Mine as a Methane Emission Reduction Activity (INACTIVE)" : [
+    "VMR0001"
+  ],
+  "VMR0002 Revisions to ACM0008 to Include Methane Capture and Destruction from Abandoned Coal Mines (INACTIVE)" : [
+    "VMR0002"
+  ],
+  "VMR0003 Revisions to AMS-III.Y to Include Use of Organic Bedding Material (INACTIVE)" : [
+    "VMR0003"
+  ],
   "VMR0004 Improved Efficiency of Fleet Vehicles": [
     "VMR0004"
+  ],
+  "VMR0005 Methodology for Installation of Low-Flow Water Devices (INACTIVE)" : [
+    "VMR0005"
+  ],
+  "VMR0006 Energy Efficiency and Fuel Switch Measures in Thermal Applications" : [
+    "VMR0006"
   ],
   "VMR0007 Revision to AMS-III.AJ.: Recovery and Recycling of Materials from Solid Wastes": [
     "VMR0007"
@@ -115,6 +187,9 @@
   ],
   "VMR0010 Electricity Supply for Ships": [
     "VMR0010"
+  ],
+  "VMR0011 Switch from Non-Renewable Biomass For Thermal Applications by the User" : [
+    "VM0011"
   ],
   "VMR0012 Production of Geopolymer Cement": [
     "VMR0012"
@@ -137,21 +212,6 @@
   "VMR0018 Methane Avoidance Through Separation of Solids from Wastewater or Manure Treatment Systems (AMS-III.Y. Revision)": [
     "VMR0018"
   ],
-  "VM0004": [],
-  "VM0009": [],
-  "VM0013": [],
-  "VM0014": [],
-  "VM0021": [],
-  "VM0022": [],
-  "VM0023": [],
-  "VM0024": [],
-  "VM0026": [],
-  "VM0037": [],
-  "VM0040": [],
-  "VMR0001": [],
-  "VMR0002": [],
-  "VMR0003": [],
-  "VMR0006": [],
   "Gold Standard Green Ammonia Production": [],
   "Gold Standard Soil Organic Carbon Framework Methodology": [
     "Soil Organic Carbon Framework Methodology"
@@ -193,7 +253,9 @@
   "Gold Standard Simplified Methodology for Clean and Efficient Cookstoves (SMEC)": [
     "GS MS Simplified Methodology for Efficient Cookstoves v1.",
     "GS MS Simplified Methodology for Efficient Cookstoves v1.1",
-    "The Gold Standard Simplified Methodology for Clean and Efficient Cookstoves, Version 3.0"
+    "The Gold Standard Simplified Methodology for Clean and Efficient Cookstoves, Version 3.0",
+    "GS Methodology for Improved Cook stoves and Kitchen Regimes v2.",
+    "GS Methodology for Improved Cook stoves and Kitchen Regimes v1."
   ],
   "Gold Standard Programme, baseline and monitoring methodology for the introduction of an alternative ignition technique as measure to improve the energy efficiency of domestic coal fires": [
     "GS Alternative Ignition Coal Fires v1."
@@ -244,6 +306,10 @@
   "Gold Standard Two and three wheeled personal transportation": [],
   "Gold Standard Joined-Up Sustainable Transition (JUST) – Fossil Fuel Generators": [],
   "Gold Standard Joined-up Sustainable Transition (JUST) – Coal Decommissioning": [],
+  "Gold Standard Baseline and Monitoring Methodology for Biodigesters" : [
+    "GS Baseline and Monitoring Methodology Biodigester v1",
+    "GS Baseline and Monitoring Methodology Biodigester v1."
+  ],
   "ACM0001": [],
   "ACM0002": [],
   "ACM0003": [],
@@ -421,12 +487,14 @@
   "AMS-III.K.": [],
   "AMS-III.M.": ["AMS-IIIM"],
   "AMS-III.N.": [],
-  "AMS-III.P": [],
+  "AMS-III.O.": [],
+  "AMS-III.P.": [],
   "AMS-III.Q.": ["AMS-IIIQ"],
   "AMS-III.R.": ["AMS-IIIR"],
-  "AMS-III.S": ["AMS-IIIS"],
+  "AMS-III.S.": ["AMS-IIIS"],
   "AMS-III.T.": [],
   "AMS-III.U.": [],
+  "AMS-III.V.": [],
   "AMS-III.X.": [],
   "AMS-III.Y.": ["AMS-IIIY"],
   "AMS-III.Z.": ["AMS-IIIZ"],
@@ -448,5 +516,9 @@
   "AR-AMS0004": [],
   "AR-AMS0005": [],
   "AR-AMS0006": [],
-  "AR-AMS0007": []
+  "AR-AMS0007": [],
+  "CAR Landfill Project Protocol" : [
+    "Climate Action Reserve Landfill Project Protocol"
+  ],
+  "Methodology Under Development" : []
 }

@@ -149,7 +149,9 @@ def standardize_methodology(proj_df, meth_col = 'Methodology 1'):
             return methodology
         
         value = str(methodology).strip()
-        if value == '':
+        
+        # Set methodologies with no information to <NA>
+        if value == '' or value == 'Not Provided':
             return pd.NA
         
         normalized = normalize_label(value)
@@ -157,6 +159,10 @@ def standardize_methodology(proj_df, meth_col = 'Methodology 1'):
         return METHODOLOGY_LOOKUP.get(normalized, value)
 
     proj_df[meth_col] = proj_df[meth_col].apply(_normalize_methodology)
+    
+    # Drop <NA> in Methodology 1
+    if meth_col == 'Methodology 1':
+        proj_df = proj_df.dropna(subset=[meth_col])
 
     return proj_df
 

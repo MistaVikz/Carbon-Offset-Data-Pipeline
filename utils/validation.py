@@ -97,7 +97,7 @@ def check_canonical_names(df, col, type='Country'):
     - If any invalid names are found, prints a warning count and displays those rows
       with all columns plus an 'Invalid Country/Methodology' column.
     - 'No/Multiple Additional Countries' values are valid in the 'Other Countries Involed' column
-    - Returns None.
+    - Returns none.
     """
     if not isinstance(df, pd.DataFrame):
         raise TypeError("`df` must be a pandas DataFrame")
@@ -108,10 +108,19 @@ def check_canonical_names(df, col, type='Country'):
         if pd.isna(name):
             return False
         
-        # Allow additional values for 'Other Countries Involved'
         if type == 'Country':
+            # Allow additional values for 'Other Countries Involved'
             if col == 'Other Countries Involved':
                 if name == 'No Additional Countries' or name == 'Multiple Additional Countries':
+                    return True
+        else:
+            # Other values for Methodologies are allowed 
+            if name == 'Other':
+                return True
+
+            # Allow 'None' in Methodologies 2-4
+            if col != 'Methodology 1':
+                if name == 'None':
                     return True
 
         s = str(name).strip()
