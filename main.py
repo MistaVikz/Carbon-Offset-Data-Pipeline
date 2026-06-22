@@ -3,8 +3,6 @@ from utils.validation import *
 from utils.io import *
 from utils.processing import *
 
-import sys  # REMOVE WHEN DONE TESTING
-
 # Registry codes
 verra_code = 'VCS'
 gold_code = 'GLD'
@@ -30,10 +28,6 @@ def main():
     download_gold = args.gold
     download_cdm = args.cdm
     master_input_file = args.create_master_gold
-
-    # REMOVE WHEN DONE TESTING
-    download_verra = False
-    download_gold = False
 
     # Load the credits data from the catalog
     credits = catalog['credits']
