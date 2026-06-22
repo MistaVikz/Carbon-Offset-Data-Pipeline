@@ -115,7 +115,7 @@ def check_country_names(df, country_col='Country'):
         if s == '':
             return False
         # Check if normalized country is in the lookup (handles canonical names and aliases)
-        return normalize_country_label(s) in COUNTRY_LOOKUP
+        return normalize_label(s) in COUNTRY_LOOKUP
     
     mask_invalid = ~df[country_col].apply(_is_valid_country)
     out = df.loc[mask_invalid].copy()

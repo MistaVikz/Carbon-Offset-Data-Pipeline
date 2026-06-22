@@ -21,6 +21,7 @@ CDM_only_cols = ['Project ID', 'Project Name', 'Country', 'Other Countries Invol
                     'Investment Analysis Option','Barrier Analysis', 'Emission Factor Data Vintage', 
                     'Emission Factor Weights', 'Validator', 'Estimated Emission Reductions', 
                     'Actual Emission Reductions']
+meth_cols = ['Methodology 1', 'Methodology 2', 'Methodology 3', 'Methodology 4']
 
 def main():
     # Get command line arguments
@@ -58,13 +59,6 @@ def main():
     verra_df = verra_df[unified_cols].copy()
     print(f"\nVerra dataset contains {len(verra_df)} projects.\n")
 
-    #print(verra_df['Methodology 1'].value_counts())
-    #print(verra_df['Methodology 2'].value_counts())
-    #print(verra_df['Methodology 3'].value_counts())
-    #print(verra_df['Methodology 4'].value_counts())
-    #print(verra_df.info())
-    #sys.exit()
-
     # GOLD STANDARD DATASET
     print("GOLD STANDARD")
 
@@ -100,15 +94,6 @@ def main():
     gold_df = gold_df[unified_cols].copy()
     print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
-
-    #print(gold_df['Methodology 1'].value_counts())
-    #print(gold_df['Methodology 2'].value_counts())
-    #print(gold_df['Methodology 3'].value_counts())
-    #print(gold_df['Methodology 4'].value_counts())
-    #print(gold_df.info())
-    #sys.exit()
-
-
     # CDM-ONLY DATASET
     cdm_proj_df = update_and_load_cdm_data(download_cdm, 'AllProjects', skip = 1)
     
@@ -134,20 +119,13 @@ def main():
     # Filter to only the required columns for the CDM-only dataset
     cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
 
-
-    #print(cdm_proj_cdm_only_df['Methodology 1'].value_counts())
-    #print(cdm_proj_cdm_only_df['Methodology 2'].value_counts())
-    #print(cdm_proj_cdm_only_df['Methodology 3'].value_counts())
-    #print(cdm_proj_cdm_only_df['Methodology 4'].value_counts())
-    #print(cdm_proj_cdm_only_df.info())
-    #sys.exit()
-
-
     # Standardize columns specifically for CDM-Only
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
     cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
     cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
     cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
+    for col_name in meth_cols:
+        cdm_proj_cdm_only_df = standardize_methodology(cdm_proj_cdm_only_df, col_name)
 
     # Validate the CDM Only Dataset
     print("CDM - ONLY")
@@ -166,7 +144,11 @@ def main():
     gold_df['Project ID'] = gold_df['registry_code'].astype(str) + '_' + gold_df['Project ID'].astype(str)
     unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
     unified_df.drop(columns=['registry_code'], inplace=True)
+
+    # Standardize Column Values
     unified_df = standardize_countries(unified_df, 'Country')
+    for col_name in meth_cols:
+        unified_df = standardize_methodology(unified_df, col_name)
     
     # Validate the unified dataset.
     print("UNIFIED")
