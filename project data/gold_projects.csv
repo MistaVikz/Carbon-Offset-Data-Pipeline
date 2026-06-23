@@ -2854,7 +2854,7 @@ GS1340 Efficient cookstoves in Burkina Faso – VPA-25 – Solidagro F3PA cookst
 Central Area of Sanmenxia City Geothermal Based Space Heating System,China,3498,"Henan Deneng Energy&Environmental Protection Technology Co.,Ltd.",Geothermal,AM0072 Fossil Fuel Displacement by Geothermal Resources for Space Heating,Large Scale,59126
 Livelihoods Chitetezo Mbaula Project ,Malawi,3499,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Large Scale,64829
 Bundling of household biogas plants for thermal energy applications,India,3500,GRENEITY INFOCOM SERVICE PRIVATE LIMITED,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,36000
-MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India,India,3501,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-III.AR. Substituting fossil fuel based lighting with LED lighting systems,Small Scale,0
+MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India,India,3501,MicroEnergy Credits,Energy Efficiency - Domestic,,Small Scale,0
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 32 - GS11452,India,3502,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-I.A. Electricity generation by the user,Small Scale,526580
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 17 - GS11451,India,3503,MicroEnergy Credits,Other,AMS-I.A. Electricity generation by the user,Small Scale,128446
 Hongwang Animal Manure Management System GHG Mitigation Project in Fangcheng County,China,3504,"Sirreon Technology & Development (Beijing) Co.,Ltd",Biogas - Electricity,ACM0010 GHG emission reductions from manure management systems,Large Scale,314542
@@ -2872,7 +2872,7 @@ GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA00
 S2 Cameroun (Noun and Mifi departments) Cookstove VPA 002 ,Cameroon,3552,EcoAct,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Small Scale,60000
 "Water and Climate VPA #2 – Madhya Pradesh, India",India,3553,CARBON IMPACT CAPITAL PTE. LTD.,Energy Efficiency - Domestic,GS Methodology for emission reductions from safe drinking water supply,Small Scale,57775
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 34 - GS11489,India,3554,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-I.A. Electricity generation by the user,Small Scale,526580
-GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 03 - GS11475,India,3555,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-III.AR. Substituting fossil fuel based lighting with LED lighting systems,Small Scale,61452
+GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 03 - GS11475,India,3555,MicroEnergy Credits,Energy Efficiency - Domestic,,Small Scale,61452
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 07 - GS11477,India,3557,MicroEnergy Credits,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Small Scale,53605
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 08 - GS11478,India,3558,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-I.A. Electricity generation by the user,Small Scale,53605
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 09 - GS11479,India,3559,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-I.A. Electricity generation by the user,Small Scale,106719
@@ -3202,7 +3202,7 @@ GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines �
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 38 - GS11897,India,4040,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-I.A. Electricity generation by the user,Small Scale,246968
 GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 39 - GS11898,India,4041,MicroEnergy Credits,Energy Efficiency - Domestic,AMS-I.A. Electricity generation by the user,Small Scale,246968
 Irokko GHG Compensation ARR ,Canada,4042,Irokko inc.,A/R,,Micro Scale,0
-4 MW Hydro Power Project by AEMCPL,India,4043,EKI Energy Services Limited,"Small, Low - Impact Hydro",AMS-I.D. Grid connected renewable electricity generation,Small Scale,11169
+4 MW Hydro Power Project by AEMCPL,India,4043,EKI Energy Services Limited,"Small, Low - Impact Hydro",,Small Scale,11169
 "Fair Climate Programme for Sustainable Household Energy (PoA): Bachat - Uttar Pradesh, India (VPA 7)  ",India,4044,FairClimateFund,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Micro Scale,0
 Small scale community-based afforestation program in Ethiopia,Ethiopia,4045,Deactivated Projects,A/R,Afforestation/Reforestation GHG Emissions Reduction & Sequestration Methodology,Small Scale,12000
 Small scale community-based afforestation program in Ethiopia – Konea,Ethiopia,4046,Stiftung Menschen für Menschen,A/R,Afforestation/Reforestation GHG Emissions Reduction & Sequestration Methodology,Small Scale,450
@@ -4306,3 +4306,4 @@ GS23645-VPA-1 Wells of Life: Sustainable Safe Water for Malawi,Malawi,5599,EOS C
 Water for People – Clean Water Access Programme in Africa,Malawi,5611,Water For People,Energy Efficiency - Domestic,,Small Scale,60000
 GS23659- Madzi Clean Water Project,Malawi,5612,Water For People,Energy Efficiency - Domestic,,Small Scale,60000
 GS23659- Ubuzima Clean Water Project,Rwanda,5613,Water For People,Energy Efficiency - Domestic,,Small Scale,60000
+Bundled Battery Energy Storage and Renewable Energy Generation by AES,Chile,5387,Aes Andes S.A.,Wind,,Large Scale,234557

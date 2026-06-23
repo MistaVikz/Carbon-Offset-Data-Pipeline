@@ -113,7 +113,7 @@ def get_CDM_total_estimated_ERs(cdm_proj_df):
     )
     return cdm_proj_df.drop(columns=year_cols)
 
-def process_methodologies(proj_df, registry_code):
+def process_methodologies(proj_df, registry_code = 'CDM'):
     """
     Apply separate rules for Verra, Gold Standard and CDM to standardize the formatting for all
     registries. Split rows with multiple methodologies into separate columns Methodology 1, 
@@ -125,7 +125,7 @@ def process_methodologies(proj_df, registry_code):
     proj_df : pandas.DataFrame
         Dataframe with Methodology columns.
     registry_code : str
-        Registry identifier.
+        Registry identifier. Default = CDM.
 
     Returns
     -------

@@ -306,13 +306,13 @@ def update_and_load_cdm_data(download=False, sheet='Sheet1', skip=0):
         print('Updating CDM Projects.')
         download_cdm_projects(CDM_FILE)
     else:
-        print(f'Loading CDM Projects from {CDM_FILE} without updating.')
+        print(f'Loading CDM Projects from {CDM_FILE} without updating.\n')
 
     # Load CDM projects
     try:
         proj_df = pd.read_excel(f'{CDM_FILE}', sheet_name=sheet, skiprows=skip)
     except FileNotFoundError:
-        print(f"Error: '{CDM_FILE}' not found in the project data folder.")
+        print(f"Error: '{CDM_FILE}' not found in the project data folder.\n")
 
     return proj_df
 
@@ -367,18 +367,39 @@ def create_master_gold_csv(input_path, output_path="project data/gold_projects.c
 
 def parse_args():
     """
-    Parse command line arguments for turn ON Verra and Gold Standard downloads, for turning ON
-    CDM download, and for creating a new master Gold Standard project CSV. WARNING: This overwrites 
-    the current data in project data/gold_projects.csv).
+    Parse command line arguments for excluding Verra, Gold Standard and/or CDM from the Unified Dataset. Also 
+    arguments for turning OFF Verra and Gold Standard downloads and for turning ON CDM download. Arugments for
+    creating a CDM only dataset with additional features (Default=False) and for creating a new master Gold 
+    Standard project CSV. WARNING: This overwrites the current data in project data/gold_projects.csv.
 
     Returns:
         args: Parsed command line arguments.
+    
+    Behavior:
+        - Registry Exclusion has a higher priority than updating. Ex: Turning ON Verra updates while excluding
+        Verra will not do anything.
+        - Excluding Verra and Gold Standard but including CDM will create a dataset with only CDM projects. However,
+        it will not have the extra features in the CDM-only dataset (--cdm_only to create the CDM only dataset.) 
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('--verra_off', dest='verra', action='store_false', help='Disable Verra updates')
-    parser.add_argument('--gold_off',  dest='gold',  action='store_false', help='Disable Gold updates')    
-    parser.add_argument('--cdm_on', dest='cdm', action='store_true', help='Enable CDM updates')
-    parser.set_defaults(verra=True, gold=True, cdm=False)
+    
+    # Update Commands
+    parser.add_argument('--verra_update_off', dest='verra_update', action='store_false', help='Disable Verra updates')
+    parser.add_argument('--gold_update_off',  dest='gold_update',  action='store_false', help='Disable Gold Standard updates')    
+    parser.add_argument('--cdm_update_on', dest='cdm_update', action='store_true', help='Enable CDM updates')
+    parser.set_defaults(verra_update=True, gold_update=True, cdm_update=False)
+
+    # Dataset Commands
+    parser.add_argument('--verra_off', dest='verra_include', action='store_false', help='Exclude Verra from the Unified Dataset')
+    parser.add_argument('--gold_off',  dest='gold_include',  action='store_false', help='Exclude Gold Standard from the Unified Dataset')
+    parser.add_argument('--cdm_off', dest='cdm_include', action='store_false', help='Exclude CDM from the Unified Dataset')
+    parser.set_defaults(verra_include=True, gold_include=True, cdm_include=True)
+
+    # Create CDM-only Dataset
+    parser.add_argument('--cdm_only', dest='cdm_only', action = 'store_true', help = 'Create a CDM only dataset with additional features')
+    parser.set_defaults(cdm_only = False)
+
+    # Create Master Gold Project CSV
     parser.add_argument('--create_master_gold', type=str, default=None, 
                         help='Create master Gold CSV from input CSV file path.')
     

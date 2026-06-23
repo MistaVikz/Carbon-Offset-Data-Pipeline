@@ -6,6 +6,10 @@ from utils.processing import *
 # Registry codes
 verra_code = 'VCS'
 gold_code = 'GLD'
+cdm_code = 'CDM'
+
+# Output Locations
+cdm_only_output = 'output\\cdm_dataset.csv'
 
 # Project Files
 cdm_file = 'project data\\cdm_projects.xlsx'
@@ -24,10 +28,21 @@ meth_cols = ['Methodology 1', 'Methodology 2', 'Methodology 3', 'Methodology 4']
 def main():
     # Get command line arguments
     args = parse_args()
-    download_verra = args.verra
-    download_gold = args.gold
-    download_cdm = args.cdm
+    update_verra = args.verra_update
+    update_gold = args.gold_update
+    update_cdm = args.cdm_update
+    include_verra = args.verra_include
+    include_gold = args.gold_include
+    include_cdm = args.cdm_include
+    include_cdm_only = args.cdm_only
     master_input_file = args.create_master_gold
+
+
+    # DELETE After Debugging
+    update_verra = False
+    update_gold = False
+    update_cdm = False
+    include_cdm_only = False
 
     # Load the credits data from the catalog
     credits = catalog['credits']
@@ -35,7 +50,8 @@ def main():
     
     # VERRA DATASET
     print('VERRA')
-    verra_proj_df = update_and_load_verra_data(download_verra, 'utf-8')
+    print('--------------------------------------------------------------------------------------------------')
+    verra_proj_df = update_and_load_verra_data(update_verra, 'utf-8')
     verra_issued_df = process_credits_data(credits_df, verra_code)
 
     # Prepare the project data
@@ -55,13 +71,14 @@ def main():
 
     # GOLD STANDARD DATASET
     print("GOLD STANDARD")
-
+    print('--------------------------------------------------------------------------------------------------')
+    
     # Create master gold standard csv, if specified in command arguments
     if master_input_file:
         print(f'Creating new Gold Standard dataset from {master_input_file}.')
         create_master_gold_csv(master_input_file)
 
-    gold_proj_df = update_and_load_gold_data(download_gold)
+    gold_proj_df = update_and_load_gold_data(update_gold)
     gold_issued_df = process_credits_data(credits_df, gold_code)
 
     # Prepare the project data
@@ -88,10 +105,8 @@ def main():
     gold_df = gold_df[unified_cols].copy()
     print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
 
-    # CDM-ONLY DATASET
-    cdm_proj_df = update_and_load_cdm_data(download_cdm, 'AllProjects', skip = 1)
-    
-    # Prepare the CDM data
+    # # Prepare the CDM data
+    cdm_proj_df = update_and_load_cdm_data(update_cdm, 'AllProjects', skip = 1)
     cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
     cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
     cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
@@ -108,30 +123,37 @@ def main():
     cdm_proj_estimated_df.rename(columns={'Weights': 'Emission Factor Weights'}, inplace=True)
     cdm_proj_estimated_df.fillna({'Emission Factor Weights' : 'N.A.'}, inplace=True)
     cdm_proj_estimated_df['registry_code'] = 'CDM' 
-    cdm_proj_estimated_df = process_methodologies(cdm_proj_estimated_df, 'CDM')
+    cdm_proj_estimated_df = process_methodologies(cdm_proj_estimated_df, cdm_code)
     
-    # Filter to only the required columns for the CDM-only dataset
-    cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
+    # Create CDM-only Dataset
+    if include_cdm_only: 
+        # Filter to only the required columns for the CDM-only dataset
+        cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
 
-    # Standardize columns specifically for CDM-Only
-    cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
-    cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
-    cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
-    cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
-    for col_name in meth_cols:
-        cdm_proj_cdm_only_df = standardize_methodology(cdm_proj_cdm_only_df, col_name)
+        # Standardize columns specifically for CDM-Only
+        cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
+        cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
+        cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
+        cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
+        for col_name in meth_cols:
+            cdm_proj_cdm_only_df = standardize_methodology(cdm_proj_cdm_only_df, col_name)
 
-    # Validate the CDM Only Dataset
-    print("CDM - ONLY")
-    check_canonical_names(cdm_proj_cdm_only_df, 'Country')
-    check_canonical_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
-    for col_name in meth_cols:
-        check_canonical_names(cdm_proj_cdm_only_df, col_name, 'Methodology')
+        # Validate the CDM Only Dataset
+        print("CDM - ONLY")
+        print('--------------------------------------------------------------------------------------------------')
+        check_canonical_names(cdm_proj_cdm_only_df, 'Country')
+        check_canonical_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
+        for col_name in meth_cols:
+            check_canonical_names(cdm_proj_cdm_only_df, col_name, 'Methodology')
 
-    compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    print(f"\nCDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.\n")
+        compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+        check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+        print(f"\nCDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
     
+        # Save CDM-only Dataset 
+        cdm_proj_cdm_only_df.to_csv(cdm_only_output)
+        print(f'\nCDM-only dataset saved to {cdm_only_output}.\n')
+
     # UNIFED DATASET
     # Filter CDM to only the required columns for the unified dataset
     cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
@@ -149,6 +171,7 @@ def main():
     
     # Validate the unified dataset.
     print("UNIFIED")
+    print('--------------------------------------------------------------------------------------------------')
     check_canonical_names(unified_df, 'Country')
     for col_name in meth_cols:
         check_canonical_names(unified_df, col_name, 'Methodology')
@@ -158,8 +181,9 @@ def main():
     print(f"\nUnified dataset contains {len(unified_df)} projects.")
 
     # Output the datasets
-    cdm_proj_cdm_only_df.to_csv('output\\cdm_dataset.csv')
+    
     unified_df.to_csv('output\\unified_dataset.csv')
     print('\nDatasets saved to output directory.')
+
 if __name__ == "__main__":
     main()
