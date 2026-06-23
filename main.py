@@ -2,6 +2,7 @@ from offsets_db_data.data import catalog
 from utils.validation import *
 from utils.io import *
 from utils.processing import *
+import warnings
 
 # Registry codes
 verra_code = 'VCS'
@@ -10,9 +11,7 @@ cdm_code = 'CDM'
 
 # Output Locations
 cdm_only_output = 'output\\cdm_dataset.csv'
-
-# Project Files
-cdm_file = 'project data\\cdm_projects.xlsx'
+unified_output = 'output\\unified_dataset.csv'
 
 # Required columns for datasets
 unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology 1', 'Methodology 2', 'Methodology 3',
@@ -39,151 +38,172 @@ def main():
 
 
     # DELETE After Debugging
-    update_verra = False
-    update_gold = False
-    update_cdm = False
-    include_cdm_only = False
+    #update_verra = False
+    #update_gold = False
+    #update_cdm = False
+    #include_verra = True
+    #include_gold = True
+    #include_cdm = False
+    #include_cdm_only = True
+
 
     # Load the credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
     
-    # VERRA DATASET
+    # Verra
     print('VERRA')
-    print('--------------------------------------------------------------------------------------------------')
-    verra_proj_df = update_and_load_verra_data(update_verra, 'utf-8')
-    verra_issued_df = process_credits_data(credits_df, verra_code)
+    print('--------------------------------------------------------------------------------------------------')    
+    if include_verra:
+        verra_proj_df = update_and_load_verra_data(update_verra, 'utf-8')
+        verra_issued_df = process_credits_data(credits_df, verra_code)
 
-    # Prepare the project data
-    verra_proj_df.dropna(subset=['Estimated Annual Emission Reductions', 'Methodology'], inplace=True)
-    verra_proj_df['Estimated Annual Emission Reductions'] = verra_proj_df['Estimated Annual Emission Reductions'].str.replace(",", "").astype(float)
-    verra_proj_df.rename(columns={'ID': 'Project ID'}, inplace=True)
-    verra_proj_df.rename(columns={'Name': 'Project Name'}, inplace=True)
-    verra_proj_df.rename(columns={'Country/Area': 'Country'}, inplace=True)
-    verra_proj_df['Project Size'] = 'UNKNOWN'
-    verra_proj_df = process_methodologies(verra_proj_df, verra_code)
+        # Prepare the project data
+        verra_proj_df.dropna(subset=['Estimated Annual Emission Reductions', 'Methodology'], inplace=True)
+        verra_proj_df['Estimated Annual Emission Reductions'] = verra_proj_df['Estimated Annual Emission Reductions'].str.replace(",", "").astype(float)
+        verra_proj_df.rename(columns={'ID': 'Project ID'}, inplace=True)
+        verra_proj_df.rename(columns={'Name': 'Project Name'}, inplace=True)
+        verra_proj_df.rename(columns={'Country/Area': 'Country'}, inplace=True)
+        verra_proj_df['Project Size'] = 'UNKNOWN'
+        verra_proj_df = process_methodologies(verra_proj_df, verra_code)
     
-    # Validate and build the merged dataframe
-    check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
-    verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
-    verra_df = verra_df[unified_cols].copy()
-    print(f"\nVerra dataset contains {len(verra_df)} projects.\n")
+        # Validate and build the merged dataframe
+        check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
+        verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
+        verra_df = verra_df[unified_cols].copy()
+        print(f"\nVerra Dataset contains {len(verra_df)} projects.\n")
+    else:
+        print("Verra excluded from the Unified Dataset.\n")
 
-    # GOLD STANDARD DATASET
+    # Gold Standard
     print("GOLD STANDARD")
     print('--------------------------------------------------------------------------------------------------')
+    if include_gold:
+        # Create master gold standard csv, if specified in command arguments
+        if master_input_file:
+            print(f'Creating new Gold Standard dataset from {master_input_file}.')
+            create_master_gold_csv(master_input_file)
+
+        gold_proj_df = update_and_load_gold_data(update_gold)
+        gold_issued_df = process_credits_data(credits_df, gold_code)
+
+        # Prepare the project data
+        gold_proj_df.rename(columns={'estimated_annual_credits': 'Estimated Annual Emission Reductions'}, inplace=True)
+        gold_proj_df.dropna(subset=['Estimated Annual Emission Reductions'], inplace=True)
+        gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
+        gold_proj_df.rename(columns={'gsid': 'Project ID'}, inplace=True)
+        gold_proj_df['Project ID'] = gold_proj_df['Project ID'].astype(int)
+        gold_proj_df.rename(columns={'size': 'Project Size'}, inplace=True)
+        gold_proj_df.rename(columns={'developer':'Proponent'}, inplace=True)
+        gold_proj_df.rename(columns={'country':'Country'}, inplace=True)
+        gold_proj_df.dropna(subset=['Country'], inplace=True)
+        gold_proj_df.rename(columns={'project_type':'Project Type'}, inplace=True)
+        gold_proj_df.rename(columns={'methodology':'Methodology'}, inplace=True)
+        gold_proj_df.dropna(subset=['Methodology'], inplace=True)
+        gold_proj_df.rename(columns={'name':'Project Name'}, inplace=True)
+        gold_proj_df['registry_code'] = gold_code
+        gold_proj_df = process_methodologies(gold_proj_df, gold_code)
+        gold_proj_df = standardize_project_size(gold_proj_df)
     
-    # Create master gold standard csv, if specified in command arguments
-    if master_input_file:
-        print(f'Creating new Gold Standard dataset from {master_input_file}.')
-        create_master_gold_csv(master_input_file)
+        # Validate and build the gold standard dataframe
+        check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
+        gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
+        gold_df = gold_df[unified_cols].copy()
+        print(f"\nGold Standard Dataset contains {len(gold_df)} projects.\n")
+    else:
+        print("Gold Standard excluded from the Unified Dataset.\n")
 
-    gold_proj_df = update_and_load_gold_data(update_gold)
-    gold_issued_df = process_credits_data(credits_df, gold_code)
-
-    # Prepare the project data
-    gold_proj_df.rename(columns={'estimated_annual_credits': 'Estimated Annual Emission Reductions'}, inplace=True)
-    gold_proj_df.dropna(subset=['Estimated Annual Emission Reductions'], inplace=True)
-    gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
-    gold_proj_df.rename(columns={'gsid': 'Project ID'}, inplace=True)
-    gold_proj_df['Project ID'] = gold_proj_df['Project ID'].astype(int)
-    gold_proj_df.rename(columns={'size': 'Project Size'}, inplace=True)
-    gold_proj_df.rename(columns={'developer':'Proponent'}, inplace=True)
-    gold_proj_df.rename(columns={'country':'Country'}, inplace=True)
-    gold_proj_df.dropna(subset=['Country'], inplace=True)
-    gold_proj_df.rename(columns={'project_type':'Project Type'}, inplace=True)
-    gold_proj_df.rename(columns={'methodology':'Methodology'}, inplace=True)
-    gold_proj_df.dropna(subset=['Methodology'], inplace=True)
-    gold_proj_df.rename(columns={'name':'Project Name'}, inplace=True)
-    gold_proj_df['registry_code'] = gold_code
-    gold_proj_df = process_methodologies(gold_proj_df, gold_code)
-    gold_proj_df = standardize_project_size(gold_proj_df)
+    print('CDM')
+    print('--------------------------------------------------------------------------------------------------')    
+    if include_cdm:
+        # # Prepare the CDM data
+        cdm_proj_df = update_and_load_cdm_data(update_cdm, 'AllProjects', skip = 1)
+        cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
+        cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
+        cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
+        cdm_proj_estimated_df.dropna(subset=['Methodology1'], inplace=True)
+        cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
+        cdm_proj_estimated_df.rename(columns={'IGES-ID': 'Project ID'}, inplace=True)
+        cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
+        cdm_proj_estimated_df.rename(columns={'Name of CDM Project Activity': 'Project Name'}, inplace=True)
+        cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
+        cdm_proj_estimated_df.rename(columns={'Data vintage': 'Emission Factor Data Vintage'}, inplace=True)
+        cdm_proj_estimated_df.fillna({'Emission Factor Data Vintage' : 'N.A.'}, inplace=True)
+        cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
+        cdm_proj_estimated_df.rename(columns={'Other Parties Involved': 'Other Countries Involved'}, inplace=True)
+        cdm_proj_estimated_df.rename(columns={'Weights': 'Emission Factor Weights'}, inplace=True)
+        cdm_proj_estimated_df.fillna({'Emission Factor Weights' : 'N.A.'}, inplace=True)
+        cdm_proj_estimated_df['registry_code'] = 'CDM' 
+        cdm_proj_estimated_df = process_methodologies(cdm_proj_estimated_df, cdm_code)
     
-    # Validate and build the gold standard dataframe
-    check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
-    gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
-    gold_df = gold_df[unified_cols].copy()
-    print(f"\nGold Standard dataset contains {len(gold_df)} projects.\n")
+        # Create CDM-only Dataset
+        if include_cdm_only: 
+            # Filter to only the required columns for the CDM-only dataset
+            cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
 
-    # # Prepare the CDM data
-    cdm_proj_df = update_and_load_cdm_data(update_cdm, 'AllProjects', skip = 1)
-    cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
-    cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
-    cdm_proj_estimated_df.dropna(subset=['Methodology1'], inplace=True)
-    cdm_proj_estimated_df.fillna({'Actual Emission Reductions': 0}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'IGES-ID': 'Project ID'}, inplace=True)
-    cdm_proj_estimated_df.dropna(subset=['Project ID'], inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Name of CDM Project Activity': 'Project Name'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Host Party': 'Country'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Data vintage': 'Emission Factor Data Vintage'}, inplace=True)
-    cdm_proj_estimated_df.fillna({'Emission Factor Data Vintage' : 'N.A.'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Scale': 'Project Size'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Other Parties Involved': 'Other Countries Involved'}, inplace=True)
-    cdm_proj_estimated_df.rename(columns={'Weights': 'Emission Factor Weights'}, inplace=True)
-    cdm_proj_estimated_df.fillna({'Emission Factor Weights' : 'N.A.'}, inplace=True)
-    cdm_proj_estimated_df['registry_code'] = 'CDM' 
-    cdm_proj_estimated_df = process_methodologies(cdm_proj_estimated_df, cdm_code)
+            # Standardize columns specifically for CDM-Only
+            cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
+            cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
+            cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
+            cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
+            for col_name in meth_cols:
+                cdm_proj_cdm_only_df = standardize_methodology(cdm_proj_cdm_only_df, col_name)
+
+            # Validate the CDM Only Dataset
+            print("CDM - ONLY")
+            print('--------------------------------------------------------------------------------------------------')
+            check_canonical_names(cdm_proj_cdm_only_df, 'Country')
+            check_canonical_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
+            for col_name in meth_cols:
+                check_canonical_names(cdm_proj_cdm_only_df, col_name, 'Methodology')
+
+            compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+            check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+            print(f"\nCDM-only Dataset contains {len(cdm_proj_cdm_only_df)} projects.")
     
-    # Create CDM-only Dataset
-    if include_cdm_only: 
-        # Filter to only the required columns for the CDM-only dataset
-        cdm_proj_cdm_only_df = cdm_proj_estimated_df[CDM_only_cols].copy()
-
-        # Standardize columns specifically for CDM-Only
-        cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Country')
-        cdm_proj_cdm_only_df = standardize_countries(cdm_proj_cdm_only_df, 'Other Countries Involved')
-        cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Investment Analysis Option')
-        cdm_proj_cdm_only_df = standardize_analysis(cdm_proj_cdm_only_df, 'Barrier Analysis')
-        for col_name in meth_cols:
-            cdm_proj_cdm_only_df = standardize_methodology(cdm_proj_cdm_only_df, col_name)
-
-        # Validate the CDM Only Dataset
-        print("CDM - ONLY")
-        print('--------------------------------------------------------------------------------------------------')
-        check_canonical_names(cdm_proj_cdm_only_df, 'Country')
-        check_canonical_names(cdm_proj_cdm_only_df, 'Other Countries Involved')
-        for col_name in meth_cols:
-            check_canonical_names(cdm_proj_cdm_only_df, col_name, 'Methodology')
-
-        compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-        check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-        print(f"\nCDM-only dataset contains {len(cdm_proj_cdm_only_df)} projects.")
-    
-        # Save CDM-only Dataset 
-        cdm_proj_cdm_only_df.to_csv(cdm_only_output)
-        print(f'\nCDM-only dataset saved to {cdm_only_output}.\n')
+            # Save CDM-only Dataset 
+            cdm_proj_cdm_only_df.to_csv(cdm_only_output)
+            print(f'\nCDM-only Dataset saved to {cdm_only_output}.\n')
+    else:
+        print("CDM excluded from the Unified Dataset.\n")
 
     # UNIFED DATASET
-    # Filter CDM to only the required columns for the unified dataset
-    cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
+    if include_verra or include_gold or include_cdm:
+        # Create the unified dataset 
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            unified_df = pd.DataFrame(columns=unified_cols)
+            if include_verra:
+                verra_df['Project ID'] = verra_df['registry_code'].astype(str) + '_' + verra_df['Project ID'].astype(str)
+                unified_df = pd.concat([verra_df, unified_df], ignore_index=True, sort=False)
+            if include_gold:
+                gold_df['Project ID'] = gold_df['registry_code'].astype(str) + '_' + gold_df['Project ID'].astype(str)
+                unified_df = pd.concat([gold_df, unified_df], ignore_index=True, sort=False)
+            if include_cdm:
+                cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
+                unified_df = pd.concat([cdm_proj_unified_df, unified_df], ignore_index=True, sort=False)
+        unified_df.drop(columns=['registry_code'], inplace=True)
 
-    # Create the unified dataset
-    verra_df['Project ID'] = verra_df['registry_code'].astype(str) + '_' + verra_df['Project ID'].astype(str)
-    gold_df['Project ID'] = gold_df['registry_code'].astype(str) + '_' + gold_df['Project ID'].astype(str)
-    unified_df = pd.concat([verra_df, gold_df, cdm_proj_unified_df], ignore_index=True, sort=False)
-    unified_df.drop(columns=['registry_code'], inplace=True)
-
-    # Standardize Column Values
-    unified_df = standardize_countries(unified_df, 'Country')
-    for col_name in meth_cols:
-        unified_df = standardize_methodology(unified_df, col_name)
+        # Standardize Column Values
+        unified_df = standardize_countries(unified_df, 'Country')
+        for col_name in meth_cols:
+            unified_df = standardize_methodology(unified_df, col_name)
     
-    # Validate the unified dataset.
-    print("UNIFIED")
-    print('--------------------------------------------------------------------------------------------------')
-    check_canonical_names(unified_df, 'Country')
-    for col_name in meth_cols:
-        check_canonical_names(unified_df, col_name, 'Methodology')
+        # Validate the unified dataset.
+        print("UNIFIED")
+        print('--------------------------------------------------------------------------------------------------')
+        check_canonical_names(unified_df, 'Country')
+        for col_name in meth_cols:
+            check_canonical_names(unified_df, col_name, 'Methodology')
     
-    check_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    compare_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-    print(f"\nUnified dataset contains {len(unified_df)} projects.")
+        check_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+        compare_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
+        print(f"\nUnified Dataset contains {len(unified_df)} projects.")
 
-    # Output the datasets
-    
-    unified_df.to_csv('output\\unified_dataset.csv')
-    print('\nDatasets saved to output directory.')
-
+        # Output the Unified Dataset
+        unified_df.to_csv(unified_output)
+        print(f'\nUnified Dataset saved to {unified_output}.')
+    else:
+        print('Unified Dataset not create as all registries have been excluded.')
 if __name__ == "__main__":
     main()

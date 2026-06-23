@@ -378,6 +378,8 @@ def parse_args():
     Behavior:
         - Registry Exclusion has a higher priority than updating. Ex: Turning ON Verra updates while excluding
         Verra will not do anything.
+        - Regiistry Exclusion has a higher priority than the CDM-Only Dataset. Ex: The CDM-Only Dataset will not be
+        created if CDM is excluded and CDM-Only is turned on. 
         - Excluding Verra and Gold Standard but including CDM will create a dataset with only CDM projects. However,
         it will not have the extra features in the CDM-only dataset (--cdm_only to create the CDM only dataset.) 
     """

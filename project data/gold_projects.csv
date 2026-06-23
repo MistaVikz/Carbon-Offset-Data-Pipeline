@@ -980,7 +980,7 @@ Composting of municipal organic waste in Lome ,Togo,1147,GoodPlanet,Other,,Micro
 Domestic Biogas Project for rural households in India,India,6275,Value Network Ventures Pte. Ltd.,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,45716
 Promoting Clean Cooking Solutions for the Disadvantaged Households,Nepal,6212,Value Network Ventures Pte. Ltd.,Energy Efficiency - Domestic,AMS-II.G. Energy Efficiency Measures in Thermal Applications of Non-Renewable Biomass,Small Scale,58376
 Household Biogas plants installed in rural areas of Uttar Pradesh & Gujarat,India,2520,Value Network Ventures Pte. Ltd.,Biogas - Heat,,Small Scale,21845
-Nanyang Danjiang River Solar Cooker Project Phase I,China,1378,Sirreon Technology & Development (Beijing) Co.Ltd,Solar Thermal - Heat,AMS-I.C. Thermal energy production with or without electricity,Small Scale,90204
+Renewable Energy Project by Panama Solar Energy Pvt. Ltd.,India,1378,EKI Energy Services Limited,Solar Thermal - Electricity,AMS-I.D. Grid connected renewable electricity generation,Small Scale,17129
 "The Breathing Space Improved Cooking Stoves Programme, India – VPA No. 16 Envirofit",India,3445,"Envirofit International, Ltd.",Energy Efficiency - Domestic,,Small Scale,114822
 Henan Funiushan Solar Cooker Project Phase II,China,7434,Sirreon Technology & Development (Beijing) Co.Ltd,Solar Thermal - Heat,AMS-I.C. Thermal energy production with or without electricity,Small Scale,90000
 GS1247 VPA189 Southern Ethiopia Efficient Cook Stoves,Ethiopia,7437,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,9698
@@ -1836,9 +1836,9 @@ Gokdag Wind Power Plant ,Turkey,1693,Sekans Danismanlik,Wind,Other,Small Scale,1
 "REMONDIS Recycling CO2 Emissions Reductions from Glass Recycling, Germany",Germany,1692,REMONDIS Recycling Gmbh & Co. KG,Energy Efficiency - Industrial,AMS-III.AJ. Recovery and recycling of materials from solid wastes,Micro Scale,863
 Biomass in Rajasthan - Electricity generation from mustard crop residues,India,1689,atmosfair gGmbH,"Biomass, or Liquid Biofuel - Electricity",AMS-I.D. Grid connected renewable electricity generation,Small Scale,35000
 Carbon sequestration via afforestation in Siberian settlements,Russian Federation,1688,NGO Center for Environmental Innovation,A/R,,Micro Scale,439432
-ODEMIS WPP,Turkey,1383,GTE KARBON SUSTAINABLE ENERJI EGITIM DANISMANLIK VE TICARET A.S.,Wind,,Large Scale,95373
-BAGARASI WPP,Turkey,1382,GTE KARBON SUSTAINABLE ENERJI EGITIM DANISMANLIK VE TICARET A.S.,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,69355
-Recyling Used Cooking Oil into Biodiesel in Bali,Indonesia,1374,myclimate Foundation,"Biomass, or Liquid Biofuel - Heat",GS Biodiesel from Waste Oil or Fat v1.,Microscale,1500
+The Distributed PV Power Generation Micro-scale PoA in Taiwan,China,1383,Hopeful Carbon Offset,Solar Thermal - Electricity,AMS-I.D. Grid connected renewable electricity generation,Microscale,0
+The Distributed PV Power Generation Micro-scale PoA in Taiwan(VPA01),China,1382,Hopeful Carbon Offset,Solar Thermal - Electricity,AMS-I.D. Grid connected renewable electricity generation,Microscale,771
+Orb Energy Solar Program in India - VPA03,India,1374,Orb Energy Private Limited,Solar Thermal - Electricity,AMS-II.C. Demand-side energy efficiency activities for specific technologies,Small Scale,16339
 Bangkok Kamphaeng Saen East: Landfill Gas to Electricity Project,Thailand,1371,Sindicatum Carbon Capital International Limited,Other,ACM0001 Flaring or use of landfill gas,Large scale,100500
 Bangkok Kamphaeng Saen West: Landfill Gas to Electricity Project,Thailand,1370,Sindicatum Carbon Capital International Limited,Other,ACM0001 Flaring or use of landfill gas,Large scale,150718
 Edincik Wind Power Plant,Turkey,1368,Edincik Enerji Uretim Anonim Sirketi,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,106435
@@ -4307,3 +4307,148 @@ Water for People – Clean Water Access Programme in Africa,Malawi,5611,Water Fo
 GS23659- Madzi Clean Water Project,Malawi,5612,Water For People,Energy Efficiency - Domestic,,Small Scale,60000
 GS23659- Ubuzima Clean Water Project,Rwanda,5613,Water For People,Energy Efficiency - Domestic,,Small Scale,60000
 Bundled Battery Energy Storage and Renewable Energy Generation by AES,Chile,5387,Aes Andes S.A.,Wind,,Large Scale,234557
+"20 MW Solar Project in Sanwreej, Jodhpur, Rajasthan",India,1373,Infinite Environmental Solutions Limited,Other,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,32743
+30 MW Solar PV Project by Nirosha Solar Power Private Limited,India,1375,EKI Energy Services Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,46815
+Renewable Power Project by Emami Power Ltd,India,1376,EKI Energy Services Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,31689
+"40 MW Orange Charanka Solar Power Project in Gujarat, India",India,1377,Orange Renewable Power Pvt Ltd,Other,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,84421
+"Bokpoort CSP (Concentrating Solar Power) Project, South Africa",South Africa,1380,ACWA Power Solafrica Bokpoort CSP Power,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,205501
+"GHG abatement through Solar Power Generation at Jaisalmer, Rajasthan, India",India,1381,EKI Energy Services Limited,Solar Thermal - Electricity,AMS-I.D. Grid connected renewable electricity generation,Large Scale,7889
+"19.2 MWp Solar Power Project by HZL at Debari and Dariba, Rajasthan",India,1384,Hindustan Zinc Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,23462
+"GS1247 VPA 109 Improved Kitchen Regimes: Kayonza District Borehole Project, Rwanda",Rwanda,1388,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,10000
+Solar Lighting in Rural Areas PoA,Ethiopia,1389,myclimate Foundation,Solar Thermal - Electricity,AMS-I.A. Electricity generation by the user,Micro Scale,0
+Solar Lighting in Rural Ethiopia - VPA 1,Ethiopia,1390,myclimate Foundation,Solar Thermal - Electricity,AMS-I.A. Electricity generation by the user,Microscale,10000
+Mersin Wind Farm Project,Turkey,1397,Galata Wind Enerji A.S.,Wind,,Large Scale,151362
+GS1340 Efficient cookstoves in Burkina Faso - VPA-01 - tiipaalga F3PA cookstoves in Bam and Loroum,Burkina Faso,1398,Tiipaalga,Energy Efficiency - Domestic,,Micro Scale,8818
+GS1340 Efficient cookstoves in Burkina Faso - VPA-02 - tiipaalga F3PA cookstoves in Bam and Loroum,Burkina Faso,1399,Tiipaalga,Energy Efficiency - Domestic,,Micro Scale,8822
+GS1340 Efficient cookstoves in Burkina Faso – VPA-11 - tiipaalga F3PA cookstoves in Kourwéogo,Burkina Faso,1400,Tiipaalga,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1340 Efficient cookstoves in Burkina Faso – VPA-12 - tiipaalga F3PA cookstoves in Kourwéogo,Burkina Faso,1402,Tiipaalga,Energy Efficiency - Domestic,,Micro Scale,10000
+"*Burgaz Wind Farm Project, Turkey",Turkey,1403,Yeniden Enerji Elektrik Uretim Anonim Sirketi,Other,AMS-I.D. Grid connected renewable electricity generation,Small Scale,28766
+"Kozbeyli 30 MW Wind Farm Project, Turkey",Turkey,1404,Dogal Enerji Elektrik Uretim A.S.,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,76518
+VPA 6 Kilifi Borehole Rehabilitation Project,Kenya,1405,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Small Scale,15777
+GS1247 VPA 86 Southern Ethiopia Community Boreholes,Ethiopia,1406,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+"Alize Camseki 20.8 MW Wind Farm Project, Turkey (300209)  ",Turkey,1407,Alize Enerji Elektrik Uretim Anonim Sirketi,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,39634
+GS1366 VPA 7 Kilifi Borehole Rehabilitation Project,Kenya,1408,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Microscale,10000
+GS1366 VPA 8 Kilifi Borehole Rehabilitation Project,Kenya,1409,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Microscale,10000
+GS1366 VPA 9 Kilifi Borehole Rehabilitation Project,Kenya,1410,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Microscale,10000
+GS1247 VPA 160 Improved Kitchen Regimes Manica Province Safe Water (Mozambique) ,Mozambique,1411,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,10000
+GS1247 VPA 161 Improved Kitchen Regimes Manica Province Safe Water (Mozambique) ,Mozambique,1412,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,10000
+GS1247 VPA 162 Improved Kitchen Regimes Manica Province Safe Water (Mozambique) ,Mozambique,1413,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,9216
+GS1247 VPA 163 Improved Kitchen Regimes Manica Province Safe Water (Mozambique) ,Mozambique,1414,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,10000
+"GS1247 VPA 164 EcoZoom Improved Stove Programme, Uganda",Uganda,1415,"BioLite, Inc.",Energy Efficiency - Domestic,,Micro Scale,9998
+"50 MW Mahoba Solar PV Power Project by M/s Prayatna Developers Pvt. Ltd. at Mahoba, UP",India,1416,Infinite Environmental Solutions Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,90900
+GS1247 VPA 159 Improved Kitchen Regimes Manica Province Safe Water (Mozambique) ,Mozambique,1417,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,10000
+Corum Solar Power Plant Project,Turkey,1418,Galata Wind Enerji A.S.,Solar Thermal - Electricity,AMS-I.D. Grid connected renewable electricity generation,Small Scale,7
+GS1247 VPA 88 Southern Ethiopia Community Boreholes,Ethiopia,1419,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 127 Southern Ethiopia Community Boreholes,Ethiopia,1420,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+Household Biogas plants installed in rural areas of Maharashtra,India,1421,Value Network Ventures Pte. Ltd.,Biogas - Heat,,Small Scale,48551
+"*Keltepe Wind Farm Project , Turkey",Turkey,1422,Alize Enerji Elektrik Uretim Anonim Sirketi,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,47531
+Sayalar Wind Farm Capacity Addition Project,Turkey,1423,Dogal Enerji Elektrik Uretim A.S.,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,34490
+BASMAKCI BIOGAS POWER PLANT PROJECT,Turkey,1424,Bioden Enerji UÃàretim San. Ve Tic. A.S.,Biogas - Electricity,AMS-I.C. Thermal energy production with or without electricity,Large Scale,182079
+Chanju I Hydro Electric Project,India,1425,Climera Carbon Private Limited,"Small, Low - Impact Hydro",,Large Scale,144154
+72 MWac Kamuthi Renewable Energy Project,India,1426,Infinite Environmental Solutions Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,106873
+72 MWac Ramnad Solar Power Project,India,1427,Infinite Environmental Solutions Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,114663
+GS1247 VPA 166 Southern Ethiopia Community Safe Water ,Ethiopia,1428,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,India,1429,Infinite Environmental Solutions Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,330952
+252 MW Wind Energy Project by Green Infra Wind Energy Limited,India,1430,Sembcorp Green Infra Private Limited,Wind,,Large Scale,813641
+Efficient Cookstoves in Burkina Faso (PoA),Burkina Faso,1431,Tiipaalga,Energy Efficiency - Domestic,,Micro Scale,0
+GS1340 Efficient cookstoves in Burkina Faso - VPA-08 - tiipaalga F3PA cookstoves in Bam and Loroum,Burkina Faso,1432,Tiipaalga,Energy Efficiency - Domestic,,Micro Scale,8820
+"GS1247 VPA 138 BioLite Improved Stove Programme, Uganda",Uganda,1434,Erik Wurster,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,5861
+Solar Project by Parampujya Solar Energy Pvt. Ltd.,India,1435,Infinite Environmental Solutions Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,111176
+50 MW (DCR) Nalgonda Solar PV Power Project by Parampujya Solar Energy at Telangana,India,1436,Infinite Environmental Solutions Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,86404
+"50 MW Kurnool Solar PV Power Project by M/s Prayatna Developers Pvt. Ltd. at Gani, Kurnool, AP.",India,1437,Infinite Environmental Solutions Limited,Solar Thermal - Electricity,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,89549
+"GS1247 VPA 158 Improved Kitchen Regimes: Kayonza District Borehole Project, Rwanda",Rwanda,1438,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 2.,Micro Scale,10000
+GS1247 VPA 168 Southern Ethiopia Community Safe Water,Ethiopia,1439,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 169 Southern Ethiopia Community Safe Water ,Ethiopia,1440,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 170 Southern Ethiopia Community Safe Water ,Ethiopia,1441,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+"GS1247 VPA 157 Improved Kitchen Regimes: Kayonza District Borehole Project, Rwanda",Rwanda,1443,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 2.,Micro Scale,10000
+"GS1247 VPA 152 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1444,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 153 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1445,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 154 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1446,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v 2.,Micro scale,10000
+GS1247 VPA 150 Southern Ethiopia Community Safe Water,Ethiopia,1447,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 156 Southern Ethiopia Community Protected Springs,Ethiopia,1448,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 149 Southern Ethiopia Community Safe Water,Ethiopia,1449,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 172 Southern Ethiopia Efficient Cook Stoves ,Ethiopia,1450,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,9698
+"GS1247 VPA 151 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1451,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+Himalayan Oak Restoration Project ,India,1452,Value Network Ventures Pte. Ltd.,A/R,,Micro Scale,75517
+"Conserving the Mulanje Mountains, Malawi - Saving forests and empowering mountain communities with improved cookstoves",Malawi,1453,Swiss Carbon Value Ltd.,Energy Efficiency - Domestic,Not provided,Small Scale,36344
+21 MW Wind Energy Project by Shree Cement Limited,India,1454,EKI Energy Services Limited,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Large Scale,45317
+"400 MW Solar Power Project at Bhadla, Rajasthan",India,1455,Adani Green Energy Limited,Solar Thermal - Electricity,,Large Scale,694471
+GS1247 VPA 122 Zoba Anseba Community Safe Water,Eritrea,1456,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 126 Zoba Anseba Community Safe Water,Eritrea,1457,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 165 Southern Ethiopia Community Safe Water,Ethiopia,1458,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1247 VPA 171 Southern Ethiopia Community Safe Water,Ethiopia,1460,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+"GS1247 VPA 91 Improved Kitchen Regimes Multi-Country PoA - Dowa & Kasungu Boreholes, Malawi",Malawi,1465,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+"GS1247 VPA 92 Improved Kitchen Regimes Multi-Country PoA - Dowa & Kasungu Boreholes, Malawi",Malawi,1466,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+Accelerating Clean Cooking Solutions in Cambodia – VPA04 (GS 6746),Cambodia,1467,Nexus-Carbon for Development,Biogas - Heat,GS TPDDTEC v3.1,Small Scale,19776
+Promoting Improved Cooking practices in Nigeria,Nigeria,1468,Toyola Energy Services Limited,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Large Scale,604520
+"Nepal Biogas Support Program - CPA 2: 19,927 digesters",Nepal,1469,Alternative Energy Promotion Centre,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,66236
+"GS1247 VPA 94 Improved Kitchen Regimes Multi-Country PoA - Dowa & Kasungu Boreholes, Malawi",Malawi,1470,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+GS1729 Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 010,Myanmar,1471,Soneva Foundation,Energy Efficiency - Domestic,,Micro Scale,10000
+"GS1247 VPA 95 Improved Kitchen Regimes Multi-Country PoA - Dowa & Kasungu Boreholes, Malawi",Malawi,1472,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+"GS1247 VPA 96 Improved Kitchen Regimes Multi-Country PoA - Dowa & Kasungu Boreholes, Malawi",Malawi,1473,CO2balance UK ltd,Energy Efficiency - Domestic,,Micro Scale,10000
+"GS1247 VPA 98 Improved Kitchen Regimes Multi-Country PoA - Dowa Boreholes, Malawi",Malawi,1474,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 99 Improved Kitchen Regimes Multi-Country PoA - Kasungu Boreholes, Malawi",Malawi,1475,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 100 Improved Kitchen Regimes Multi-Country PoA - Kasungu Boreholes, Malawi",Malawi,1476,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 102 Improved Kitchen Regimes Multi-Country PoA - Kasungu Boreholes, Malawi",Malawi,1477,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 103 Improved Kitchen Regimes Multi-Country PoA - Kasungu Boreholes, Malawi",Malawi,1478,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 104 Improved Kitchen Regimes Multi-Country PoA - Kasungu Boreholes, Malawi",Malawi,1479,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 112 Improved Kitchen Regimes Multi-Country PoA - Dowa Boreholes, Malawi",Malawi,1480,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 113 Improved Kitchen Regimes Multi-Country PoA - Dowa Boreholes, Malawi",Malawi,1481,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 114 Improved Kitchen Regimes Multi-Country PoA - Dowa Boreholes, Malawi",Malawi,1482,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 116 Improved Kitchen Regimes Multi-Country PoA - Dowa Boreholes, Malawi",Malawi,1483,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+Accelerating Clean Cooking Solutions Cambodia VPA01,Cambodia,1484,Nexus-Carbon for Development,Energy Efficiency - Domestic,AMS-II.G. Energy Efficiency Measures in Thermal Applications of Non-Renewable Biomass,Small Scale,23640
+GS1729 Myanmar Stoves Campaign - SLOW LIFE in Myanmar - VPA No. 001,Myanmar,1485,Deactivated Projects,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Microscale,9865
+GS1729 Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 011,Myanmar,1486,Soneva Foundation,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Micro scale,10000
+GS1729 Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 009,Myanmar,1487,Soneva Foundation,Energy Efficiency - Domestic,,Micro Scale,10000
+"Nepal Biogas Support Program - CPA 1: 20,000 digesters",Nepal,1488,Alternative Energy Promotion Centre,Biogas - Heat,,Small Scale,61510
+"Nepal Biogas Support Program - CPA 3: 19,959 digesters",Nepal,1489,Alternative Energy Promotion Centre,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,66329
+"Nepal Biogas Support Program - CPA 4: 19,970 digesters",Nepal,1490,Alternative Energy Promotion Centre,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,66397
+"Nepal Biogas Support Program - CPA 5: 19,842 digesters",Nepal,1491,Alternative Energy Promotion Centre,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,65883
+"Nepal Biogas Support Program - CPA 6: 18,504 digesters",Nepal,1492,Alternative Energy Promotion Centre,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,61565
+"Nepal Biogas Support Program - CPA 7: 18,392 digesters",Nepal,1493,Alternative Energy Promotion Centre,Biogas - Heat,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,61191
+GS1729 - Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 004,Myanmar,1494,QK TS Pvt. Ltd.,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Microscale,10000
+GS1729 - Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 005,Myanmar,1495,Soneva Foundation,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Microscale,10000
+GS1729 Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 007,Myanmar,1496,Soneva Foundation,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Micro scale,10000
+GS1729 Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 008,Myanmar,1497,Soneva Foundation,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Micro scale,10000
+Myanmar Stoves Campaign,Myanmar,1498,Soneva Foundation,Energy Efficiency - Domestic,,Micro Scale,0
+GS1729 Myanmar Stoves Campaign - Stoves for Myanmar - VPA No. 003,Myanmar,1499,Soneva Foundation,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Microscale,10000
+"GS1247 VPA 11 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1500,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Microscale,10000
+"GS1247 VPA 19 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1501,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Microscale,10000
+"GS1247 VPA 21 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1502,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 41 Gatsibo District Boreholes (GS4202),Rwanda,1503,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+"GS1247 VPA 155 Improved Kitchen Regimes: Gatsibo District Borehole Project, Rwanda",Rwanda,1504,Deactivated Projects,Energy Efficiency - Domestic,GS TPDDTEC v 2.,Micro Scale,10000
+GS5658 VPA 4: Resilience with Safe Drinking Water in Drought Prone Areas of Bale Zone in Oromia (Ethiopia),Ethiopia,1505,Carbonsink (Carbonsink Group S.r.l.),Energy Efficiency - Domestic,GS TPDDTEC v3.1,Micro scale,10000
+GS1247 VPA 47 Eritrean District Boreholes,Eritrea,1506,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 54 Eritrean District Boreholes,Eritrea,1507,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 84 Zoba Maekel Community Boreholes,Eritrea,1508,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+Chumporn applied biogas technology for advanced waste water management,Thailand,1509,Deutsche Gesellschaft fuer Internationale Zusammenarbeit GmbH,Biogas - Heat,AMS-III.I. Avoidance of methane production in wastewater treatment through replacement of anaerobic systems by aerobic systems,Large scale,28133
+"VPA 173 EcoZoom Improved Stove Programme, Uganda",Uganda,1510,"BioLite, Inc.",Energy Efficiency - Domestic,,Micro Scale,9998
+GS5658 VPA 5: Resilience with Safe drinking water in Somali Regional State (Ethiopia),Ethiopia,1511,Carbonsink (Carbonsink Group S.r.l.),Energy Efficiency - Domestic,GS TPDDTEC v3.1,Micro scale,7747
+GS5658 VPA 6: Resilience with safe drinking water in Afar Regional State (Ethiopia),Ethiopia,1512,Carbonsink (Carbonsink Group S.r.l.),Energy Efficiency - Domestic,GS TPDDTEC v3.1,Microscale,10000
+"GS5658 VPA 7: Water is Life, Madagascar",Madagascar,1513,Madaprojects Srl SB,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Micro Scale,10000
+GS5658 VPA 8: The Community Safe Water (Madagascar),Madagascar,1514,Carbonsink (Carbonsink Group S.r.l.),Energy Efficiency - Domestic,GS TPDDTEC v3.1,Micro Scale,10000
+"GS5658 VPA 9: Water is Life - Phase II, Madagascar",Madagascar,1515,Madaprojects Srl SB,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Micro Scale,10000
+"VPA 174 EcoZoom Improved Stove Programme, Uganda",Uganda,1516,"BioLite, Inc.",Energy Efficiency - Domestic,,Micro Scale,9998
+"VPA 175 EcoZoom Improved Stove Programme, Uganda",Uganda,1517,"BioLite, Inc.",Energy Efficiency - Domestic,,Micro Scale,9998
+GS1247 VPA 65 Zoba Debub Community Boreholes,Eritrea,1518,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 69 Zoba Debub Community Boreholes,Eritrea,1519,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 176 Zoba Debub Community Boreholes,Eritrea,1520,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 177 Zoba Debub Community Boreholes,Eritrea,1521,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 178 Zoba Debub Community Boreholes,Eritrea,1522,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 179 Zoba Debub Community Boreholes,Eritrea,1523,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 180 Zoba Debub Community Boreholes,Eritrea,1524,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,10000
+GS1247 VPA 181 Zoba Debub Community Boreholes,Eritrea,1525,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1247 VPA 182 Zoba Debub Community Boreholes,Eritrea,1526,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro scale,10000
+GS1729 Myanmar Stoves Campaign - Soneva in Myanmar - VPA No. 012,Myanmar,1527,Soneva Foundation,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Micro scale,10000
+Taspinar Wind Solar Hybrid Project,Turkey,1528,Galata Wind Enerji A.S.,Wind,,Large Scale,85592
+Water for Climate Rwanda Project,Rwanda,1531,CO2logic,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Large Scale,59480
+GS5658 VPA 1: Borehole project “Ease Water Madagascar”,Madagascar,1533,Carbonsink (Carbonsink Group S.r.l.),Energy Efficiency - Domestic,GS TPDDTEC v3.1,Micro scale,9529
+"GS1247 VPA 40 Improved Kitchen Regimes: Dissemination of improved stove in Zoba Anseba, Eritrea 2",Eritrea,1534,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v3.1,Micro Scale,8706
+Kardemir Bozyaka Wind Power Plant,Turkey,1536,Desilyon Consultancy Trade J.S.C.,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Small Scale,34964
+Ova Wind Power Plant,Turkey,1537,Desilyon Consultancy Trade J.S.C.,Wind,ACM0002 Grid-connected electricity generation from renewable sources,Small Scale,23299
+PoA GS 973 - Ecological Christian Organisation (ECO) CPA 1 GS XXXX,Uganda,1538,Uganda Carbon Bureau,Energy Efficiency - Domestic,AMS-I.E. Switch from Non-Renewable Biomass for Thermal Applications by the User,Small Scale,43675
+"GS2489 Efficient cookstoves in Benin and Togo – VPA3 – EcoBenin – Women, Soils and Energy",Benin,1539,CO2logic,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Micro Scale,8461
+"GS2489 Efficient cookstoves in Benin and Togo – VPA4 – EcoBenin – Women, Soils and Energy",Benin,1540,CO2logic,Energy Efficiency - Domestic,GS MS Simplified Methodology for Efficient Cookstoves v1.,Micro Scale,8629
+GS1247 VPA 184 Lango Safe Water Project,Uganda,1541,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,9978
+GS1247 VPA 186 Lango Safe Water Project,Uganda,1542,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,9978
+GS1247 VPA 187 Lango Safe Water Project,Uganda,1543,CO2balance UK ltd,Energy Efficiency - Domestic,GS TPDDTEC v 1.,Micro Scale,9839
