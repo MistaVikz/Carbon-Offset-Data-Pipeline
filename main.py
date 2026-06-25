@@ -44,7 +44,7 @@ def main():
     #include_verra = True
     #include_gold = True
     #include_cdm = False
-    #include_cdm_only = True
+    include_cdm_only = True
 
 
     # Load the credits data from the catalog
@@ -59,6 +59,7 @@ def main():
         verra_issued_df = process_credits_data(credits_df, verra_code)
 
         # Prepare the project data
+        num_verra_original = len(verra_proj_df)
         verra_proj_df.dropna(subset=['Estimated Annual Emission Reductions', 'Methodology'], inplace=True)
         verra_proj_df['Estimated Annual Emission Reductions'] = verra_proj_df['Estimated Annual Emission Reductions'].str.replace(",", "").astype(float)
         verra_proj_df.rename(columns={'ID': 'Project ID'}, inplace=True)
@@ -71,7 +72,7 @@ def main():
         check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
         verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
         verra_df = verra_df[unified_cols].copy()
-        print(f"\nVerra Dataset contains {len(verra_df)} projects.\n")
+        print(f"\nVerra Dataset contains {len(verra_df)} / {num_verra_original} projects.\n")
     else:
         print("Verra excluded from the Unified Dataset.\n")
 
@@ -88,6 +89,7 @@ def main():
         gold_issued_df = process_credits_data(credits_df, gold_code)
 
         # Prepare the project data
+        num_gold_original = len(gold_proj_df)
         gold_proj_df.rename(columns={'estimated_annual_credits': 'Estimated Annual Emission Reductions'}, inplace=True)
         gold_proj_df.dropna(subset=['Estimated Annual Emission Reductions'], inplace=True)
         gold_proj_df['Estimated Annual Emission Reductions'] = gold_proj_df['Estimated Annual Emission Reductions'].astype(float)
@@ -109,7 +111,7 @@ def main():
         check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
         gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
         gold_df = gold_df[unified_cols].copy()
-        print(f"\nGold Standard Dataset contains {len(gold_df)} projects.\n")
+        print(f"\nGold Standard Dataset {len(gold_df)} / {num_gold_original} projects.\n")
     else:
         print("Gold Standard excluded from the Unified Dataset.\n")
 
@@ -118,6 +120,7 @@ def main():
     if include_cdm:
         # # Prepare the CDM data
         cdm_proj_df = update_and_load_cdm_data(update_cdm, 'AllProjects', skip = 1)
+        num_cdm_original = len(cdm_proj_df)
         cdm_proj_estimated_df = get_CDM_total_estimated_ERs(cdm_proj_df)
         cdm_proj_estimated_df.rename(columns={'Type of Project ': 'Project Type'}, inplace=True)
         cdm_proj_estimated_df.rename(columns={'Total Issued CERs': 'Actual Emission Reductions'}, inplace=True)
@@ -159,7 +162,7 @@ def main():
 
             compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
             check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
-            print(f"\nCDM-only Dataset contains {len(cdm_proj_cdm_only_df)} projects.")
+            print(f"\nCDM-Only Dataset contains {len(cdm_proj_cdm_only_df)} / {num_cdm_original} projects.")
     
             # Save CDM-only Dataset 
             cdm_proj_cdm_only_df.to_csv(cdm_only_output)

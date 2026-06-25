@@ -4,8 +4,8 @@ from pathlib import Path
 import pandas as pd
 
 # Mapping JSON file locations
-COUNTRY_MAPPING_FILE = Path(__file__).resolve().parent / 'ISO3166_country_mapping.json'
-METHODOLOGY_MAPPING_FILE = Path(__file__).resolve().parent / 'methodology_mapping.json'
+COUNTRY_MAPPING_FILE = 'maps/ISO3166_country_mapping.json'
+METHODOLOGY_MAPPING_FILE = 'maps/methodology_mapping.json'
 
 def _load_mappings_data(MAPPING_FILE):
     """
