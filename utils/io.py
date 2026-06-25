@@ -1,6 +1,7 @@
 import os
 import requests
 import argparse
+import datetime
 import pandas as pd
 
 # File/URL addresses
@@ -430,3 +431,78 @@ def print_unique_methodologies(df, cols=['Methodology 1', 'Methodology 2', 'Meth
     for name in sorted(uniques):
         print(name)
     return uniques
+
+def create_output_folder(include_both=False):
+    """
+    Create a time-stamped folder for the simulation output and summary output. Includes 
+    eith -All or -UNIFIED in the directory name depending on whether all datasets or only
+    the Unified dataset will be saved. 
+
+    Parameters
+    ----------
+    include_both : bool
+        If True, use the -ALL directory suffix. If False, use the -UNIFIED suffix (Default=False). 
+    """
+    # Get the current date and time
+    now = datetime.datetime.now()
+    date_time = now.strftime("%Y%m%d-%H%M%S")
+
+    # Add suffix
+    if include_both:
+        dir_name = date_time + '-ALL'
+    else:
+        dir_name = date_time + '-UNIFIED'
+
+    # Get the current directory of the script
+    current_dir = os.path.dirname(__file__)
+
+    # Construct the path to the output directory
+    output_dir = os.path.join(current_dir, '..', 'output')
+
+    # Create a new folder with the timestamp and suffix
+    folder_name = os.path.join(output_dir, dir_name)
+    os.makedirs(folder_name, exist_ok=True)
+
+    return folder_name
+
+def save_dataset(output_folder, df, is_cdm_only=False, has_verra= True, has_gold = True, 
+                  has_cdm = True):
+    """
+    Saves either the CDM-Only or the Unified Dataset to the Output Folder. Formats the Unififed
+    Dataset's filename if registries are excluded. 
+
+    Parameters
+    ----------
+    output_folder : str
+        Path to the folder to save the dataset.
+    df : Dataframe
+        The dataset to be saved.
+    is_cdm_only : bool
+        True if df is the CDM Only dataset (Default=False).
+    has_verra : bool
+        True if the Verra registry is included in the Unified dataset (Default=True).
+    has_gold : bool
+        True if the Gold Standard registry is included in the Unified dataset (Default=True).
+    has_cdm : bool
+        True if the CDM registry is included in the Unified dataset (Default=True).
+    """
+    if(is_cdm_only):
+        # Save CDM-only Dataset 
+        df.to_csv(f'{output_folder}/cdm_dataset.csv')
+        print(f'\nCDM-only Dataset saved to {output_folder}/cdm_dataset.csv.')
+    else:
+        # Build Unified Dataset filename
+        unified_output = 'unified_dataset.csv'
+        if not has_cdm:
+            unified_output = 'no_cdm_' + unified_output
+        if not has_gold:
+            unified_output = 'no_gold_' + unified_output
+        if not has_verra:
+            unified_output = 'no_verra_' + unified_output
+
+        # Save Unified Dataset
+        df.to_csv(f'{output_folder}/{unified_output}')
+        print(f'\nUnified Dataset saved to {output_folder}/{unified_output}.')
+        
+    return
+    

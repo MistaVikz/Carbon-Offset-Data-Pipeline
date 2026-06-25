@@ -9,10 +9,6 @@ verra_code = 'VCS'
 gold_code = 'GLD'
 cdm_code = 'CDM'
 
-# Output Locations
-cdm_only_output = 'output\\cdm_dataset.csv'
-unified_output = 'output\\unified_dataset.csv'
-
 # Required columns for datasets
 unified_cols = ['Project ID', 'Project Name', 'Country', 'Methodology 1', 'Methodology 2', 'Methodology 3',
                     'Methodology 4', 'Project Size', 'Estimated Emission Reductions', 
@@ -38,13 +34,13 @@ def main():
 
 
     # DELETE After Debugging
-    #update_verra = False
-    #update_gold = False
-    #update_cdm = False
-    #include_verra = True
-    #include_gold = True
-    #include_cdm = False
-    include_cdm_only = True
+    update_verra = False
+    update_gold = False
+    update_cdm = False
+    include_verra = True
+    include_gold = True
+    include_cdm = True
+    include_cdm_only = False
 
 
     # Load the credits data from the catalog
@@ -111,7 +107,7 @@ def main():
         check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
         gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
         gold_df = gold_df[unified_cols].copy()
-        print(f"\nGold Standard Dataset {len(gold_df)} / {num_gold_original} projects.\n")
+        print(f"\nGold Standard Dataset contains {len(gold_df)} / {num_gold_original} projects.\n")
     else:
         print("Gold Standard excluded from the Unified Dataset.\n")
 
@@ -163,10 +159,6 @@ def main():
             compare_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
             check_estimated_and_actual(cdm_proj_cdm_only_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
             print(f"\nCDM-Only Dataset contains {len(cdm_proj_cdm_only_df)} / {num_cdm_original} projects.")
-    
-            # Save CDM-only Dataset 
-            cdm_proj_cdm_only_df.to_csv(cdm_only_output)
-            print(f'\nCDM-only Dataset saved to {cdm_only_output}.\n')
     else:
         print("CDM excluded from the Unified Dataset.\n")
 
@@ -202,11 +194,19 @@ def main():
         check_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
         compare_estimated_and_actual(unified_df, 'Estimated Emission Reductions', 'Actual Emission Reductions')
         print(f"\nUnified Dataset contains {len(unified_df)} projects.")
-
-        # Output the Unified Dataset
-        unified_df.to_csv(unified_output)
-        print(f'\nUnified Dataset saved to {unified_output}.')
     else:
         print('Unified Dataset not create as all registries have been excluded.')
+
+    # Save time-stamped output
+    if(include_cdm_only):
+        output_folder = create_output_folder(include_cdm_only)
+        save_dataset(output_folder, cdm_proj_cdm_only_df, is_cdm_only = True)
+        save_dataset(output_folder, unified_df, is_cdm_only = False, has_verra=include_verra, 
+                     has_gold=include_gold, has_cdm=include_cdm)
+    else:
+        output_folder = create_output_folder()
+        save_dataset(output_folder, unified_df, is_cdm_only = False, has_verra=include_verra, 
+                     has_gold=include_gold, has_cdm=include_cdm)
+
 if __name__ == "__main__":
     main()
