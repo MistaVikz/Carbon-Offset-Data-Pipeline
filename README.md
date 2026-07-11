@@ -37,10 +37,8 @@ The workflow includes:
 - utils/standards.py — country and methodology normalization logic
 - utils/validation.py — data quality checks and warnings
 - maps/ — mapping files for countries and methodologies
-- methodologies/ — registry methodology reference files
 - project data/ — project datasets used by the pipeline
 - output/ — generated output artifacts
-- unused data/ — archived or unused registry exports
 
 ## Requirements
 
