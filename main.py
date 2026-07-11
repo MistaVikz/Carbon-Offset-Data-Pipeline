@@ -32,6 +32,13 @@ def main():
     include_cdm_only = args.cdm_only
     master_input_file = args.create_master_gold
 
+    # Create output folder and reset warning log
+    if include_cdm_only:
+        output_folder = create_output_folder(include_cdm_only)
+    else:
+        output_folder = create_output_folder()
+    reset_warning_log()
+
     # Load the credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
@@ -190,14 +197,13 @@ def main():
 
     # Save time-stamped output
     if(include_cdm_only):
-        output_folder = create_output_folder(include_cdm_only)
         save_dataset(output_folder, cdm_proj_cdm_only_df, is_cdm_only = True)
         save_dataset(output_folder, unified_df, is_cdm_only = False, has_verra=include_verra, 
                      has_gold=include_gold, has_cdm=include_cdm)
     else:
-        output_folder = create_output_folder()
         save_dataset(output_folder, unified_df, is_cdm_only = False, has_verra=include_verra, 
                      has_gold=include_gold, has_cdm=include_cdm)
+    write_warning_log(output_folder)
 
 if __name__ == "__main__":
     main()

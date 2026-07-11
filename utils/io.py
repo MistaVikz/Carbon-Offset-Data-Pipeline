@@ -3,6 +3,10 @@ import requests
 import argparse
 import datetime
 import pandas as pd
+from pathlib import Path
+
+# Global variable to store warning entries
+_WARNING_ENTRIES = []
 
 # File/URL addresses
 VERRA_FILE = 'project data\\verra_projects.csv'
@@ -431,6 +435,126 @@ def print_unique_methodologies(df, cols=['Methodology 1', 'Methodology 2', 'Meth
     for name in sorted(uniques):
         print(name)
     return uniques
+
+def reset_warning_log():
+    """
+    Clear any buffered warning entries.
+
+    Returns
+    -------
+    None
+    """
+    _WARNING_ENTRIES.clear()
+
+def add_warning_entry(message, df=None):
+    """
+    Store a warning message and optional dataframe for later logging.
+
+    Parameters
+    ----------
+    message : str
+        The warning message to store.
+    df : pandas.DataFrame, optional
+        An optional dataframe associated with the warning for later display.
+
+    Returns
+    -------
+    None
+    """
+    _WARNING_ENTRIES.append((message, df))
+
+def _format_table(df, max_width=24):
+    """
+    Format a dataframe as a fixed-width text table for warning logs.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe to format for display in a text log.
+    max_width : int
+        Maximum width for each displayed column value. Default is 24.
+
+    Returns
+    -------
+    str
+        A readable fixed-width text table representation of the dataframe.
+    """
+    if df is None or df.empty:
+        return ""
+
+    display_df = df.copy()
+    for col in display_df.columns:
+        display_df[col] = display_df[col].astype(str).replace({"nan": "", "None": ""})
+
+    widths = {
+        col: min(max(len(str(col)), max(len(str(val)) for val in display_df[col])), max_width)
+        for col in display_df.columns
+    }
+
+    lines = []
+    header = " | ".join(str(col).ljust(widths[col]) for col in display_df.columns)
+    separator = "-+-".join("-" * widths[col] for col in display_df.columns)
+    lines.append(header)
+    lines.append(separator)
+
+    for _, row in display_df.iterrows():
+        values = []
+        for col in display_df.columns:
+            value = str(row[col])
+            values.append(value[:widths[col]].ljust(widths[col]))
+        lines.append(" | ".join(values))
+
+    return "\n".join(lines)
+
+def write_warning_log(output_folder):
+    """
+    Write all buffered warning entries to a text log file in the output folder.
+
+    Parameters
+    ----------
+    output_folder : str
+        Path to the folder where the warning log should be written.
+
+    Returns
+    -------
+    None
+    """
+    output_path = Path(output_folder) / "warning_log.txt"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with output_path.open("w", encoding="utf-8") as log_file:
+        if not _WARNING_ENTRIES:
+            log_file.write("No warnings generated during validation.\n")
+            return
+
+        for idx, (message, df) in enumerate(_WARNING_ENTRIES, start=1):
+            log_file.write(f"\n{'=' * 80}\n")
+            log_file.write(f"Warning {idx}: {message}\n")
+            if df is not None and not df.empty:
+                log_file.write(_format_table(df))
+                log_file.write("\n")
+    print(f"Detailed warning information saved to {output_path}\n")        
+
+def get_display_subset(df, columns):
+    """
+    Return a dataframe subset using the available display columns.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe to subset.
+    columns : list
+        Column names to include if they are available in the dataframe.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A dataframe containing only the available display columns.
+    """
+    available_cols = [col for col in columns if col in df.columns]
+    if available_cols:
+        return df[available_cols]
+    return df.copy()
 
 def create_output_folder(include_both=False):
     """
