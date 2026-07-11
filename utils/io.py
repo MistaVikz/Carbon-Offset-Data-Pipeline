@@ -71,15 +71,19 @@ def download_verra_projects(output_file):
     json_data = {
         "program": "VCS",
     }
-    response = requests.post(
-        f"https://registry.verra.org/uiapi/resource/resource/search?$skip=0&count=true&$format=csv&$exportFileName={os.path.basename(output_file)}",
-        cookies=VERRA_COOKIES,
-        headers=VERRA_HEADERS,
-        json=json_data,
-    )
+    try:
+        response = requests.post(
+            f"https://registry.verra.org/uiapi/resource/resource/search?$skip=0&count=true&$format=csv&$exportFileName={os.path.basename(output_file)}",
+            cookies=VERRA_COOKIES,
+            headers=VERRA_HEADERS,
+            json=json_data,
+        )
     
-    with open(output_file, "wb") as outfile:
-        outfile.write(response.content)
+        with open(output_file, "wb") as outfile:
+            outfile.write(response.content)
+    except Exception as e:
+        print("Verra Download failed. Try again later or turn off Verra updates.")
+        raise SystemExit(e)
 
 def download_gold_projects():   
     """
@@ -107,8 +111,8 @@ def download_gold_projects():
             page += 1
 
         except Exception as e:
-            print(e)
-            break
+            print(f"Gold Standard download failed on page {page}. Try again later or turn off Gold Standard updates.")
+            raise SystemExit(e)
 
     return items
 
@@ -129,9 +133,9 @@ def download_cdm_projects(output_file):
     try:
         resp = requests.get(CDM_URL)
         resp.raise_for_status()
-    except requests.exceptions.HTTPError as err:
-        print("CDM Download failed. Check https://www.iges.or.jp/en/pub/iges-cdm-project-database/en for file name changes.")
-        raise SystemExit(err)
+    except requests.exceptions.HTTPError as e:
+        print("CDM Download failed. Try again later or turn off CDM updates.")
+        raise SystemExit(e)
     
     with open(output_file, 'wb') as output:
         output.write(resp.content)
