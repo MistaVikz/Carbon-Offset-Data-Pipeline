@@ -135,6 +135,13 @@ If you plan to extend the project, the main areas to consider are:
 - refining validation checks
 - expanding mapping files for countries or methodologies
 
+## References
+
+This project draws on the following external sources and reference material:
+
+- OffsetDB for updated issued credit data: https://carbonplan.org/research/offsets-db
+- Verra and Gold Standard request headers and cookies, adapted from the Carbon Offset Scraper project by antiboredom: https://github.com/antiboredom/carbon-offset-scraper/blob/main/README
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
