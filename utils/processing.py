@@ -179,3 +179,99 @@ def process_methodologies(proj_df, registry_code = 'CDM'):
     proj_df['Methodology 4'] = proj_df['Methodology 4'].fillna('None')
 
     return proj_df
+
+def remove_duplicate_projects(df):
+    """
+    Remove Verra/Gold Standard projects that match a CDM project based on
+    project name, country, and methodology values.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Unified project dataframe containing project metadata and registry codes.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A filtered copy of `df` with Verra/Gold Standard projects that match a
+        CDM project removed.
+    """
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError("`df` must be a pandas DataFrame")
+
+    required_cols = [
+        'Project Name',
+        'Country',
+        'Methodology 1',
+        'Methodology 2',
+        'Methodology 3',
+        'Methodology 4',
+        'registry_code',
+    ]
+    missing_cols = [col for col in required_cols if col not in df.columns]
+    if missing_cols:
+        raise ValueError(f"Missing required columns for duplicate detection: {missing_cols}")
+
+    key_cols = ['Country', 'Methodology 1', 'Methodology 2', 'Methodology 3', 'Methodology 4']
+
+    candidate_df = df.copy()
+
+    for col in key_cols:
+        candidate_df[col] = candidate_df[col].fillna('None')
+
+    candidate_df['Project Name'] = candidate_df['Project Name'].fillna('UNKNOWN')
+    candidate_df['Country'] = candidate_df['Country'].fillna('UNKNOWN')
+    candidate_df['registry_code'] = candidate_df['registry_code'].fillna('UNKNOWN')
+
+    source_df = candidate_df[candidate_df['registry_code'].isin(['VCS', 'GLD'])].copy()
+    cdm_df = candidate_df[candidate_df['registry_code'] == 'CDM'].copy()
+
+    if source_df.empty or cdm_df.empty:
+        print('No potential duplicate projects found between Verra/Gold Standard and CDM.')
+        return candidate_df.copy()
+
+    source_df = source_df.rename(columns={
+        'Project ID': 'Source Project ID',
+        'Project Name': 'Source Project Name',
+        'registry_code': 'Source Registry',
+    })
+
+    cdm_df = cdm_df.rename(columns={
+        'Project ID': 'CDM Project ID',
+        'Project Name': 'CDM Project Name',
+        'registry_code': 'CDM Registry',
+        'Country': 'CDM Country',
+        'Methodology 1': 'CDM Methodology 1',
+        'Methodology 2': 'CDM Methodology 2',
+        'Methodology 3': 'CDM Methodology 3',
+        'Methodology 4': 'CDM Methodology 4',
+    })
+
+    source_key_series = source_df[['Source Project Name'] + key_cols].astype(str).apply(tuple, axis=1)
+    cdm_key_series = cdm_df[['CDM Project Name', 'CDM Country', 'CDM Methodology 1', 'CDM Methodology 2', 'CDM Methodology 3', 'CDM Methodology 4']].astype(str).apply(tuple, axis=1)
+
+    duplicate_keys = set(source_key_series).intersection(set(cdm_key_series))
+
+    matched_source_ids = set(
+        source_df.loc[source_key_series.isin(duplicate_keys), 'Source Project ID']
+    )
+
+    filtered_df = candidate_df[~candidate_df['Project ID'].isin(matched_source_ids)].copy()
+
+    if filtered_df.equals(candidate_df):
+        print('No potential duplicate projects found between Verra/Gold Standard and CDM.')
+        return filtered_df
+
+    print(
+        f"WARNING: {len(matched_source_ids)} Verra/Gold Standard project(s) removed as duplicates matched to CDM."
+    )
+    print(
+        candidate_df[candidate_df['Project ID'].isin(matched_source_ids)][
+            ['Project ID', 'Project Name', 'Country',
+             'Methodology 1', 'Methodology 2', 'Methodology 3', 'Methodology 4',
+             'registry_code']
+        ]
+    )
+    print('\n')
+
+    return filtered_df

@@ -32,17 +32,6 @@ def main():
     include_cdm_only = args.cdm_only
     master_input_file = args.create_master_gold
 
-
-    # DELETE After Debugging
-    update_verra = False
-    update_gold = False
-    update_cdm = False
-    include_verra = True
-    include_gold = True
-    include_cdm = True
-    include_cdm_only = False
-
-
     # Load the credits data from the catalog
     credits = catalog['credits']
     credits_df = credits.read()
@@ -68,7 +57,7 @@ def main():
         check_for_missing_projects(verra_proj_df, verra_issued_df, verra_code, 'Project ID', 'numeric_id')
         verra_df = build_merged_dataframe(verra_proj_df, verra_issued_df, verra_code)
         verra_df = verra_df[unified_cols].copy()
-        print(f"\nVerra Dataset contains {len(verra_df)} / {num_verra_original} projects.\n")
+        print(f"\nVerra Dataset contains {len(verra_df)} / {num_verra_original} projects. Only projects with valid data are included.\n")
     else:
         print("Verra excluded from the Unified Dataset.\n")
 
@@ -107,7 +96,7 @@ def main():
         check_for_missing_projects(gold_proj_df, gold_issued_df, gold_code, 'Project ID', 'numeric_id')
         gold_df = build_merged_dataframe(gold_proj_df, gold_issued_df, gold_code)
         gold_df = gold_df[unified_cols].copy()
-        print(f"\nGold Standard Dataset contains {len(gold_df)} / {num_gold_original} projects.\n")
+        print(f"\nGold Standard Dataset contains {len(gold_df)} / {num_gold_original} projects. Only projects with valid data are included.\n")
     else:
         print("Gold Standard excluded from the Unified Dataset.\n")
 
@@ -177,13 +166,15 @@ def main():
             if include_cdm:
                 cdm_proj_unified_df = cdm_proj_estimated_df[unified_cols].copy()
                 unified_df = pd.concat([cdm_proj_unified_df, unified_df], ignore_index=True, sort=False)
-        unified_df.drop(columns=['registry_code'], inplace=True)
-
+        
         # Standardize Column Values
         unified_df = standardize_countries(unified_df, 'Country')
         for col_name in meth_cols:
             unified_df = standardize_methodology(unified_df, col_name)
-    
+
+        # Remove duplicate projects
+        unified_df = remove_duplicate_projects(unified_df)
+
         # Validate the unified dataset.
         print("UNIFIED")
         print('--------------------------------------------------------------------------------------------------')
