@@ -1,6 +1,6 @@
 # Carbon Offset Data Pipeline
 
-A Python pipeline for collecting, cleaning, standardizing, and combining carbon offset project data from multiple registries into a unified dataset for analysis.
+A Python pipeline for collecting, cleaning, standardizing, and combining carbon offset project data from multiple registries into a unified dataset for machine learning.
 
 ## Overview
 
@@ -26,7 +26,7 @@ The workflow includes:
 2. Cleaning and standardizing project fields
 3. Matching projects to issued-credit records
 4. Generating registry-specific datasets
-5. Producing a unified dataset across the selected registries
+5. Producing a unified dataset across the selected registries (and a CDM Only dataset if specified)
 6. Writing warning logs for data quality issues
 
 ## Repository Structure
@@ -98,14 +98,17 @@ The pipeline uses:
 
 ## Outputs
 
-The pipeline generates datasets and logs that are written to the output locations configured by the script.
+The pipeline generates datasets and logs that are written to time-stamped folders in the output directory. Dataset files specified if any registries have been excluded. A warning_log.txt file gives details information on potential data issues.
 
-Typical outputs include:
+## Estimated and Actual Emission Reductions
 
-- unified dataset with projects from selected registries
-- registry-specific project data
-- warning logs for data quality issues
-- exported CSV/XLSX files in the project data or output folders
+The pipeline is designed to create a dataset that can be used to train machine learning algorithms to predict actual emission reductions from estimated emission reductions and other project data.
+
+- Actual emission reductions are the issued credits minus the withdrawn credits for specific vintage years. Ex: If Project A has 2000 ers in 2015, 1500 in 2017 and 1000 in 2020, its actual emission reductions in the dataset is 4500.
+
+- Estimated emission reductions are the total estimated reductions over the vintage years when credits were issued. Ex: If Project A has estimated reductions of 1000/yr and has issued credits in 2015, 2017, and 2020, it's estimated emission reductions are 3000. 
+
+These calculations allow projects that have not been completed to be included in the dataset. Estimated and Actual Emission Reduction data will improve over time as more credits are issued/withdrawn. The main limitation of this approach is that projects without any issued credits are not included in the dataset as it is not possible to determine whether credits will be issued/withdrawn in the future until the project is complete.
 
 ## Data Quality and Validation
 
@@ -116,22 +119,19 @@ The pipeline includes checks for:
 - invalid country or methodology names
 - duplicate projects across registries
 
+## Limitations
+
+- Proponent data is not included in the dataset as most registries only store the Proponent's name.
+- Only Verra, Gold Standard, and CDM projects are currently included as other registries don't provide estimated emission reduction data.
+- A significant fraction of Verra and Gold Standard projects are excluded due to missing or imcomplete data.
+
 Warnings are recorded and reported during execution.
 
 ## Notes
 
 - Some registry APIs may be rate limited or return incomplete data.
-- The pipeline is designed to use local project data when updates are skipped or fail.
+- The pipeline is designed to use local project data when updates are skipped.
 - Data mappings may need updates as registry names or methodology conventions change over time.
-
-## Contributing
-
-If you plan to extend the project, the main areas to consider are:
-
-- adding new registry support
-- improving normalization logic
-- refining validation checks
-- expanding mapping files for countries or methodologies
 
 ## References
 
