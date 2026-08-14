@@ -6,7 +6,7 @@ A Python pipeline for collecting, cleaning, standardizing, and combining carbon 
 
 This project pulls project metadata and issued credit data from several registries and prepares a consistent output dataset. It supports:
 
-- Verra (VCS)
+- Verra (VCS)   (Currently Disabled due to chganges in data quality)
 - Gold Standard (GLD)
 - CDM
 

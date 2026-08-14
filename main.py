@@ -32,6 +32,10 @@ def main():
     include_cdm_only = args.cdm_only
     master_input_file = args.create_master_gold
 
+    # Turn verra off (API data has changed)
+    update_verra = False
+    include_verra = False
+
     # Create output folder and reset warning log
     if include_cdm_only:
         output_folder = create_output_folder(include_cdm_only)
