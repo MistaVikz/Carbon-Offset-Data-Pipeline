@@ -34,6 +34,7 @@ def main():
 
     # Turn verra updates off (API data has changed)
     update_verra = False
+    include_cdm_only = True
     
 
     # Create output folder and reset warning log
